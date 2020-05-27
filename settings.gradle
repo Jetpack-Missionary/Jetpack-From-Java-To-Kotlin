@@ -1,0 +1,4 @@
+include ':app', ':architecture'
+rootProject.name = 'PureMusic'
+include ':jetpack_java'
+include ':jetpack_koltin'
