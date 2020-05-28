@@ -7,6 +7,7 @@ package com.flywith24.version_config.dependencies
  * @date   2020/5/28
  * time   9:43
  * description
+ * third party dependencies
  */
 object ThirdParty {
     const val materialiconlib = "net.steamcrafted:materialiconlib:1.1.5"
