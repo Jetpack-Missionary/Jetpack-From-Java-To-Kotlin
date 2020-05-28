@@ -1,17 +1,22 @@
+import com.flywith24.version_config.BuildConfig
+
 plugins {
     id "com.flywith24.version"
 }
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
     defaultConfig {
         applicationId "com.kunminx.puremusic"
-        minSdkVersion 23
-        targetSdkVersion 29
-        versionCode 20206
-        versionName "2.2.6"
+
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
