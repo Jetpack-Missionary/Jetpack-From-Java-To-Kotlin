@@ -14,7 +14,7 @@ android {
     buildToolsVersion BuildConfig.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.kunminx.puremusic"
+        applicationId "com.kunminx.jetpack_j2k"
 
         minSdkVersion BuildConfig.minSdkVersion
         targetSdkVersion BuildConfig.targetSdkVersion
