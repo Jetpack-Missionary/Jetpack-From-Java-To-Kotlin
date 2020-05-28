@@ -1,4 +1,6 @@
 import com.flywith24.version_config.BuildConfig
+import com.flywith24.version_config.dependencies.AndroidX
+import com.flywith24.version_config.dependencies.Testing
 
 /*
  * Copyright 2018-2020 KunMinX
@@ -60,20 +62,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation(Testing.jUnit)
+    androidTestImplementation(Testing.androidRunner)
+    androidTestImplementation(Testing.espresso)
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation(AndroidX.appcompat)
+    implementation(AndroidX.constraintlayout)
+    implementation(AndroidX.recyclerView)
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation(AndroidX.Lifecycle.lifecycleRuntime)
+    implementation(AndroidX.Lifecycle.commonJava8)
+    implementation(AndroidX.Lifecycle.extensions)
+    implementation(AndroidX.Lifecycle.viewModel)
+    implementation(AndroidX.Lifecycle.liveData)
 
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
-    implementation 'androidx.navigation:navigation-runtime:2.2.2'
+    implementation(AndroidX.Navigation.runtime)
 }
