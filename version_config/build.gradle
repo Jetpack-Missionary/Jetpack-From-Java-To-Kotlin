@@ -36,7 +36,7 @@ gradlePlugin {
     plugins {
         version {
             id = 'com.flywith24.version'
-            implementationClass = 'com.flywith24.version.VersionConfigPlugin'
+            implementationClass = 'com.flywith24.version_config.VersionConfigPlugin'
         }
     }
 }
