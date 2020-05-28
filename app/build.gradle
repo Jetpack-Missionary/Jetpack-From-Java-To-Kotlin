@@ -1,3 +1,6 @@
+plugins {
+    id "com.flywith24.version"
+}
 apply plugin: 'com.android.application'
 
 android {
