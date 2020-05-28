@@ -6,6 +6,9 @@ package com.flywith24.version_config.dependencies
  * time   14:09
  * description
  * AndroidX dependency
+ * 不带 ktx 后缀的为 java 依赖，核心功能在此库
+ * 带 ktx 后缀为 kotlin 依赖，提供很多方便的扩展函数, ktx 默认引入不带 ktx 的库
+ *
  * 依赖关系参考 https://juejin.im/post/5e567ee1518825494466a938
  */
 @Suppress("SpellCheckingInspection")
