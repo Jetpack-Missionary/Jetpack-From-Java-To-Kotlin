@@ -1,3 +1,4 @@
+includeBuild('version_config')
 include ':app', ':architecture'
 rootProject.name = 'PureMusic'
 include ':jetpack_java'
