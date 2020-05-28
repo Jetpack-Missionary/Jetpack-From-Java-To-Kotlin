@@ -1,4 +1,4 @@
-package com.kunminx.puremusic.ui.base.binding;
+package com.kunminx.architecture.ui.binding;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

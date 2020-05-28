@@ -17,15 +17,16 @@
 package com.kunminx.puremusic.ui.page;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.kunminx.puremusic.BR;
+import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.puremusic.R;
-import com.kunminx.puremusic.ui.base.BaseFragment;
-import com.kunminx.puremusic.ui.base.DataBindingConfig;
+import com.kunminx.puremusic.databinding.FragmentMainBinding;
 import com.kunminx.puremusic.ui.page.adapter.GridItemAdapter;
 import com.kunminx.puremusic.vm.state.MainViewModel;
 
@@ -37,21 +38,25 @@ public class MainFragment extends BaseFragment {
     private MainViewModel mMainViewModel;
 
     @Override
-    protected void initViewModel() {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         mMainViewModel = getFragmentViewModel(MainViewModel.class);
     }
 
+    @Nullable
     @Override
-    protected DataBindingConfig getDataBindingConfig() {
-        return new DataBindingConfig(R.layout.fragment_main, mMainViewModel)
-                .addBindingParam(BR.click, new ClickProxy())
-                .addBindingParam(BR.adapter, new GridItemAdapter(getContext()));
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        FragmentMainBinding binding = FragmentMainBinding.bind(view);
+        binding.setVm(mMainViewModel);
+        binding.setClick(new ClickProxy());
+        binding.setAdapter(new GridItemAdapter(getContext()));
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
         mMainViewModel.getJavaItemsLiveData().observe(getViewLifecycleOwner(), gridItems -> {
             mMainViewModel.javaList.setValue(gridItems);
@@ -68,7 +73,7 @@ public class MainFragment extends BaseFragment {
     public class ClickProxy {
 
         public void openMenu() {
-//            getSharedViewModel().openOrCloseDrawer.setValue(true);
+
         }
 
         public void login() {

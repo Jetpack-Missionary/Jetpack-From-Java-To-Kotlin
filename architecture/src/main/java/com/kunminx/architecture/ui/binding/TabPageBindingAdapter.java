@@ -1,11 +1,11 @@
-package com.kunminx.puremusic.ui.base.binding;
+package com.kunminx.architecture.ui.binding;
 
 import androidx.databinding.BindingAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.kunminx.architecture.R;
 import com.kunminx.architecture.ui.adapter.CommonViewPagerAdapter;
-import com.kunminx.puremusic.R;
 
 /**
  * Create by KunMinX at 2020/3/13

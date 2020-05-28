@@ -1,6 +1,8 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
+import com.flywith24.version_config.dependencies.Google
 import com.flywith24.version_config.dependencies.Testing
+import com.flywith24.version_config.dependencies.ThirdParty
 
 /*
  * Copyright 2018-2020 KunMinX
@@ -69,6 +71,7 @@ dependencies {
     implementation(AndroidX.appcompat)
     implementation(AndroidX.constraintlayout)
     implementation(AndroidX.recyclerView)
+    implementation(Google.material)
 
     implementation(AndroidX.Lifecycle.lifecycleRuntime)
     implementation(AndroidX.Lifecycle.commonJava8)
@@ -77,4 +80,7 @@ dependencies {
     implementation(AndroidX.Lifecycle.liveData)
 
     implementation(AndroidX.Navigation.runtime)
+
+    implementation(ThirdParty.Glide.glide)
+
 }

@@ -17,14 +17,11 @@
 package com.kunminx.puremusic;
 
 import android.os.Bundle;
-import android.view.View;
 
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.databinding.DataBindingUtil;
 
-import com.kunminx.puremusic.ui.base.BaseActivity;
-import com.kunminx.puremusic.ui.base.DataBindingConfig;
+import com.kunminx.architecture.ui.BaseActivity;
+import com.kunminx.puremusic.databinding.ActivityMainBinding;
 import com.kunminx.puremusic.vm.state.MainActivityViewModel;
 
 /**
@@ -36,27 +33,13 @@ public class MainActivity extends BaseActivity {
     private MainActivityViewModel mMainActivityViewModel;
 
     @Override
-    protected void initViewModel() {
-        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
-    }
-
-    @Override
-    protected DataBindingConfig getDataBindingConfig() {
-        return new DataBindingConfig(R.layout.activity_main, mMainActivityViewModel);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
 
-        /*getSharedViewModel().activityCanBeClosedDirectly.observe(this, aBoolean -> {
-            NavController nav = Navigation.findNavController(this, R.id.main_fragment_host);
-            if (nav.getCurrentDestination() != null && nav.getCurrentDestination().getId() != R.id.mainFragment) {
-                nav.navigateUp();
-            } else {
-                super.onBackPressed();
-            }
-        });*/
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setVm(mMainActivityViewModel);
+
     }
 
 }

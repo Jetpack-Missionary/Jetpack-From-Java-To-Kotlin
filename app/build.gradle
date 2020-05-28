@@ -81,7 +81,7 @@ dependencies {
     implementation(Google.material)
 
     implementation(ThirdParty.permission)
-    implementation(ThirdParty.materialiconlib)
+//    implementation(ThirdParty.materialiconlib)
     implementation(ThirdParty.Glide.glide)
     annotationProcessor(ThirdParty.Glide.compiler)
 }
