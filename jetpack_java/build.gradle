@@ -1,6 +1,8 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
+import com.flywith24.version_config.dependencies.Google
 import com.flywith24.version_config.dependencies.Testing
+import com.flywith24.version_config.dependencies.ThirdParty
 
 plugins {
     id "com.flywith24.version"
@@ -38,6 +40,26 @@ dependencies {
     androidTestImplementation(Testing.androidRunner)
     androidTestImplementation(Testing.espresso)
 
-    implementation(AndroidX.appcompat)
+    implementation project(':architecture')
 
+    compileOnly(AndroidX.appcompat)
+    compileOnly(AndroidX.constraintlayout)
+    compileOnly(AndroidX.recyclerView)
+    compileOnly(Google.material)
+
+    compileOnly(AndroidX.Lifecycle.lifecycleRuntime)
+    compileOnly(AndroidX.Lifecycle.commonJava8)
+    compileOnly(AndroidX.Lifecycle.extensions)
+    compileOnly(AndroidX.Lifecycle.viewModel)
+    compileOnly(AndroidX.Lifecycle.liveData)
+
+    compileOnly(AndroidX.Navigation.runtime)
+
+
+    implementation(Google.gson)
+
+    implementation(ThirdParty.permission)
+//    implementation(ThirdParty.materialiconlib)
+    implementation(ThirdParty.Glide.glide)
+    annotationProcessor(ThirdParty.Glide.compiler)
 }

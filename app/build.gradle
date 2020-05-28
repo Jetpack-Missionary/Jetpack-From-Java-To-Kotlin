@@ -67,6 +67,7 @@ dependencies {
     compileOnly(AndroidX.appcompat)
     compileOnly(AndroidX.constraintlayout)
     compileOnly(AndroidX.recyclerView)
+    compileOnly(Google.material)
 
     compileOnly(AndroidX.Lifecycle.lifecycleRuntime)
     compileOnly(AndroidX.Lifecycle.commonJava8)
@@ -78,7 +79,6 @@ dependencies {
 
 
     implementation(Google.gson)
-    implementation(Google.material)
 
     implementation(ThirdParty.permission)
 //    implementation(ThirdParty.materialiconlib)
