@@ -8,19 +8,13 @@
             name="vm"
             type="com.kunminx.puremusic.vm.state.MainActivityViewModel" />
 
-        <variable
-            name="event"
-            type="com.kunminx.puremusic.MainActivity.EventHandler" />
-
     </data>
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/dl"
-        allowDrawerOpen="@{vm.allowDrawerOpen}"
-        bindDrawerListener="@{event}"
-        isOpenDrawer="@{vm.openDrawer}"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="vertical">
 
         <fragment
             android:id="@+id/main_fragment_host"
@@ -31,16 +25,6 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_main" />
 
-        <fragment
-            android:id="@+id/drawer_fragment_host"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="330dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_drawer" />
-
-    </androidx.drawerlayout.widget.DrawerLayout>
+    </LinearLayout>
 
 </layout>

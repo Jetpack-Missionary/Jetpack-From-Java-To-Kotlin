@@ -34,7 +34,6 @@ import com.kunminx.puremusic.vm.state.MainActivityViewModel;
 public class MainActivity extends BaseActivity {
 
     private MainActivityViewModel mMainActivityViewModel;
-    private boolean mIsListened = false;
 
     @Override
     protected void initViewModel() {
@@ -43,46 +42,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected DataBindingConfig getDataBindingConfig() {
-        return new DataBindingConfig(R.layout.activity_main, mMainActivityViewModel)
-                .addBindingParam(BR.event, new EventHandler());
+        return new DataBindingConfig(R.layout.activity_main, mMainActivityViewModel);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSharedViewModel().activityCanBeClosedDirectly.observe(this, aBoolean -> {
+        /*getSharedViewModel().activityCanBeClosedDirectly.observe(this, aBoolean -> {
             NavController nav = Navigation.findNavController(this, R.id.main_fragment_host);
             if (nav.getCurrentDestination() != null && nav.getCurrentDestination().getId() != R.id.mainFragment) {
                 nav.navigateUp();
-            } else if (getSharedViewModel().isDrawerOpened.get()) {
-                getSharedViewModel().openOrCloseDrawer.setValue(false);
             } else {
                 super.onBackPressed();
             }
-        });
-
-        getSharedViewModel().openOrCloseDrawer.observe(this, aBoolean -> {
-            mMainActivityViewModel.openDrawer.setValue(aBoolean);
-        });
-
-        getSharedViewModel().enableSwipeDrawer.observe(this, aBoolean -> {
-            mMainActivityViewModel.allowDrawerOpen.setValue(aBoolean);
-        });
+        });*/
     }
 
-    public class EventHandler extends DrawerLayout.SimpleDrawerListener {
-        @Override
-        public void onDrawerOpened(View drawerView) {
-            super.onDrawerOpened(drawerView);
-            getSharedViewModel().isDrawerOpened.set(true);
-        }
-
-        @Override
-        public void onDrawerClosed(View drawerView) {
-            super.onDrawerClosed(drawerView);
-            getSharedViewModel().isDrawerOpened.set(false);
-            mMainActivityViewModel.openDrawer.setValue(false);
-        }
-    }
 }

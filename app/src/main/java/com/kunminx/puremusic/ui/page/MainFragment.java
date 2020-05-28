@@ -68,7 +68,7 @@ public class MainFragment extends BaseFragment {
     public class ClickProxy {
 
         public void openMenu() {
-            getSharedViewModel().openOrCloseDrawer.setValue(true);
+//            getSharedViewModel().openOrCloseDrawer.setValue(true);
         }
 
         public void login() {

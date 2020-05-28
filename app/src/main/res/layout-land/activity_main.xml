@@ -43,15 +43,5 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_main" />
 
-        <!--<fragment
-            android:id="@+id/slide_fragment_host"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fitsSystemWindows="true"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_slide" />-->
-
     </LinearLayout>
 </layout>
