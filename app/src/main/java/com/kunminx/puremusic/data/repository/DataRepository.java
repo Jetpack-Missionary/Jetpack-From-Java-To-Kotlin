@@ -66,14 +66,14 @@ public class DataRepository implements ILocalRequest, IRemoteRequest {
     public void getKotlinItems(MutableLiveData<List<GridItem>> liveData) {
 
         List<GridItem> list = new ArrayList<>();
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
-//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
 
         liveData.setValue(list);
     }

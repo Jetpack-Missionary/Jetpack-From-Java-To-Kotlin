@@ -16,6 +16,8 @@
 
 package com.kunminx.puremusic.ui.page;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
@@ -42,8 +44,18 @@ public class MainActivity extends BaseActivity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setVm(mMainActivityViewModel);
         binding.setClick(new ClickProxy());
-        binding.setAdapterJava(new GridItemAdapter(getApplicationContext()));
-        binding.setAdapterKotlin(new GridItemAdapter(getApplicationContext()));
+
+        binding.setAdapterJava(new GridItemAdapter(getApplicationContext(), item -> {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(item.getPackageName(), item.getPackageName() + "." + item.getActivityName()));
+            startActivity(intent);
+        }));
+
+        binding.setAdapterKotlin(new GridItemAdapter(getApplicationContext(), item -> {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(item.getPackageName(), item.getPackageName() + "." + item.getActivityName()));
+            startActivity(intent);
+        }));
 
         mMainActivityViewModel.getJavaItemsLiveData().observe(this, gridItems -> {
             mMainActivityViewModel.javaList.setValue(gridItems);

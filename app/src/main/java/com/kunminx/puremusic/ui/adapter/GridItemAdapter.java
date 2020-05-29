@@ -17,7 +17,6 @@
 package com.kunminx.puremusic.ui.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,8 +30,11 @@ import com.kunminx.puremusic.databinding.AdapterGridItemBinding;
  */
 public class GridItemAdapter extends SimpleBaseBindingAdapter<GridItem, AdapterGridItemBinding> {
 
-    public GridItemAdapter(Context context) {
+    private OnItemClickListener mListener;
+
+    public GridItemAdapter(Context context, OnItemClickListener listener) {
         super(context, R.layout.adapter_grid_item);
+        this.mListener = listener;
     }
 
     @Override
@@ -42,10 +44,13 @@ public class GridItemAdapter extends SimpleBaseBindingAdapter<GridItem, AdapterG
         //TODO 为隔离测试环境，点击跳转到新的 Activity
 
         binding.getRoot().setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.setClassName(item.getPackageName(), item.getActivityName());
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            mContext.startActivity(intent);
+            if (mListener != null) {
+                mListener.onItemClick(item);
+            }
         });
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(GridItem item);
     }
 }

@@ -2,7 +2,6 @@
     package="com.example.jetpack_java" >
 
     <application>
-        <activity android:name=".lifecycles.ui.LifecycleDetailActivity" />
-        <activity android:name=".lifecycles.ui.LifecycleLocationActivity" />
+
     </application>
 </manifest>

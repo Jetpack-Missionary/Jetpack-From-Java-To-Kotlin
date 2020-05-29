@@ -29,21 +29,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".player.notification.PlayerService" />
-
-        <receiver
-            android:name=".player.notification.PlayerReceiver"
-            tools:ignore="ExportedReceiver">
-            <intent-filter>
-                <action android:name="pure_music.kunminx.close" />
-                <action android:name="pure_music.kunminx.pause" />
-                <action android:name="pure_music.kunminx.next" />
-                <action android:name="pure_music.kunminx.play" />
-                <action android:name="pure_music.kunminx.previous" />
-                <action android:name="android.intent.action.MEDIA_BUTTON" />
-                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
-            </intent-filter>
-        </receiver>
+        <activity android:name="com.example.jetpack_java.lifecycles.ui.LifecycleDetailActivity" />
+        <activity android:name="com.example.jetpack_java.lifecycles.ui.LifecycleLocationActivity" />
 
     </application>
 
