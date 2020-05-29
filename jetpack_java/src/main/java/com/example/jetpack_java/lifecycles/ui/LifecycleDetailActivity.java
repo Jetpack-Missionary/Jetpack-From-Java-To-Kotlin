@@ -17,8 +17,11 @@
 package com.example.jetpack_java.lifecycles.ui;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
+import com.example.jetpack_java.lifecycles.data.APIs;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
@@ -34,6 +37,8 @@ public class LifecycleDetailActivity extends BaseActivity {
 
         setContentView(R.layout.layout_activity_detail);
 
+
+        Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
 
     }
 
