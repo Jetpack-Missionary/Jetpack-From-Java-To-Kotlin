@@ -16,17 +16,11 @@
 
 package com.kunminx.puremusic.data.repository;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.kunminx.architecture.utils.Utils;
 import com.kunminx.puremusic.R;
 import com.kunminx.puremusic.data.bean.GridItem;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,14 +50,14 @@ public class DataRepository implements ILocalRequest, IRemoteRequest {
     public void getJavaItems(MutableLiveData<List<GridItem>> liveData) {
 
         List<GridItem> list = new ArrayList<>();
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_java.LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
+        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_java.lifecycles.ui", "LifecycleDetailActivity"));
 
         liveData.setValue(list);
     }
@@ -72,14 +66,14 @@ public class DataRepository implements ILocalRequest, IRemoteRequest {
     public void getKotlinItems(MutableLiveData<List<GridItem>> liveData) {
 
         List<GridItem> list = new ArrayList<>();
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles",R.drawable.bg_album_default,"com.example.jetpack_kotlin.LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
+//        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.example.jetpack_kotlin.lifecycles.ui", "LifecycleDetailActivity"));
 
         liveData.setValue(list);
     }

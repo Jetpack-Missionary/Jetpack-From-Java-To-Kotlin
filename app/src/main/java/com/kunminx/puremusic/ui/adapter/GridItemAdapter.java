@@ -17,6 +17,7 @@
 package com.kunminx.puremusic.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,5 +40,12 @@ public class GridItemAdapter extends SimpleBaseBindingAdapter<GridItem, AdapterG
         binding.setItem(item);
 
         //TODO 为隔离测试环境，点击跳转到新的 Activity
+
+        binding.getRoot().setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClassName(item.getPackageName(), item.getActivityName());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent);
+        });
     }
 }

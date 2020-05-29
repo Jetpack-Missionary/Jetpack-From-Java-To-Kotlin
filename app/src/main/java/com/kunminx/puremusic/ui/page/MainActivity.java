@@ -42,7 +42,8 @@ public class MainActivity extends BaseActivity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setVm(mMainActivityViewModel);
         binding.setClick(new ClickProxy());
-        binding.setAdapter(new GridItemAdapter(getApplicationContext()));
+        binding.setAdapterJava(new GridItemAdapter(getApplicationContext()));
+        binding.setAdapterKotlin(new GridItemAdapter(getApplicationContext()));
 
         mMainActivityViewModel.getJavaItemsLiveData().observe(this, gridItems -> {
             mMainActivityViewModel.javaList.setValue(gridItems);

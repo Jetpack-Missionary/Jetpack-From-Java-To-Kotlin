@@ -29,7 +29,11 @@
             type="com.kunminx.puremusic.ui.state.MainActivityViewModel" />
 
         <variable
-            name="adapter"
+            name="adapterJava"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="adapterKotlin"
             type="androidx.recyclerview.widget.RecyclerView.Adapter" />
 
     </data>
@@ -171,7 +175,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv"
-                adapter="@{adapter}"
+                adapter="@{adapterJava}"
                 refreshList="@{vm.javaList}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -182,7 +186,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv2"
-                adapter="@{adapter}"
+                adapter="@{adapterKotlin}"
                 refreshList="@{vm.kotlinList}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
