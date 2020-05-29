@@ -43,6 +43,17 @@ public class MainActivity extends BaseActivity {
         binding.setVm(mMainActivityViewModel);
         binding.setClick(new ClickProxy());
         binding.setAdapter(new GridItemAdapter(getApplicationContext()));
+
+        mMainActivityViewModel.getJavaItemsLiveData().observe(this, gridItems -> {
+            mMainActivityViewModel.javaList.setValue(gridItems);
+        });
+
+        mMainActivityViewModel.getKotlinItemsLiveData().observe(this, gridItems -> {
+            mMainActivityViewModel.kotlinList.setValue(gridItems);
+        });
+
+        mMainActivityViewModel.requestJavaItems();
+        mMainActivityViewModel.requestKotlinItems();
     }
 
     public class ClickProxy {
