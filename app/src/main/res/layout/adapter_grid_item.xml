@@ -33,7 +33,7 @@
         android:orientation="vertical"
         tools:background="@color/light_gray">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/iv_cover"
             drawableShowed="@{item.drawable}"
             showDrawable="@{true}"

@@ -3,5 +3,7 @@
 
     <application>
 
+        <activity android:name=".lifecycles.ui.LifecycleDetailActivity" />
+        <activity android:name=".lifecycles.ui.LifecycleLocationActivity" />
     </application>
 </manifest>

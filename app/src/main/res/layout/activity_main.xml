@@ -58,7 +58,7 @@
                 app:contentScrim="@color/transparent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/iv_bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -80,7 +80,7 @@
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="12dp">
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:id="@+id/iv_menu"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
@@ -93,7 +93,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:id="@+id/iv_icon"
                         onClickWithDebouncing="@{()->click.login()}"
                         android:layout_width="24dp"
@@ -118,7 +118,7 @@
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:id="@+id/iv_search"
                         onClickWithDebouncing="@{()->click.search()}"
                         android:layout_width="24dp"

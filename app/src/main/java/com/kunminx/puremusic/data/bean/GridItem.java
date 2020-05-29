@@ -8,7 +8,7 @@ public class GridItem {
     private String title;
     private int drawable;
     private String packageName;
-    private String activityName;
+    private String activityPath;
 
     public GridItem() {
     }
@@ -18,11 +18,11 @@ public class GridItem {
         this.drawable = drawable;
     }
 
-    public GridItem(String title, int drawable, String packageName, String activityName) {
+    public GridItem(String title, int drawable, String packageName, String activityPath) {
         this.title = title;
         this.drawable = drawable;
         this.packageName = packageName;
-        this.activityName = activityName;
+        this.activityPath = activityPath;
     }
 
     public String getTitle() {
@@ -49,11 +49,11 @@ public class GridItem {
         this.packageName = packageName;
     }
 
-    public String getActivityName() {
-        return activityName;
+    public String getActivityPath() {
+        return activityPath;
     }
 
-    public void setActivityName(String activityName) {
-        this.activityName = activityName;
+    public void setActivityPath(String activityPath) {
+        this.activityPath = activityPath;
     }
 }

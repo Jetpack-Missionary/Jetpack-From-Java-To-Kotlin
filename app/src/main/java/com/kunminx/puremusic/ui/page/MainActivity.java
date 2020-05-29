@@ -47,13 +47,13 @@ public class MainActivity extends BaseActivity {
 
         binding.setAdapterJava(new GridItemAdapter(getApplicationContext(), item -> {
             Intent intent = new Intent();
-            intent.setComponent(new ComponentName(item.getPackageName(), item.getPackageName() + "." + item.getActivityName()));
+            intent.setComponent(new ComponentName(item.getPackageName(), item.getActivityPath()));
             startActivity(intent);
         }));
 
         binding.setAdapterKotlin(new GridItemAdapter(getApplicationContext(), item -> {
             Intent intent = new Intent();
-            intent.setComponent(new ComponentName(item.getPackageName(), item.getPackageName() + "." + item.getActivityName()));
+            intent.setComponent(new ComponentName(item.getPackageName(), item.getActivityPath()));
             startActivity(intent);
         }));
 

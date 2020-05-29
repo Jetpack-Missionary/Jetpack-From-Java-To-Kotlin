@@ -29,9 +29,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.jetpack_java.lifecycles.ui.LifecycleDetailActivity" />
-        <activity android:name="com.example.jetpack_java.lifecycles.ui.LifecycleLocationActivity" />
-
     </application>
 
 </manifest>
