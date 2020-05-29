@@ -21,7 +21,7 @@
         tools:replace="android:name">
 
         <activity
-            android:name=".MainActivity">
+            android:name=".ui.page.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

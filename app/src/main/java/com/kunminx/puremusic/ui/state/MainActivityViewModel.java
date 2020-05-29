@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.kunminx.puremusic.vm.state;
+package com.kunminx.puremusic.ui.state;
 
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
@@ -23,15 +23,16 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.kunminx.puremusic.data.bean.GridItem;
-import com.kunminx.puremusic.domain.request.MusicRequest;
+import com.kunminx.puremusic.domain.request.GridItemRequest;
 import com.kunminx.puremusic.domain.request.Request;
 
 import java.util.List;
 
 /**
+
  * Create by KunMinX at 19/10/29
  */
-public class MainViewModel extends ViewModel implements Request.IMusicRequest {
+public class MainActivityViewModel extends ViewModel implements Request.IGridItemRequest {
 
     public final ObservableBoolean initTabAndPage = new ObservableBoolean();
 
@@ -40,7 +41,7 @@ public class MainViewModel extends ViewModel implements Request.IMusicRequest {
     public final MutableLiveData<List<GridItem>> javaList = new MutableLiveData<>();
     public final MutableLiveData<List<GridItem>> kotlinList = new MutableLiveData<>();
 
-    private MusicRequest mMusicRequest = new MusicRequest();
+    private GridItemRequest mGridItemRequest = new GridItemRequest();
 
     {
         initTabAndPage.set(true);
@@ -49,21 +50,21 @@ public class MainViewModel extends ViewModel implements Request.IMusicRequest {
 
     @Override
     public LiveData<List<GridItem>> getJavaItemsLiveData() {
-        return mMusicRequest.getJavaItemsLiveData();
+        return mGridItemRequest.getJavaItemsLiveData();
     }
 
     @Override
     public LiveData<List<GridItem>> getKotlinItemsLiveData() {
-        return mMusicRequest.getKotlinItemsLiveData();
+        return mGridItemRequest.getKotlinItemsLiveData();
     }
 
     @Override
     public void requestJavaItems() {
-        mMusicRequest.requestJavaItems();
+        mGridItemRequest.requestJavaItems();
     }
 
     @Override
     public void requestKotlinItems() {
-        mMusicRequest.requestKotlinItems();
+        mGridItemRequest.requestKotlinItems();
     }
 }

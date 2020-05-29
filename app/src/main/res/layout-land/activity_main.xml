@@ -15,33 +15,107 @@
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
+            name="click"
+            type="com.kunminx.puremusic.ui.page.MainActivity.ClickProxy" />
+
+        <variable
             name="vm"
-            type="com.kunminx.puremusic.vm.state.MainActivityViewModel" />
+            type="com.kunminx.puremusic.ui.state.MainActivityViewModel" />
+
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
 
     </data>
 
-
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:fitsSystemWindows="true"
+        android:overScrollMode="never">
 
-        <fragment
-            android:id="@+id/main_fragment_host"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-25dp"
-            android:layout_weight="1"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_main" />
+            android:theme="@style/AppTheme">
 
-    </LinearLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                initTabAndPage="@{vm.initTabAndPage}"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white"
+                app:tabBackground="@color/white"
+                app:tabIndicatorColor="@color/gray"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorHeight="4dp"
+                app:tabSelectedTextColor="@color/gray"
+                app:tabTextColor="@color/light_gray">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Java" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kotlin" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关于" />
+
+
+            </com.google.android.material.tabs.TabLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                adapter="@{adapter}"
+                refreshList="@{vm.javaList}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/adapter_grid_item" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv2"
+                adapter="@{adapter}"
+                refreshList="@{vm.kotlinList}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/adapter_grid_item" />
+
+            <WebView
+                android:id="@+id/web_view"
+                pageAssetPath="@{vm.pageAssetPath}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false" />
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

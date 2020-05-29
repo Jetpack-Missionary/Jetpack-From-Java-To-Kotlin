@@ -2,10 +2,7 @@ package com.kunminx.puremusic.domain.request;
 
 import androidx.lifecycle.LiveData;
 
-import com.kunminx.puremusic.data.bean.DownloadFile;
 import com.kunminx.puremusic.data.bean.GridItem;
-import com.kunminx.puremusic.data.bean.LibraryInfo;
-import com.kunminx.puremusic.data.bean.User;
 
 import java.util.List;
 
@@ -14,32 +11,7 @@ import java.util.List;
  */
 public class Request {
 
-    public interface IAccountRequest {
-
-        LiveData<String> getTokenLiveData();
-
-        void requestLogin(User user);
-    }
-
-    public interface IDownloadRequest {
-
-        LiveData<DownloadFile> getDownloadFileLiveData();
-
-        LiveData<DownloadFile> getDownloadFileCanBeStoppedLiveData();
-
-        void requestDownloadFile();
-
-        void requestCanBeStoppedDownloadFile();
-    }
-
-    public interface IInfoRequest {
-
-        LiveData<List<LibraryInfo>> getLibraryLiveData();
-
-        void requestLibraryInfo();
-    }
-
-    public interface IMusicRequest {
+    public interface IGridItemRequest {
 
         LiveData<List<GridItem>> getJavaItemsLiveData();
 

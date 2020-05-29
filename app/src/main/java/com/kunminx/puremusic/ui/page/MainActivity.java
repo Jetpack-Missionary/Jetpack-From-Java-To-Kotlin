@@ -14,15 +14,17 @@
  * limitations under the License.
  */
 
-package com.kunminx.puremusic;
+package com.kunminx.puremusic.ui.page;
 
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 
 import com.kunminx.architecture.ui.BaseActivity;
+import com.kunminx.puremusic.R;
 import com.kunminx.puremusic.databinding.ActivityMainBinding;
-import com.kunminx.puremusic.vm.state.MainActivityViewModel;
+import com.kunminx.puremusic.ui.adapter.GridItemAdapter;
+import com.kunminx.puremusic.ui.state.MainActivityViewModel;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -39,7 +41,23 @@ public class MainActivity extends BaseActivity {
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setVm(mMainActivityViewModel);
-
+        binding.setClick(new ClickProxy());
+        binding.setAdapter(new GridItemAdapter(getApplicationContext()));
     }
 
+    public class ClickProxy {
+
+        public void openMenu() {
+
+        }
+
+        public void login() {
+//            nav().navigate(R.id.action_mainFragment_to_loginFragment);
+        }
+
+        public void search() {
+//            nav().navigate(R.id.action_mainFragment_to_searchFragment);
+        }
+
+    }
 }

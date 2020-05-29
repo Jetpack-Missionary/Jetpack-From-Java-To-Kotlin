@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.kunminx.puremusic.ui.page.adapter;
+package com.kunminx.puremusic.ui.adapter;
 
 import android.content.Context;
 
