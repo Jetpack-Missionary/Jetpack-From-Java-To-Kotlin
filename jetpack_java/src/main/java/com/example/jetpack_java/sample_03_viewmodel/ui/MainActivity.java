@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.viewmodel.ui;
+package com.example.jetpack_java.sample_03_viewmodel.ui;
 
 import android.os.Bundle;
 

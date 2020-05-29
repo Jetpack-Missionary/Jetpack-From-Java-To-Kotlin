@@ -27,7 +27,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_back"
-        app:title="选择定位" />
+        app:title="选择位置" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"

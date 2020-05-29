@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.navigation.ui;
+package com.example.jetpack_java.sample_05_navigation.ui;
 
 import android.os.Bundle;
 

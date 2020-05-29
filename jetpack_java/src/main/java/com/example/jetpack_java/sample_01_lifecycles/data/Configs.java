@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.lifecycles.data;
+package com.example.jetpack_java.sample_01_lifecycles.data;
 
 /**
  * Create by KunMinX at 2020/5/30

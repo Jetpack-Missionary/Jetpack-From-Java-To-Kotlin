@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.complex.ui;
+package com.example.jetpack_java.sample_complex.ui;
 
 import android.os.Bundle;
-
-import androidx.databinding.DataBindingUtil;
 
 import com.kunminx.architecture.ui.BaseActivity;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.livedata.ui;
+package com.example.jetpack_java.sample_02_livedata.ui;
 
 import android.os.Bundle;
 

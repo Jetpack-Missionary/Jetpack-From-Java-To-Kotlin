@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.lifecycles.ui.adapter;
+package com.example.jetpack_java.sample_01_lifecycles.ui.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -25,7 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.lifecycles.data.bean.LocationBean;
+import com.example.jetpack_java.sample_01_lifecycles.data.bean.LocationBean;
 
 import java.util.List;
 

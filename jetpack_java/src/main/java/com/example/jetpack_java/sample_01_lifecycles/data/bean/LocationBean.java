@@ -14,13 +14,25 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.lifecycles.data;
+package com.example.jetpack_java.sample_01_lifecycles.data.bean;
+
 
 /**
  * Create by KunMinX at 2020/5/29
  */
-public class APIs {
+public class LocationBean {
 
-    public static final String PIC_URL = "https://i.loli.net/2020/05/29/Dynh3KrQ7m8Oz4A.jpg";
+    private String locationName;
 
+    public LocationBean(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
 }

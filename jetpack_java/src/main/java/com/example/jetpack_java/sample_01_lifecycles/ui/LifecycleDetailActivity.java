@@ -14,42 +14,35 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.lifecycles.ui;
+package com.example.jetpack_java.sample_01_lifecycles.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.lifecycles.data.Configs;
-import com.example.jetpack_java.lifecycles.ui.adapter.LocationAdapter;
+import com.example.jetpack_java.sample_01_lifecycles.data.APIs;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class LifecycleLocationActivity extends BaseActivity {
+public class LifecycleDetailActivity extends BaseActivity {
 
-    private RecyclerView mRecyclerView;
-    private LocationAdapter mLocationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.layout_lifecycles_activity_location);
+        setContentView(R.layout.layout_activity_detail);
 
-        mRecyclerView = findViewById(R.id.rv);
+        Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
 
-        mRecyclerView.setAdapter(mLocationAdapter = new LocationAdapter(getApplicationContext(), locationBean -> {
-            Intent intent = new Intent();
-            intent.putExtra(Configs.LOCATION_RESULT, locationBean.getLocationName());
-            setResult(RESULT_OK, intent);
-        }));
-
-
+        findViewById(R.id.tv_locate).setOnClickListener(v -> {
+            startActivity(new Intent(this, LifecycleLocationActivity.class));
+        });
     }
 
 }

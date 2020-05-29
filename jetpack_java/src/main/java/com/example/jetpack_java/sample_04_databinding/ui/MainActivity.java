@@ -14,37 +14,28 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.lifecycles.ui;
+package com.example.jetpack_java.sample_04_databinding.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.example.jetpack_java.R;
-import com.example.jetpack_java.lifecycles.data.APIs;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class LifecycleDetailActivity extends BaseActivity {
+public class MainActivity extends BaseActivity {
 
+//    private MainActivityViewModel mMainActivityViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
 
-        setContentView(R.layout.layout_activity_detail);
+//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        binding.setVm(mMainActivityViewModel);
 
-        Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
-
-        findViewById(R.id.tv_locate).setOnClickListener(v -> {
-            startActivity(new Intent(this, LifecycleLocationActivity.class));
-        });
     }
 
 }
