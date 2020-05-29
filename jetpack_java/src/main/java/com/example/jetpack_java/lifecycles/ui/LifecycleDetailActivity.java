@@ -18,23 +18,22 @@ package com.example.jetpack_java.lifecycles.ui;
 
 import android.os.Bundle;
 
+import com.example.jetpack_java.R;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class MainActivity extends BaseActivity {
+public class LifecycleDetailActivity extends BaseActivity {
 
-//    private MainActivityViewModel mMainActivityViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
 
-//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//        binding.setVm(mMainActivityViewModel);
+        setContentView(R.layout.layout_activity_detail);
+
 
     }
 
