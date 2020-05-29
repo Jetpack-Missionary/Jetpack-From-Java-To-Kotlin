@@ -16,8 +16,11 @@
 
 package com.example.jetpack_java.lifecycles.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
@@ -37,9 +40,11 @@ public class LifecycleDetailActivity extends BaseActivity {
 
         setContentView(R.layout.layout_activity_detail);
 
-
         Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
 
+        findViewById(R.id.tv_locate).setOnClickListener(v -> {
+            startActivity(new Intent(this, LifecycleLocationActivity.class));
+        });
     }
 
 }

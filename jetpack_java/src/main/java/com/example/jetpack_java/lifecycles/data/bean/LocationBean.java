@@ -14,27 +14,25 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.lifecycles.ui;
+package com.example.jetpack_java.lifecycles.data.bean;
 
-import android.os.Bundle;
-
-import com.example.jetpack_java.R;
-import com.kunminx.architecture.ui.BaseActivity;
 
 /**
- * Create by KunMinX at 19/10/16
+ * Create by KunMinX at 2020/5/29
  */
+public class LocationBean {
 
-public class LifecycleLocationActivity extends BaseActivity {
+    private String locationName;
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.layout_lifecycles_activity_location);
-
-
+    public LocationBean(String locationName) {
+        this.locationName = locationName;
     }
 
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
 }
