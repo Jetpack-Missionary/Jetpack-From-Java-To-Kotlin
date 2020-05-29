@@ -16,9 +16,14 @@
 
 package com.example.jetpack_java.lifecycles.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.jetpack_java.R;
+import com.example.jetpack_java.lifecycles.data.Configs;
+import com.example.jetpack_java.lifecycles.ui.adapter.LocationAdapter;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
@@ -27,12 +32,22 @@ import com.kunminx.architecture.ui.BaseActivity;
 
 public class LifecycleLocationActivity extends BaseActivity {
 
+    private RecyclerView mRecyclerView;
+    private LocationAdapter mLocationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.layout_lifecycles_activity_location);
+
+        mRecyclerView = findViewById(R.id.rv);
+
+        mRecyclerView.setAdapter(mLocationAdapter = new LocationAdapter(getApplicationContext(), locationBean -> {
+            Intent intent = new Intent();
+            intent.putExtra(Configs.LOCATION_RESULT, locationBean.getLocationName());
+            setResult(RESULT_OK, intent);
+        }));
 
 
     }
