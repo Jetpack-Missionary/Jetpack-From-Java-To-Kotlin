@@ -40,7 +40,7 @@ public class ListActivity_ViewModel extends BaseActivity {
         super.onCreate(savedInstanceState);
         mListViewModel = getActivityViewModel(ListViewModel.class);
 
-        setContentView(R.layout.activity_viewmodel_list);
+        setContentView(R.layout.activity_list_viewmodel);
 
         mRecyclerView = findViewById(R.id.rv);
 

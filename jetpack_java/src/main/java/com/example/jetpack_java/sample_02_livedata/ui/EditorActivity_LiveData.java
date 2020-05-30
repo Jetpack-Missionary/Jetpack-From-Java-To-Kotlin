@@ -50,7 +50,7 @@ public class EditorActivity_LiveData extends BaseActivity {
         Glide.with(this).load(APIs.PIC_URL).into(mImageView);
 
         mTvLocation.setOnClickListener(v -> {
-            Intent intent = new Intent(this, LocationActivity_Lifecycle_LiveData.class);
+            Intent intent = new Intent(this, LocationActivity_LiveData.class);
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         });
     }

@@ -16,9 +16,21 @@
 
 package com.example.jetpack_java.sample_04_databinding.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.jetpack_java.R;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.common_data.bean.LocationBean;
+import com.example.jetpack_java.databinding.ActivityLocationDatabindingBinding;
+import com.example.jetpack_java.databinding.AdapterLocationDatabindingBinding;
+import com.example.jetpack_java.sample_02_livedata.domain.LocationManager_LiveData;
+import com.example.jetpack_java.sample_04_databinding.ui.state.LocationViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
+import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -26,16 +38,35 @@ import com.kunminx.architecture.ui.BaseActivity;
 
 public class LocationActivity_DataBinding extends BaseActivity {
 
-//    private MainActivityViewModel mMainActivityViewModel;
+    private LocationViewModel mLocationViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
+        mLocationViewModel = getActivityViewModel(LocationViewModel.class);
 
-//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//        binding.setVm(mMainActivityViewModel);
+        ActivityLocationDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_location_databinding);
 
+        binding.setVm(mLocationViewModel);
+
+        binding.setAdapter(new SimpleBindingAdapter<LocationBean, AdapterLocationDatabindingBinding>(getApplicationContext(), R.layout.adapter_location_databinding) {
+            @Override
+            protected void onSimpleBindItem(AdapterLocationDatabindingBinding binding, LocationBean item, RecyclerView.ViewHolder holder) {
+                binding.setBean(item);
+                binding.getRoot().setOnClickListener(v -> {
+                    Intent intent = new Intent();
+                    intent.putExtra(Configs.LOCATION_RESULT, item.getLocationName());
+                    setResult(RESULT_OK, intent);
+                    finish();
+                });
+            }
+        });
+
+        getLifecycle().addObserver(LocationManager_LiveData.getInstance());
+
+        LocationManager_LiveData.getInstance().getLocationBeans().observe(this, locationBeans -> {
+            mLocationViewModel.list.setValue(locationBeans);
+        });
     }
 
 }

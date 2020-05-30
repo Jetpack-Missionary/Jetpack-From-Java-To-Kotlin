@@ -25,8 +25,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.Configs;
 import com.example.jetpack_java.common_data.bean.Moment;
-import com.example.jetpack_java.databinding.ActivityDatabindingListBinding;
-import com.example.jetpack_java.databinding.AdapterDatabindingMomentBinding;
+import com.example.jetpack_java.databinding.ActivityListDatabindingBinding;
+import com.example.jetpack_java.databinding.AdapterMomentDatabindingBinding;
 import com.example.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
@@ -45,16 +45,19 @@ public class ListActivity_DataBinding extends BaseActivity {
 
         mListViewModel = getActivityViewModel(ListViewModel.class);
 
-        ActivityDatabindingListBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding_list);
+        ActivityListDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_list_databinding);
 
         binding.setVm(mListViewModel);
 
-        binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterDatabindingMomentBinding>(getApplicationContext(), R.layout.adapter_databinding_moment) {
+        binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding>(getApplicationContext(), R.layout.adapter_moment_databinding) {
             @Override
-            protected void onSimpleBindItem(AdapterDatabindingMomentBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
-                Intent intent = new Intent(ListActivity_DataBinding.this, DetailActivity_DataBinding.class);
-                intent.putExtra(Configs.THIS_MOMENT, moment);
-                startActivity(intent);
+            protected void onSimpleBindItem(AdapterMomentDatabindingBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
+                binding.setMoment(moment);
+                binding.getRoot().setOnClickListener(v -> {
+                    Intent intent = new Intent(ListActivity_DataBinding.this, DetailActivity_DataBinding.class);
+                    intent.putExtra(Configs.THIS_MOMENT, moment);
+                    startActivity(intent);
+                });
             }
         });
 

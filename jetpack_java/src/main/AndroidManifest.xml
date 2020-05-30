@@ -6,7 +6,7 @@
         <activity android:name=".sample_01_lifecycles.ui.EditorActivity_Lifecycle" />
         <activity android:name=".sample_01_lifecycles.ui.LocationActivity_Lifecycle" />
         <activity android:name=".sample_02_livedata.ui.EditorActivity_LiveData" />
-        <activity android:name=".sample_02_livedata.ui.LocationActivity_Lifecycle_LiveData" />
+        <activity android:name=".sample_02_livedata.ui.LocationActivity_LiveData" />
         <activity android:name=".sample_03_viewmodel.ui.ListActivity_ViewModel" />
         <activity android:name=".sample_04_databinding.ui.DetailActivity_DataBinding" />
         <activity android:name=".sample_04_databinding.ui.ListActivity_DataBinding" />

@@ -20,6 +20,9 @@
 
     <data>
 
+        <variable
+            name="moment"
+            type="com.example.jetpack_java.common_data.bean.Moment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,6 +31,7 @@
 
         <ImageView
             android:id="@+id/iv_avatar"
+            imageUrl="@{moment.userAvatar}"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_margin="12dp"
@@ -42,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
+            android:text="@{moment.userName}"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
@@ -56,6 +61,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginRight="12dp"
             android:maxHeight="100dp"
+            android:text="@{moment.content}"
             android:textSize="14sp"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             app:layout_constraintRight_toRightOf="parent"
@@ -64,6 +70,7 @@
 
         <ImageView
             android:id="@+id/iv_preview"
+            imageUrl="@{moment.imgUrl}"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_margin="12dp"
@@ -77,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
+            android:text="@{moment.location}"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             app:layout_constraintTop_toBottomOf="@+id/iv_preview"
             tools:text="台北小吃店" />

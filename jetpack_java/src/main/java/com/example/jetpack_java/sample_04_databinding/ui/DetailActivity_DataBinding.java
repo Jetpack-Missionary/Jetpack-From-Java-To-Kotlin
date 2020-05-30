@@ -21,7 +21,9 @@ import android.os.Bundle;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.databinding.ActivityDatabindingDetailBinding;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.common_data.bean.Moment;
+import com.example.jetpack_java.databinding.ActivityDetailDatabindingBinding;
 import com.example.jetpack_java.sample_04_databinding.ui.state.DetailViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 
@@ -38,10 +40,11 @@ public class DetailActivity_DataBinding extends BaseActivity {
         super.onCreate(savedInstanceState);
         mDetailViewModel = getActivityViewModel(DetailViewModel.class);
 
-        ActivityDatabindingDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding_detail);
+        ActivityDetailDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_databinding);
         binding.setVm(mDetailViewModel);
 
-
+        Moment moment = (Moment) getIntent().getParcelableExtra(Configs.THIS_MOMENT);
+        mDetailViewModel.initState(moment);
 
     }
 
