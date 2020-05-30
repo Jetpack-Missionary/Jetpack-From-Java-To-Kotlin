@@ -44,6 +44,7 @@ public class EditorActivity_DataBinding extends BaseActivity {
         mEditorViewModel = getActivityViewModel(EditorViewModel.class);
 
         ActivityEditorDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_editor_databinding);
+        binding.setLifecycleOwner(this);
         binding.setVm(mEditorViewModel);
         binding.setClick(new ClickProxy());
 

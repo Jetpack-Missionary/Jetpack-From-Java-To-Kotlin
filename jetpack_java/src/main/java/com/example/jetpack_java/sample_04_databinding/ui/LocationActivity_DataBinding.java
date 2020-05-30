@@ -46,7 +46,7 @@ public class LocationActivity_DataBinding extends BaseActivity {
         mLocationViewModel = getActivityViewModel(LocationViewModel.class);
 
         ActivityLocationDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_location_databinding);
-
+        binding.setLifecycleOwner(this);
         binding.setVm(mLocationViewModel);
 
         binding.setAdapter(new SimpleBindingAdapter<LocationBean, AdapterLocationDatabindingBinding>(getApplicationContext(), R.layout.adapter_location_databinding) {

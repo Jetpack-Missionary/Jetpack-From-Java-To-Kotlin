@@ -52,6 +52,7 @@ public class ListFragment_Navigation extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_navigation, container, false);
         FragmentListNavigationBinding binding = FragmentListNavigationBinding.bind(view);
+        binding.setLifecycleOwner(this);
         binding.setVm(mListViewModel);
         binding.setClick(new ClickProxy());
         binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding>(mActivity.getApplicationContext(), R.layout.adapter_moment_databinding) {

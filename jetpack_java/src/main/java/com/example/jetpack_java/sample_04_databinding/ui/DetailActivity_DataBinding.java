@@ -41,6 +41,7 @@ public class DetailActivity_DataBinding extends BaseActivity {
         mDetailViewModel = getActivityViewModel(DetailViewModel.class);
 
         ActivityDetailDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_databinding);
+        binding.setLifecycleOwner(this);
         binding.setVm(mDetailViewModel);
 
         Moment moment = (Moment) getIntent().getParcelableExtra(Configs.THIS_MOMENT);

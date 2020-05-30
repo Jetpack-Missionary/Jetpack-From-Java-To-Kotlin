@@ -50,6 +50,7 @@ public class EditorFragment_Navigation extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_editor_navigation, container, false);
         FragmentEditorNavigationBinding binding = FragmentEditorNavigationBinding.bind(view);
+        binding.setLifecycleOwner(this);
         binding.setVm(mEditorViewModel);
         binding.setClick(new ClickProxy());
         return view;

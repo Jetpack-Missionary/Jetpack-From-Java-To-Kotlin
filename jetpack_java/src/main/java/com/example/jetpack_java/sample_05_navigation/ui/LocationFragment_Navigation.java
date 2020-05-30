@@ -55,6 +55,7 @@ public class LocationFragment_Navigation extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_location_navigation, container, false);
         FragmentLocationNavigationBinding binding = FragmentLocationNavigationBinding.bind(view);
+        binding.setLifecycleOwner(this);
         binding.setVm(mLocationViewModel);
         binding.setAdapter(new SimpleBindingAdapter<LocationBean, AdapterLocationDatabindingBinding>(mActivity.getApplicationContext(), R.layout.adapter_location_databinding) {
             @Override

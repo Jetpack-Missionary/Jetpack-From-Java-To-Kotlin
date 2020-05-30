@@ -46,7 +46,7 @@ public class ListActivity_DataBinding extends BaseActivity {
         mListViewModel = getActivityViewModel(ListViewModel.class);
 
         ActivityListDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_list_databinding);
-
+        binding.setLifecycleOwner(this);
         binding.setVm(mListViewModel);
         binding.setClick(new ClickProxy());
 

@@ -49,6 +49,7 @@ public class DetailFragment_Navigation extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_navigation, container, false);
         FragmentDetailNavigationBinding binding = FragmentDetailNavigationBinding.bind(view);
+        binding.setLifecycleOwner(this);
         binding.setVm(mDetailViewModel);
         return view;
     }
