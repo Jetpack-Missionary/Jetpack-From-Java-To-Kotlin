@@ -18,30 +18,23 @@ package com.example.jetpack_java.sample_04_databinding.ui;
 
 import android.os.Bundle;
 
-import androidx.databinding.DataBindingUtil;
-
-import com.example.jetpack_java.R;
-import com.example.jetpack_java.databinding.ActivityDatabindingDetailBinding;
-import com.example.jetpack_java.sample_04_databinding.ui.state.DetailViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class DataBindingDetailActivity extends BaseActivity {
+public class LocationActivity_DataBinding extends BaseActivity {
 
-    private DetailViewModel mDetailViewModel;
+//    private MainActivityViewModel mMainActivityViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDetailViewModel = getActivityViewModel(DetailViewModel.class);
+//        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
 
-        ActivityDatabindingDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding_detail);
-        binding.setVm(mDetailViewModel);
-
-
+//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//        binding.setVm(mMainActivityViewModel);
 
     }
 

@@ -31,7 +31,7 @@ import com.kunminx.architecture.ui.BaseActivity;
  * Create by KunMinX at 19/10/16
  */
 
-public class ViewModelListActivity extends BaseActivity {
+public class ListActivity_ViewModel extends BaseActivity {
 
     private StateViewModel mStateViewModel;
     private RecyclerView mRecyclerView;
@@ -47,7 +47,7 @@ public class ViewModelListActivity extends BaseActivity {
         mRecyclerView = findViewById(R.id.rv);
 
         mRecyclerView.setAdapter(mMomentAdapter = new MomentAdapter(getApplicationContext(), moment -> {
-            Intent intent = new Intent(this, ViewModelDetailActivity.class);
+            Intent intent = new Intent(this, DetailActivity_ViewModel.class);
             intent.putExtra(Configs.THIS_MOMENT, moment);
             startActivity(intent);
         }));
