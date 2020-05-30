@@ -16,6 +16,17 @@
 
 package com.example.jetpack_java.sample_05_navigation.ui;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.example.jetpack_java.R;
+import com.example.jetpack_java.databinding.FragmentEditorNavigationBinding;
+import com.example.jetpack_java.sample_04_databinding.ui.state.EditorViewModel;
 import com.kunminx.architecture.ui.BaseFragment;
 
 /**
@@ -23,4 +34,28 @@ import com.kunminx.architecture.ui.BaseFragment;
  */
 public class EditorFragment_Navigation extends BaseFragment {
 
+    private EditorViewModel mEditorViewModel;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mEditorViewModel = getFragmentViewModel(EditorViewModel.class);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_editor_navigation, container, false);
+        FragmentEditorNavigationBinding binding = FragmentEditorNavigationBinding.bind(view);
+        binding.setVm(mEditorViewModel);
+        binding.setClick(new ClickProxy());
+
+        return view;
+    }
+
+    public class ClickProxy {
+        public void locate() {
+
+        }
+    }
 }
