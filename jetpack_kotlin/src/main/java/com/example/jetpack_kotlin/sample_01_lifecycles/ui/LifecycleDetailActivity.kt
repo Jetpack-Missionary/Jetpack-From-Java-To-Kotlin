@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.jetpack_koltin.R
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.APIs
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.Configs
+import com.example.jetpack_kotlin.common_data.APIs
+import com.example.jetpack_kotlin.common_data.Configs
 import com.kunminx.architecture.ui.BaseActivity
 import com.kunminx.architecture.utils.loadImage
 

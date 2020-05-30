@@ -1,4 +1,4 @@
-package com.example.jetpack_kotlin.sample_02_livedata.data.bean
+package com.example.jetpack_kotlin.common_data.bean
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

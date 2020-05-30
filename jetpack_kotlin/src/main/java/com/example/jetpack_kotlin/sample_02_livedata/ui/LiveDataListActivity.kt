@@ -5,10 +5,10 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpack_koltin.R
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.Configs
-import com.example.jetpack_kotlin.sample_02_livedata.data.bean.Moment
+import com.example.jetpack_kotlin.common_data.Configs
+import com.example.jetpack_kotlin.common_data.bean.Moment
+import com.example.jetpack_kotlin.common_ui.adapter.MomentAdapter
 import com.example.jetpack_kotlin.sample_02_livedata.domain.MomentRequest
-import com.example.jetpack_kotlin.sample_02_livedata.ui.adapter.MomentAdapter
 import com.kunminx.architecture.ui.BaseActivity
 
 /**

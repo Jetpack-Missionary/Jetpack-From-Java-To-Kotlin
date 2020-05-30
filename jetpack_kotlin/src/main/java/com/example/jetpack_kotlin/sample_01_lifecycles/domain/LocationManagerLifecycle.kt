@@ -2,7 +2,7 @@ package com.example.jetpack_kotlin.sample_01_lifecycles.domain
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.bean.LocationBean
+import com.example.jetpack_kotlin.common_data.bean.LocationBean
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.timerTask
@@ -13,7 +13,7 @@ import kotlin.concurrent.timerTask
  * time   12:23
  * description
  */
-class LocationManager private constructor() : DefaultLifecycleObserver {
+class LocationManagerLifecycle private constructor() : DefaultLifecycleObserver {
     private var mTimer: Timer? = null
     private var mLocationBeans = ArrayList<LocationBean>()
 
@@ -52,8 +52,8 @@ class LocationManager private constructor() : DefaultLifecycleObserver {
     }
 
     companion object {
-        private val sManager = LocationManager()
-        fun newInstance(): LocationManager = sManager
+        private val sManager = LocationManagerLifecycle()
+        fun newInstance(): LocationManagerLifecycle = sManager
     }
 
     interface ILocationCallback {

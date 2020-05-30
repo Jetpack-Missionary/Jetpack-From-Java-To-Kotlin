@@ -1,4 +1,4 @@
-package com.example.jetpack_kotlin.sample_02_livedata.ui.adapter
+package com.example.jetpack_kotlin.common_ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpack_koltin.R
-import com.example.jetpack_kotlin.sample_02_livedata.data.bean.Moment
+import com.example.jetpack_kotlin.common_data.bean.Moment
 import com.kunminx.architecture.utils.loadImage
 
 /**

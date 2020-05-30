@@ -1,8 +1,8 @@
 package com.example.jetpack_kotlin.sample_02_livedata.data
 
 import androidx.lifecycle.MutableLiveData
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.APIs
-import com.example.jetpack_kotlin.sample_02_livedata.data.bean.Moment
+import com.example.jetpack_kotlin.common_data.APIs
+import com.example.jetpack_kotlin.common_data.bean.Moment
 
 /**
  * @author Flywith24

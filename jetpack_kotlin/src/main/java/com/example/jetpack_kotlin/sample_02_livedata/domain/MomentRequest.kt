@@ -3,8 +3,8 @@ package com.example.jetpack_kotlin.sample_02_livedata.domain
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
+import com.example.jetpack_kotlin.common_data.bean.Moment
 import com.example.jetpack_kotlin.sample_02_livedata.data.DataRepository
-import com.example.jetpack_kotlin.sample_02_livedata.data.bean.Moment
 
 /**
  * @author Flywith24
