@@ -26,6 +26,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
+import com.example.jetpack_java.common_data.Configs;
 import com.example.jetpack_java.common_data.bean.Moment;
 import com.example.jetpack_java.databinding.AdapterMomentDatabindingBinding;
 import com.example.jetpack_java.databinding.FragmentListNavigationBinding;
@@ -58,9 +59,9 @@ public class ListFragment_Navigation extends BaseFragment {
             protected void onSimpleBindItem(AdapterMomentDatabindingBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
                 binding.setMoment(moment);
                 binding.getRoot().setOnClickListener(v -> {
-//                    Intent intent = new Intent(ListActivity_DataBinding.this, DetailActivity_DataBinding.class);
-//                    intent.putExtra(Configs.THIS_MOMENT, moment);
-//                    startActivity(intent);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable(Configs.THIS_MOMENT, moment);
+                    nav().navigate(R.id.action_listFragment_Navigation_to_detailFragment_Navigation, bundle);
                 });
             }
         });
@@ -68,10 +69,20 @@ public class ListFragment_Navigation extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mListViewModel.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
+            mListViewModel.list.setValue(moments);
+        });
+
+        mListViewModel.requestList();
+    }
+
     public class ClickProxy {
         public void fabClick() {
-//            Intent intent = new Intent(ListActivity_DataBinding.this, EditorActivity_DataBinding.class);
-//            startActivity(intent);
+            nav().navigate(R.id.action_listFragment_Navigation_to_editorFragment_Navigation);
         }
     }
 }

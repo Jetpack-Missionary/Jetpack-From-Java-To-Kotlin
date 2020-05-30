@@ -27,6 +27,7 @@ import androidx.annotation.Nullable;
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.databinding.FragmentEditorNavigationBinding;
 import com.example.jetpack_java.sample_04_databinding.ui.state.EditorViewModel;
+import com.example.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel;
 import com.kunminx.architecture.ui.BaseFragment;
 
 /**
@@ -35,11 +36,13 @@ import com.kunminx.architecture.ui.BaseFragment;
 public class EditorFragment_Navigation extends BaseFragment {
 
     private EditorViewModel mEditorViewModel;
+    private SharedViewModel mSharedViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mEditorViewModel = getFragmentViewModel(EditorViewModel.class);
+        mSharedViewModel = getActivityViewModel(SharedViewModel.class);
     }
 
     @Nullable
@@ -49,13 +52,21 @@ public class EditorFragment_Navigation extends BaseFragment {
         FragmentEditorNavigationBinding binding = FragmentEditorNavigationBinding.bind(view);
         binding.setVm(mEditorViewModel);
         binding.setClick(new ClickProxy());
-
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mSharedViewModel.location.observe(getViewLifecycleOwner(), s -> {
+            mEditorViewModel.location.set(s);
+        });
     }
 
     public class ClickProxy {
         public void locate() {
-
+            nav().navigate(R.id.action_editorFragment_Navigation_to_locationFragment_Navigation);
         }
     }
 }

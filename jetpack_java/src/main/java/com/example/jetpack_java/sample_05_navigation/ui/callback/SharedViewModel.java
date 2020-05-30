@@ -18,12 +18,14 @@ package com.example.jetpack_java.sample_05_navigation.ui.callback;
 
 import androidx.lifecycle.ViewModel;
 
+import com.kunminx.architecture.bridge.callback.UnPeekLiveData;
+
 /**
  * Create by KunMinX at 2020/5/30
  */
 public class SharedViewModel extends ViewModel {
 
-
+    public final UnPeekLiveData<String> location = new UnPeekLiveData<>();
 
 
 }
