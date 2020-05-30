@@ -58,11 +58,12 @@ public class EditorActivity_Lifecycle extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case Configs.REQUEST_LOCATION_INFO:
-                String location = data.getStringExtra(Configs.LOCATION_RESULT);
-                mTvLocation.setText(location);
-                break;
+        if (data == null) {
+            return;
+        }
+        if (requestCode == Configs.REQUEST_LOCATION_INFO) {
+            String location = data.getStringExtra(Configs.LOCATION_RESULT);
+            mTvLocation.setText(location);
         }
     }
 }
