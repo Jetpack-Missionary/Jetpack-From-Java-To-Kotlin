@@ -5,4 +5,6 @@
     <string name="choose_location">选择位置</string>
     <string name="image">image</string>
     <string name="location">位置</string>
+    <string name="moment_list">动态列表</string>
+    <string name="moment_content">刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅</string>
 </resources>

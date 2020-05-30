@@ -5,10 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpack_koltin.R
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.Configs
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.bean.LocationBean
-import com.example.jetpack_kotlin.sample_01_lifecycles.domain.LocationManager
-import com.example.jetpack_kotlin.sample_01_lifecycles.ui.adapter.LocationAdapter
+import com.example.jetpack_kotlin.common_data.Configs
+import com.example.jetpack_kotlin.common_data.bean.LocationBean
+import com.example.jetpack_kotlin.common_ui.adapter.LocationAdapter
+import com.example.jetpack_kotlin.sample_01_lifecycles.domain.LocationManagerLifecycle
 import com.kunminx.architecture.ui.BaseActivity
 
 /**
@@ -17,7 +17,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   11:20
  * description
  */
-class LifecycleLocationActivity : BaseActivity(R.layout.layout_lifecycles_activity_location), LocationAdapter.OnItemClickListener {
+class LifecycleLocationActivity : BaseActivity(R.layout.activity_lifecycles_location), LocationAdapter.OnItemClickListener {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -33,9 +33,9 @@ class LifecycleLocationActivity : BaseActivity(R.layout.layout_lifecycles_activi
         mRecyclerView = findViewById(R.id.rv)
         mRecyclerView.adapter = mAdapter
 
-        lifecycle.addObserver(LocationManager.newInstance())
+        lifecycle.addObserver(LocationManagerLifecycle.newInstance())
 
-        LocationManager.newInstance().setILocationCallback { list ->
+        LocationManagerLifecycle.newInstance().setILocationCallback { list ->
             runOnUiThread {
                 mAdapter.submitList(list)
                 mAdapter.notifyDataSetChanged()

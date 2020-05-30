@@ -1,4 +1,4 @@
-package com.example.jetpack_kotlin.sample_01_lifecycles.ui.adapter
+package com.example.jetpack_kotlin.common_ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpack_koltin.R
-import com.example.jetpack_kotlin.sample_01_lifecycles.data.bean.LocationBean
+import com.example.jetpack_kotlin.common_data.bean.LocationBean
 
 /**
  * @author Flywith24
@@ -19,21 +19,26 @@ import com.example.jetpack_kotlin.sample_01_lifecycles.data.bean.LocationBean
  */
 class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<LocationBean, LocationAdapter.ViewHolder>(diffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_location, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_location, parent, false))
+        // setOnClickListener 在此处调用，如果在 onBindViewHolder 中调用会执行多次
+        holder.itemView.setOnClickListener {
+            listener.onItemClick(holder.item)
+        }
+        return holder
+    }
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {
-            listener.onItemClick(getItem(position))
-        }
         holder.bind(getItem(position))
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var mTvTitle: TextView = itemView.findViewById(R.id.tv_title)
+        lateinit var item: LocationBean
 
         fun bind(item: LocationBean) {
+            this.item = item
             mTvTitle.text = item.locationName
         }
     }
@@ -50,7 +55,6 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
 
             override fun areContentsTheSame(oldItem: LocationBean, newItem: LocationBean): Boolean =
                     oldItem.locationName == newItem.locationName
-
         }
     }
 }

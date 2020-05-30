@@ -67,13 +67,13 @@ public class DataRepository implements ILocalRequest, IRemoteRequest {
 
         List<GridItem> list = new ArrayList<>();
         list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem("Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
+        list.add(new GridItem("LiveData", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataListActivity"));
+        list.add(new GridItem("ViewModel", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_03_viewmodel.ui.ViewModelListActivity"));
+        list.add(new GridItem("DataBinding", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_04_databinding.ui.DataBindingListActivity"));
+        list.add(new GridItem("Navigation", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_05_navigation.ui.NavigationMainActivity"));
+        list.add(new GridItem("Room", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
+        list.add(new GridItem("Paging", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
+        list.add(new GridItem("XX", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
 
         liveData.setValue(list);
     }

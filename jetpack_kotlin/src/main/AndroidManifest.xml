@@ -1,10 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jetpack_koltin">
 
     <application>
-
         <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleLocationActivity" />
         <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataListActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataDetailActivity" />
 
     </application>
+
 </manifest>

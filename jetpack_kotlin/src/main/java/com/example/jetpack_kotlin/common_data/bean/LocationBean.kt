@@ -1,4 +1,4 @@
-package com.example.jetpack_kotlin.sample_01_lifecycles.data.bean
+package com.example.jetpack_kotlin.common_data.bean
 
 /**
  * @author Flywith24
