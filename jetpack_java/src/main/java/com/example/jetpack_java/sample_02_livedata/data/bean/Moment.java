@@ -16,10 +16,13 @@
 
 package com.example.jetpack_java.sample_02_livedata.data.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class Moment {
+public class Moment implements Parcelable {
 
     private String content;
     private String location;
@@ -37,6 +40,26 @@ public class Moment {
         this.userName = userName;
         this.userAvatar = userAvatar;
     }
+
+    protected Moment(Parcel in) {
+        content = in.readString();
+        location = in.readString();
+        imgUrl = in.readString();
+        userName = in.readString();
+        userAvatar = in.readString();
+    }
+
+    public static final Creator<Moment> CREATOR = new Creator<Moment>() {
+        @Override
+        public Moment createFromParcel(Parcel in) {
+            return new Moment(in);
+        }
+
+        @Override
+        public Moment[] newArray(int size) {
+            return new Moment[size];
+        }
+    };
 
     public String getContent() {
         return content;
@@ -76,5 +99,19 @@ public class Moment {
 
     public void setUserAvatar(String userAvatar) {
         this.userAvatar = userAvatar;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(content);
+        dest.writeString(location);
+        dest.writeString(imgUrl);
+        dest.writeString(userName);
+        dest.writeString(userAvatar);
     }
 }

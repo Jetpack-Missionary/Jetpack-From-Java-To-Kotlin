@@ -18,33 +18,32 @@ package com.example.jetpack_java.sample_02_livedata.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.sample_02_livedata.ui.adapter.MomentAdapter;
+import com.example.jetpack_java.sample_01_lifecycles.data.APIs;
+import com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleLocationActivity;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class LiveDataListActivity extends BaseActivity {
+public class LiveDataDetailActivity extends BaseActivity {
 
-    private RecyclerView mRecyclerView;
-    private MomentAdapter mMomentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_livedata_list);
+        setContentView(R.layout.activity_lifecycles_detail);
 
-        mRecyclerView = findViewById(R.id.rv);
+        Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
 
-        mRecyclerView.setAdapter(mMomentAdapter = new MomentAdapter(getApplicationContext(), moment -> {
-            startActivity(new Intent(this, LiveDataDetailActivity.class));
-        }));
+        findViewById(R.id.tv_locate).setOnClickListener(v -> {
+            startActivity(new Intent(this, LifecycleLocationActivity.class));
+        });
     }
 
 }
