@@ -24,7 +24,7 @@ import com.kunminx.architecture.ui.BaseActivity;
  * Create by KunMinX at 19/10/16
  */
 
-public class MainActivity extends BaseActivity {
+public class NavigationMainActivity extends BaseActivity {
 
 //    private MainActivityViewModel mMainActivityViewModel;
 
