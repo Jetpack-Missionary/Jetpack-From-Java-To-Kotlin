@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jetpack_koltin" />
+    package="com.example.jetpack_koltin">
+
+    <application>
+
+        <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleLocationActivity" />
+    </application>
+</manifest>

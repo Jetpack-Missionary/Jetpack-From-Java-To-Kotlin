@@ -22,6 +22,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.ContentView;
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +41,11 @@ import com.kunminx.architecture.utils.ScreenUtils;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private ViewModelProvider mActivityProvider;
+
+    @ContentView
+    public BaseActivity(@LayoutRes int contentLayoutId) {
+        super(contentLayoutId);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
