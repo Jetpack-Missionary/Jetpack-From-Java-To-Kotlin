@@ -64,6 +64,7 @@ dependencies {
     implementation project(':architecture')
     implementation project(':jetpack_java')
     implementation project(':jetpack_kotlin')
+    implementation project(':common_res')
 
     compileOnly(AndroidX.appcompat)
     compileOnly(AndroidX.constraintlayout)
