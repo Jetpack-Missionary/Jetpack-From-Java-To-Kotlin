@@ -49,7 +49,7 @@ public class ListActivity_ViewModel extends BaseActivity {
         }));
 
         mListViewModel.getListMutableLiveData().observe(this, moments -> {
-            mMomentAdapter.setList(moments);
+            mMomentAdapter.submitList(moments);
         });
 
         mListViewModel.requestList();

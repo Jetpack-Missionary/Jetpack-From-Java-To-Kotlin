@@ -54,7 +54,7 @@ public class LocationActivity_Lifecycle extends BaseActivity {
         getLifecycle().addObserver(LocationManager_Lifecycle.getInstance());
 
         LocationManager_Lifecycle.getInstance().setILocationCallback(list -> {
-            runOnUiThread(() -> mLocationAdapter.setList(list));
+            runOnUiThread(() -> mLocationAdapter.submitList(list));
         });
     }
 

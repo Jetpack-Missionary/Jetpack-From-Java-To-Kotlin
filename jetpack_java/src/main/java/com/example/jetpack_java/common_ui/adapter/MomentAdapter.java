@@ -24,31 +24,39 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.bean.Moment;
 
-import java.util.List;
-
 /**
  * Create by KunMinX at 2020/5/29
  */
-public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder> {
+public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder> {
 
-    private List<Moment> mList;
     private Context mContext;
     private OnItemClickListener mListener;
 
     public MomentAdapter(Context context, OnItemClickListener listener) {
+        super(new DiffUtil.ItemCallback<Moment>() {
+            @Override
+            public boolean areItemsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
+                return oldItem.getUserName().equals(newItem.getUserName());
+            }
+
+            @Override
+            public boolean areContentsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
+                return oldItem.getContent().equals(newItem.getContent())
+                        && oldItem.getLocation().equals(newItem.getLocation())
+                        && oldItem.getImgUrl().equals(newItem.getImgUrl())
+                        && oldItem.getUserAvatar().equals(newItem.getUserAvatar());
+            }
+        });
         this.mContext = context;
         this.mListener = listener;
-    }
-
-    public void setList(List<Moment> list) {
-        this.mList = list;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -61,7 +69,7 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Moment moment = mList.get(position);
+        Moment moment = getCurrentList().get(position);
 
         holder.tvName.setText(moment.getUserName());
         holder.tvContent.setText(moment.getContent());
@@ -71,14 +79,14 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
 
         holder.itemView.setOnClickListener(v -> {
             if (mListener != null) {
-                mListener.onItemClick(mList.get(position));
+                mListener.onItemClick(getCurrentList().get(position));
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mList == null ? 0 : mList.size();
+        return getCurrentList().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

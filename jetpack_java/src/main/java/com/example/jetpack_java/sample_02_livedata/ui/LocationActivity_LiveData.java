@@ -54,7 +54,7 @@ public class LocationActivity_LiveData extends BaseActivity {
         getLifecycle().addObserver(LocationManager_LiveData.getInstance());
 
         LocationManager_LiveData.getInstance().getLocationBeans().observe(this, locationBeans -> {
-            mLocationAdapter.setList(locationBeans);
+            mLocationAdapter.submitList(locationBeans);
         });
 
     }

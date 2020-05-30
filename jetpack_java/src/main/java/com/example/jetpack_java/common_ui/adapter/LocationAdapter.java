@@ -23,30 +23,35 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.bean.LocationBean;
 
-import java.util.List;
-
 /**
  * Create by KunMinX at 2020/5/29
  */
-public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHolder> {
+public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.ViewHolder> {
 
-    private List<LocationBean> mList;
     private Context mContext;
     private OnItemClickListener mListener;
 
     public LocationAdapter(Context context, OnItemClickListener listener) {
+        super(new DiffUtil.ItemCallback<LocationBean>() {
+            @Override
+            public boolean areItemsTheSame(@NonNull LocationBean oldItem, @NonNull LocationBean newItem) {
+                return oldItem.getLocationName().equals(newItem.getLocationName());
+            }
+
+            @Override
+            public boolean areContentsTheSame(@NonNull LocationBean oldItem, @NonNull LocationBean newItem) {
+                return oldItem.getLocationName().equals(newItem.getLocationName());
+            }
+        });
         this.mContext = context;
         this.mListener = listener;
-    }
-
-    public void setList(List<LocationBean> list) {
-        this.mList = list;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -58,17 +63,17 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.mTvTitle.setText(mList.get(position).getLocationName());
+        holder.mTvTitle.setText(getCurrentList().get(position).getLocationName());
         holder.itemView.setOnClickListener(v -> {
             if (mListener != null) {
-                mListener.onItemClick(mList.get(position));
+                mListener.onItemClick(getCurrentList().get(position));
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mList == null ? 0 : mList.size();
+        return getCurrentList().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
