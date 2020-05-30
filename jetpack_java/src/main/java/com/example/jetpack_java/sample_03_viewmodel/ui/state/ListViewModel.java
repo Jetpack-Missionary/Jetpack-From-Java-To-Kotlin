@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class StateViewModel extends ViewModel implements Request.IMomentRequest {
+public class ListViewModel extends ViewModel implements Request.IMomentRequest {
 
     private MomentRequest mMomentRequest = new MomentRequest();
 
