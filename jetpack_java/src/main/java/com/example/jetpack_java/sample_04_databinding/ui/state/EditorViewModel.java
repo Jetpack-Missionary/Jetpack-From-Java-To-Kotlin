@@ -27,9 +27,10 @@ import com.example.jetpack_java.common_data.bean.Moment;
 public class EditorViewModel extends ViewModel {
 
     public final ObservableField<String> imgUrl = new ObservableField<>();
-    public final ObservableField<String> name = new ObservableField<>();
     public final ObservableField<String> content = new ObservableField<>();
     public final ObservableField<String> location = new ObservableField<>();
-    public final ObservableField<String> avatar = new ObservableField<>();
 
+    {
+        location.set("点击添加定位");
+    }
 }

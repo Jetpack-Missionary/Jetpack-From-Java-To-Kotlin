@@ -27,6 +27,10 @@
             name="adapter"
             type="com.kunminx.architecture.ui.adapter.SimpleBindingAdapter" />
 
+        <variable
+            name="click"
+            type="com.example.jetpack_java.sample_04_databinding.ui.ListActivity_DataBinding.ClickProxy" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,6 +59,18 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:onClick="@{()->click.fabClick()}"
+            android:src="@drawable/ic_add"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
