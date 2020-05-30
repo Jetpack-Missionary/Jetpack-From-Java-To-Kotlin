@@ -22,6 +22,9 @@
             name="vm"
             type="com.example.jetpack_java.sample_04_databinding.ui.state.EditorViewModel" />
 
+        <variable
+            name="click"
+            type="com.example.jetpack_java.sample_04_databinding.ui.EditorActivity_DataBinding.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,7 +42,7 @@
             app:navigationIcon="@drawable/ic_back"
             app:title="发布动态" />
 
-        <TextView
+        <EditText
             android:id="@+id/et"
             android:layout_width="0dp"
             android:layout_height="120dp"
@@ -71,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:background="@drawable/round_stroke_blue"
+            android:onClick="@{()->click.locate()}"
             android:paddingLeft="12dp"
             android:paddingTop="4dp"
             android:paddingRight="12dp"

@@ -48,6 +48,7 @@ public class ListActivity_DataBinding extends BaseActivity {
         ActivityListDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_list_databinding);
 
         binding.setVm(mListViewModel);
+        binding.setClick(new ClickProxy());
 
         binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding>(getApplicationContext(), R.layout.adapter_moment_databinding) {
             @Override
@@ -68,4 +69,10 @@ public class ListActivity_DataBinding extends BaseActivity {
         mListViewModel.requestList();
     }
 
+    public class ClickProxy {
+        public void fabClick() {
+            Intent intent = new Intent(ListActivity_DataBinding.this, EditorActivity_DataBinding.class);
+            startActivity(intent);
+        }
+    }
 }

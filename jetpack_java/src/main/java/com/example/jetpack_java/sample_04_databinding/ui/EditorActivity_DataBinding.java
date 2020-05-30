@@ -16,14 +16,17 @@
 
 package com.example.jetpack_java.sample_04_databinding.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.Configs;
 import com.example.jetpack_java.common_data.bean.Moment;
 import com.example.jetpack_java.databinding.ActivityEditorDatabindingBinding;
+import com.example.jetpack_java.sample_02_livedata.ui.LocationActivity_LiveData;
 import com.example.jetpack_java.sample_04_databinding.ui.state.EditorViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 
@@ -42,8 +45,25 @@ public class EditorActivity_DataBinding extends BaseActivity {
 
         ActivityEditorDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_editor_databinding);
         binding.setVm(mEditorViewModel);
-
+        binding.setClick(new ClickProxy());
 
     }
 
+    public class ClickProxy {
+        public void locate() {
+            Intent intent = new Intent(EditorActivity_DataBinding.this, LocationActivity_DataBinding.class);
+            startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case Configs.REQUEST_LOCATION_INFO:
+                String location = data.getStringExtra(Configs.LOCATION_RESULT);
+                mEditorViewModel.location.set(location);
+                break;
+        }
+    }
 }
