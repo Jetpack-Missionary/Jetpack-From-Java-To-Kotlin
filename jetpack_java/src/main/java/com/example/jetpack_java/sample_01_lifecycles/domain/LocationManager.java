@@ -68,6 +68,8 @@ public class LocationManager implements DefaultLifecycleObserver {
                 if (mILocationCallback != null) {
                     mILocationCallback.onListChanged(mLocationBeans);
                 }
+
+                onResume(owner);
             }
         };
 

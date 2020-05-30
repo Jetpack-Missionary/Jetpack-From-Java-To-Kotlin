@@ -17,6 +17,7 @@
 package com.example.jetpack_java.sample_02_livedata.ui.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -54,7 +55,7 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.adapter_moment_2, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_moment, parent, false);
         return new ViewHolder(view);
     }
 

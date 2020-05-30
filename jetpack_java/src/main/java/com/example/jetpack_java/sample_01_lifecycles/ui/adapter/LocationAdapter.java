@@ -17,6 +17,7 @@
 package com.example.jetpack_java.sample_01_lifecycles.ui.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -52,7 +53,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.adapter_location, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_location, parent, false);
         return new ViewHolder(view);
     }
 
