@@ -21,6 +21,6 @@ import com.kunminx.architecture.ui.BaseFragment;
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class NavigationDetailFragment extends BaseFragment {
+public class LocationFragment_Navigation extends BaseFragment {
 
 }

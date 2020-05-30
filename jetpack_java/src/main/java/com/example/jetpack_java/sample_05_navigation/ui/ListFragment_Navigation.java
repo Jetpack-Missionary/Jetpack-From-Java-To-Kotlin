@@ -14,23 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_04_databinding.domain;
+package com.example.jetpack_java.sample_05_navigation.ui;
 
-import androidx.lifecycle.LiveData;
-
-import com.example.jetpack_java.common_data.bean.Moment;
-
-import java.util.List;
+import com.kunminx.architecture.ui.BaseFragment;
 
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class Request {
+public class ListFragment_Navigation extends BaseFragment {
 
-    public interface IMomentRequest {
-
-        LiveData<List<Moment>> getListMutableLiveData();
-
-        void requestList();
-    }
 }
