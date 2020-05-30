@@ -25,6 +25,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.jetpack_java.R;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.common_data.bean.Moment;
 import com.example.jetpack_java.databinding.FragmentDetailNavigationBinding;
 import com.example.jetpack_java.sample_04_databinding.ui.state.DetailViewModel;
 import com.kunminx.architecture.ui.BaseFragment;
@@ -35,8 +37,6 @@ import com.kunminx.architecture.ui.BaseFragment;
 public class DetailFragment_Navigation extends BaseFragment {
 
     private DetailViewModel mDetailViewModel;
-
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +50,14 @@ public class DetailFragment_Navigation extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_detail_navigation, container, false);
         FragmentDetailNavigationBinding binding = FragmentDetailNavigationBinding.bind(view);
         binding.setVm(mDetailViewModel);
-
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Moment moment = (Moment) getArguments().getParcelable(Configs.THIS_MOMENT);
+        mDetailViewModel.initState(moment);
     }
 }
