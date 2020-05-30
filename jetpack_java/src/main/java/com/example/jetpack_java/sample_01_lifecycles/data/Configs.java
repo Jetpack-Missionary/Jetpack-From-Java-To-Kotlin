@@ -22,4 +22,5 @@ package com.example.jetpack_java.sample_01_lifecycles.data;
 public class Configs {
 
     public final static String LOCATION_RESULT = "LOCATION_RESULT";
+    public final static String THIS_MOMENT = "THIS_MOMENT";
 }
