@@ -57,10 +57,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     testImplementation(Testing.jUnit)
+    androidTestImplementation(Testing.androidJunit)
     androidTestImplementation(Testing.androidRunner)
     androidTestImplementation(Testing.espresso)
 
     implementation project(':architecture')
+    implementation project(':common_res')
 
     compileOnly(AndroidX.appcompat)
     compileOnly(AndroidX.constraintlayout)
