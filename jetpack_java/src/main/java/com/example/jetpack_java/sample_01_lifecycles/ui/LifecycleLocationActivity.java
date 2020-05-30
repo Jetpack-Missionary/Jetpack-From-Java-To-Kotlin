@@ -23,8 +23,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
+import com.example.jetpack_java.sample_01_lifecycles.data.bean.LocationBean;
+import com.example.jetpack_java.sample_01_lifecycles.domain.LocationManager;
 import com.example.jetpack_java.sample_01_lifecycles.ui.adapter.LocationAdapter;
 import com.kunminx.architecture.ui.BaseActivity;
+
+import java.util.List;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -47,9 +51,14 @@ public class LifecycleLocationActivity extends BaseActivity {
             Intent intent = new Intent();
             intent.putExtra(Configs.LOCATION_RESULT, locationBean.getLocationName());
             setResult(RESULT_OK, intent);
+            finish();
         }));
 
+        getLifecycle().addObserver(LocationManager.newInstance());
 
+        LocationManager.newInstance().setILocationCallback(list -> {
+            runOnUiThread(() -> mLocationAdapter.setList(list));
+        });
     }
 
 }

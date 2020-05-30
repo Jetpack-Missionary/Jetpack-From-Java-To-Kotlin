@@ -19,10 +19,14 @@ package com.example.jetpack_java.sample_01_lifecycles.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.sample_01_lifecycles.data.APIs;
+import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
@@ -31,6 +35,8 @@ import com.kunminx.architecture.ui.BaseActivity;
 
 public class LifecycleDetailActivity extends BaseActivity {
 
+    private TextView mTvLocation;
+    private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +44,25 @@ public class LifecycleDetailActivity extends BaseActivity {
 
         setContentView(R.layout.activity_lifecycles_detail);
 
-        Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
+        mTvLocation = findViewById(R.id.tv_locate);
+        mImageView = findViewById(R.id.iv);
 
-        findViewById(R.id.tv_locate).setOnClickListener(v -> {
-            startActivity(new Intent(this, LifecycleLocationActivity.class));
+        Glide.with(this).load(APIs.PIC_URL).into(mImageView);
+
+        mTvLocation.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LifecycleLocationActivity.class);
+            startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case Configs.REQUEST_LOCATION_INFO:
+                String location = data.getStringExtra(Configs.LOCATION_RESULT);
+                mTvLocation.setText(location);
+                break;
+        }
+    }
 }
