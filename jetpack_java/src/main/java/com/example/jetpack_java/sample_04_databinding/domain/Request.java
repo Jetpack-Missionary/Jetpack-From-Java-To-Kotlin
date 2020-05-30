@@ -14,31 +14,23 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_02_livedata.domain;
+package com.example.jetpack_java.sample_04_databinding.domain;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import com.example.jetpack_java.sample_02_livedata.data.DataRepository;
-import com.example.jetpack_java.sample_02_livedata.data.bean.Moment;
+import com.example.jetpack_java.common_data.bean.Moment;
 
 import java.util.List;
 
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class MomentRequest {
+public class Request {
 
-    private MutableLiveData<List<Moment>> mListMutableLiveData;
+    public interface IMomentRequest {
 
-    public LiveData<List<Moment>> getListMutableLiveData() {
-        if (mListMutableLiveData == null) {
-            mListMutableLiveData = new MutableLiveData<>();
-        }
-        return mListMutableLiveData;
-    }
+        LiveData<List<Moment>> getListMutableLiveData();
 
-    public void requestList() {
-        DataRepository.getInstance().requestList(mListMutableLiveData);
+        void requestList();
     }
 }

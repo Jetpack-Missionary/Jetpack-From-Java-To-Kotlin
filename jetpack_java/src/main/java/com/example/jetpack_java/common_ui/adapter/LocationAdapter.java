@@ -14,39 +14,37 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_03_viewmodel.ui.adapter;
+package com.example.jetpack_java.common_ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.sample_02_livedata.data.bean.Moment;
+import com.example.jetpack_java.common_data.bean.LocationBean;
 
 import java.util.List;
 
 /**
  * Create by KunMinX at 2020/5/29
  */
-public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder> {
+public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHolder> {
 
-    private List<Moment> mList;
+    private List<LocationBean> mList;
     private Context mContext;
     private OnItemClickListener mListener;
 
-    public MomentAdapter(Context context, OnItemClickListener listener) {
+    public LocationAdapter(Context context, OnItemClickListener listener) {
         this.mContext = context;
         this.mListener = listener;
     }
 
-    public void setList(List<Moment> list) {
+    public void setList(List<LocationBean> list) {
         this.mList = list;
         notifyDataSetChanged();
     }
@@ -54,21 +52,13 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_moment, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_location, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        Moment moment = mList.get(position);
-
-        holder.tvName.setText(moment.getUserName());
-        holder.tvContent.setText(moment.getContent());
-        holder.tvLocation.setText(moment.getLocation());
-        Glide.with(mContext).load(moment.getUserAvatar()).into(holder.ivAvatar);
-        Glide.with(mContext).load(moment.getImgUrl()).into(holder.ivPreview);
-
+        holder.mTvTitle.setText(mList.get(position).getLocationName());
         holder.itemView.setOnClickListener(v -> {
             if (mListener != null) {
                 mListener.onItemClick(mList.get(position));
@@ -83,23 +73,15 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvName;
-        private TextView tvContent;
-        private TextView tvLocation;
-        private ImageView ivAvatar;
-        private ImageView ivPreview;
+        private TextView mTvTitle;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tv_name);
-            tvContent = itemView.findViewById(R.id.tv_content);
-            tvLocation = itemView.findViewById(R.id.tv_location);
-            ivAvatar = itemView.findViewById(R.id.iv_avatar);
-            ivPreview = itemView.findViewById(R.id.iv_preview);
+            mTvTitle = itemView.findViewById(R.id.tv_title);
         }
     }
 
     public interface OnItemClickListener {
-        void onItemClick(Moment moment);
+        void onItemClick(LocationBean locationBean);
     }
 }

@@ -3,10 +3,8 @@
 
     <application>
 
-        <activity android:name=".sample_01_lifecycles.ui.LifecycleDetailActivity" />
-        <activity android:name=".sample_01_lifecycles.ui.LifecycleLocationActivity" />
-        <activity android:name=".sample_02_livedata.ui.LiveDataDetailActivity" />
-        <activity android:name=".sample_02_livedata.ui.LiveDataListActivity" />
+        <activity android:name=".sample_01_lifecycles.ui.EditorActivity_Lifecycle" />
+        <activity android:name=".sample_01_lifecycles.ui.LocationActivity_Lifecycle" />
         <activity android:name=".sample_03_viewmodel.ui.ViewModelListActivity" />
         <activity android:name=".sample_04_databinding.ui.DataBindingDetailActivity" />
         <activity android:name=".sample_04_databinding.ui.DataBindingListActivity" />

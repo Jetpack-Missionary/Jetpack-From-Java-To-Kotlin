@@ -22,9 +22,8 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
-import com.example.jetpack_java.sample_02_livedata.ui.LiveDataDetailActivity;
-import com.example.jetpack_java.sample_03_viewmodel.ui.adapter.MomentAdapter;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.common_ui.adapter.MomentAdapter;
 import com.example.jetpack_java.sample_03_viewmodel.ui.state.StateViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 
@@ -48,7 +47,7 @@ public class ViewModelListActivity extends BaseActivity {
         mRecyclerView = findViewById(R.id.rv);
 
         mRecyclerView.setAdapter(mMomentAdapter = new MomentAdapter(getApplicationContext(), moment -> {
-            Intent intent = new Intent(this, LiveDataDetailActivity.class);
+            Intent intent = new Intent(this, ViewModelDetailActivity.class);
             intent.putExtra(Configs.THIS_MOMENT, moment);
             startActivity(intent);
         }));

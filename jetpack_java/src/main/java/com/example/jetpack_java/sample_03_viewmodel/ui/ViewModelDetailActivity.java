@@ -21,7 +21,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.sample_01_lifecycles.data.APIs;
+import com.example.jetpack_java.common_data.APIs;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**

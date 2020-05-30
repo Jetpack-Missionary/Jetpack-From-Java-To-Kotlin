@@ -25,15 +25,15 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.sample_01_lifecycles.data.APIs;
-import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
+import com.example.jetpack_java.common_data.APIs;
+import com.example.jetpack_java.common_data.Configs;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class LifecycleDetailActivity extends BaseActivity {
+public class EditorActivity_Lifecycle extends BaseActivity {
 
     private TextView mTvLocation;
     private ImageView mImageView;
@@ -42,7 +42,7 @@ public class LifecycleDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_lifecycles_detail);
+        setContentView(R.layout.activity_editor_lifecycle);
 
         mTvLocation = findViewById(R.id.tv_locate);
         mImageView = findViewById(R.id.iv);
@@ -50,7 +50,7 @@ public class LifecycleDetailActivity extends BaseActivity {
         Glide.with(this).load(APIs.PIC_URL).into(mImageView);
 
         mTvLocation.setOnClickListener(v -> {
-            Intent intent = new Intent(this, LifecycleLocationActivity.class);
+            Intent intent = new Intent(this, LocationActivity_Lifecycle.class);
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         });
     }

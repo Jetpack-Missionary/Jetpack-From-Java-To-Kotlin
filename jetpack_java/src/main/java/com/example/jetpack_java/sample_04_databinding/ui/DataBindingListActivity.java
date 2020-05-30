@@ -23,10 +23,10 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.common_data.bean.Moment;
 import com.example.jetpack_java.databinding.ActivityDatabindingListBinding;
 import com.example.jetpack_java.databinding.AdapterDatabindingMomentBinding;
-import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
-import com.example.jetpack_java.sample_04_databinding.data.bean.Moment;
 import com.example.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;

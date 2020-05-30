@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_01_lifecycles.domain;
+package com.example.jetpack_java.sample_02_livedata.domain;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
-import com.example.jetpack_java.sample_01_lifecycles.data.bean.LocationBean;
+import com.example.jetpack_java.common_data.bean.LocationBean;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,25 +31,23 @@ import java.util.TimerTask;
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class LocationManager implements DefaultLifecycleObserver {
+public class LocationManager_Lifecycle_LiveData implements DefaultLifecycleObserver {
 
-    private static LocationManager sManager = new LocationManager();
+    private static LocationManager_Lifecycle_LiveData sManager = new LocationManager_Lifecycle_LiveData();
 
     private Timer mTimer;
 
-    public static LocationManager newInstance() {
+    public static LocationManager_Lifecycle_LiveData getInstance() {
         return sManager;
     }
 
-    private LocationManager() {
+    private LocationManager_Lifecycle_LiveData() {
     }
 
-    private List<LocationBean> mLocationBeans = new ArrayList<>();
+    private MutableLiveData<List<LocationBean>> mLocationBeans = new MutableLiveData<>();
 
-    private ILocationCallback mILocationCallback;
-
-    public void setILocationCallback(ILocationCallback ILocationCallback) {
-        mILocationCallback = ILocationCallback;
+    public LiveData<List<LocationBean>> getLocationBeans() {
+        return mLocationBeans;
     }
 
     @Override
@@ -63,11 +62,8 @@ public class LocationManager implements DefaultLifecycleObserver {
 
                 //模拟定位，假设开启了 GPS 并且每秒获取若干条新的位置信息
 
-                mLocationBeans.add(new LocationBean("台北夜市 " + System.currentTimeMillis() + " 号"));
-
-                if (mILocationCallback != null) {
-                    mILocationCallback.onListChanged(mLocationBeans);
-                }
+                mLocationBeans.getValue().add(new LocationBean("台北夜市 " + System.currentTimeMillis() + " 号"));
+                mLocationBeans.postValue(mLocationBeans.getValue());
 
                 onResume(owner);
             }
@@ -84,10 +80,6 @@ public class LocationManager implements DefaultLifecycleObserver {
         mTimer.cancel();
         mTimer = null;
 
-        mLocationBeans.clear();
-    }
-
-    public interface ILocationCallback {
-        void onListChanged(List<LocationBean> list);
+        mLocationBeans.getValue().clear();
     }
 }

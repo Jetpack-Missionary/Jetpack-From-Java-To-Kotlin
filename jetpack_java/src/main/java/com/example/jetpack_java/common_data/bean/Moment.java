@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_02_livedata.data.bean;
+package com.example.jetpack_java.common_data.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;

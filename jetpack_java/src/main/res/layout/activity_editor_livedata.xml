@@ -29,7 +29,7 @@
         app:navigationIcon="@drawable/ic_back"
         app:title="发布动态" />
 
-    <TextView
+    <EditText
         android:id="@+id/et"
         android:layout_width="0dp"
         android:layout_height="120dp"

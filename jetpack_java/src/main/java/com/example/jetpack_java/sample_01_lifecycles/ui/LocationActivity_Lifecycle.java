@@ -22,19 +22,16 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
-import com.example.jetpack_java.sample_01_lifecycles.data.bean.LocationBean;
-import com.example.jetpack_java.sample_01_lifecycles.domain.LocationManager;
-import com.example.jetpack_java.sample_01_lifecycles.ui.adapter.LocationAdapter;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.sample_01_lifecycles.domain.LocationManager_Lifecycle;
+import com.example.jetpack_java.common_ui.adapter.LocationAdapter;
 import com.kunminx.architecture.ui.BaseActivity;
-
-import java.util.List;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class LifecycleLocationActivity extends BaseActivity {
+public class LocationActivity_Lifecycle extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private LocationAdapter mLocationAdapter;
@@ -43,7 +40,7 @@ public class LifecycleLocationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_lifecycles_location);
+        setContentView(R.layout.activity_location_lifecycles);
 
         mRecyclerView = findViewById(R.id.rv);
 
@@ -54,9 +51,9 @@ public class LifecycleLocationActivity extends BaseActivity {
             finish();
         }));
 
-        getLifecycle().addObserver(LocationManager.newInstance());
+        getLifecycle().addObserver(LocationManager_Lifecycle.getInstance());
 
-        LocationManager.newInstance().setILocationCallback(list -> {
+        LocationManager_Lifecycle.getInstance().setILocationCallback(list -> {
             runOnUiThread(() -> mLocationAdapter.setList(list));
         });
     }

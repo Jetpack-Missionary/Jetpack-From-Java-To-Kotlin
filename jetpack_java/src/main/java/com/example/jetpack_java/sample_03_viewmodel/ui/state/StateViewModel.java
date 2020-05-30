@@ -19,7 +19,7 @@ package com.example.jetpack_java.sample_03_viewmodel.ui.state;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.jetpack_java.sample_02_livedata.data.bean.Moment;
+import com.example.jetpack_java.common_data.bean.Moment;
 import com.example.jetpack_java.sample_03_viewmodel.domain.MomentRequest;
 import com.example.jetpack_java.sample_03_viewmodel.domain.Request;
 

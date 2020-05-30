@@ -22,42 +22,42 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
-import com.example.jetpack_java.sample_02_livedata.domain.MomentRequest;
-import com.example.jetpack_java.sample_02_livedata.ui.adapter.MomentAdapter;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.common_ui.adapter.LocationAdapter;
+import com.example.jetpack_java.sample_01_lifecycles.domain.LocationManager_Lifecycle;
+import com.example.jetpack_java.sample_02_livedata.domain.LocationManager_Lifecycle_LiveData;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class LiveDataListActivity extends BaseActivity {
+public class LocationActivity_Lifecycle_LiveData extends BaseActivity {
 
     private RecyclerView mRecyclerView;
-    private MomentAdapter mMomentAdapter;
-    private MomentRequest mMomentRequest;
+    private LocationAdapter mLocationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_livedata_list);
-
-        mMomentRequest = new MomentRequest();
+        setContentView(R.layout.activity_location_lifecycles);
 
         mRecyclerView = findViewById(R.id.rv);
 
-        mRecyclerView.setAdapter(mMomentAdapter = new MomentAdapter(getApplicationContext(), moment -> {
-            Intent intent = new Intent(this, LiveDataDetailActivity.class);
-            intent.putExtra(Configs.THIS_MOMENT, moment);
-            startActivity(intent);
+        mRecyclerView.setAdapter(mLocationAdapter = new LocationAdapter(getApplicationContext(), locationBean -> {
+            Intent intent = new Intent();
+            intent.putExtra(Configs.LOCATION_RESULT, locationBean.getLocationName());
+            setResult(RESULT_OK, intent);
+            finish();
         }));
 
-        mMomentRequest.getListMutableLiveData().observe(this, moments -> {
-            mMomentAdapter.setList(moments);
+        getLifecycle().addObserver(LocationManager_Lifecycle.getInstance());
+
+        LocationManager_Lifecycle_LiveData.getInstance().getLocationBeans().observe(this, locationBeans -> {
+            mLocationAdapter.setList(locationBeans);
         });
 
-        mMomentRequest.requestList();
     }
 
 }

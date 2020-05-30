@@ -19,8 +19,8 @@ package com.example.jetpack_java.sample_03_viewmodel.domain;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.jetpack_java.sample_02_livedata.data.DataRepository;
-import com.example.jetpack_java.sample_02_livedata.data.bean.Moment;
+import com.example.jetpack_java.sample_03_viewmodel.data.DataRepository;
+import com.example.jetpack_java.common_data.bean.Moment;
 
 import java.util.List;
 
