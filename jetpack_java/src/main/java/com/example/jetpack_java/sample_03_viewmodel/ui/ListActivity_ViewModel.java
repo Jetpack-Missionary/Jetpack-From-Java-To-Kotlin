@@ -50,6 +50,7 @@ public class ListActivity_ViewModel extends BaseActivity {
 
         mListViewModel.getListMutableLiveData().observe(this, moments -> {
             mMomentAdapter.submitList(moments);
+            mMomentAdapter.notifyDataSetChanged();
         });
 
         mListViewModel.requestList();
