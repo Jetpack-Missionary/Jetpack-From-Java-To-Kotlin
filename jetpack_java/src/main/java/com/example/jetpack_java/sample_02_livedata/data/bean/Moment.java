@@ -19,7 +19,7 @@ package com.example.jetpack_java.sample_02_livedata.data.bean;
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class Moments {
+public class Moment {
 
     private String content;
     private String location;
@@ -27,10 +27,10 @@ public class Moments {
     private String userName;
     private String userAvatar;
 
-    public Moments() {
+    public Moment() {
     }
 
-    public Moments(String content, String location, String imgUrl, String userName, String userAvatar) {
+    public Moment(String content, String location, String imgUrl, String userName, String userAvatar) {
         this.content = content;
         this.location = location;
         this.imgUrl = imgUrl;

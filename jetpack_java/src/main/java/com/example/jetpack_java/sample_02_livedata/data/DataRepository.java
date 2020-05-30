@@ -18,7 +18,7 @@ package com.example.jetpack_java.sample_02_livedata.data;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.jetpack_java.sample_02_livedata.data.bean.Moments;
+import com.example.jetpack_java.sample_02_livedata.data.bean.Moment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +37,9 @@ public class DataRepository {
     private DataRepository() {
     }
 
-    public void requestList(MutableLiveData<List<Moments>> liveData) {
-        List<Moments> list = new ArrayList<>();
-        list.add(new Moments());
+    public void requestList(MutableLiveData<List<Moment>> liveData) {
+        List<Moment> list = new ArrayList<>();
+        list.add(new Moment());
 
 
         liveData.setValue(list);

@@ -18,6 +18,8 @@ package com.example.jetpack_java.sample_02_livedata.ui;
 
 import android.os.Bundle;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.jetpack_java.R;
 import com.kunminx.architecture.ui.BaseActivity;
 
@@ -27,6 +29,7 @@ import com.kunminx.architecture.ui.BaseActivity;
 
 public class LiveDataListActivity extends BaseActivity {
 
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,9 @@ public class LiveDataListActivity extends BaseActivity {
 
         setContentView(R.layout.activity_livedata_list);
 
+        mRecyclerView = findViewById(R.id.rv);
 
+//        mRecyclerView.setAdapter(
     }
 
 }
