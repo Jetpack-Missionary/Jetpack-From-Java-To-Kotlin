@@ -73,7 +73,7 @@ public class LocationManager implements DefaultLifecycleObserver {
             }
         };
 
-        mTimer.schedule(task, 100);
+        mTimer.schedule(task, 250);
 
     }
 
