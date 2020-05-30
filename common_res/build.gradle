@@ -1,7 +1,6 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
 import com.flywith24.version_config.dependencies.Google
-import com.flywith24.version_config.dependencies.Testing
 
 plugins {
     id "com.flywith24.version"
@@ -33,12 +32,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    testImplementation(Testing.jUnit)
-    androidTestImplementation(Testing.androidJunit)
-    androidTestImplementation(Testing.androidRunner)
-    androidTestImplementation(Testing.espresso)
-
-
     implementation(AndroidX.constraintlayout)
     implementation(AndroidX.recyclerView)
     implementation(AndroidX.appcompat)
