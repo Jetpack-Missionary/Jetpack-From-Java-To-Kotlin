@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpack_koltin.R
 import com.example.jetpack_kotlin.sample_01_lifecycles.data.Configs
 import com.example.jetpack_kotlin.sample_01_lifecycles.data.bean.LocationBean
+import com.example.jetpack_kotlin.sample_01_lifecycles.domain.LocationManager
 import com.example.jetpack_kotlin.sample_01_lifecycles.ui.adapter.LocationAdapter
 import com.kunminx.architecture.ui.BaseActivity
 
@@ -26,19 +27,24 @@ class LifecycleLocationActivity : BaseActivity(R.layout.layout_lifecycles_activi
      * 详情参考 https://juejin.im/post/5e8ef0bc518825736b749705#heading-17
      */
     private lateinit var mRecyclerView: RecyclerView
-    private val mAdapter by lazy {
-        LocationAdapter(this)
-    }
-
+    private val mAdapter by lazy { LocationAdapter(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mRecyclerView = findViewById(R.id.rv)
         mRecyclerView.adapter = mAdapter
-//        mAdapter.submitList()
 
+        lifecycle.addObserver(LocationManager.newInstance())
+
+        LocationManager.newInstance().setILocationCallback { list ->
+            runOnUiThread {
+                mAdapter.submitList(list)
+                mAdapter.notifyDataSetChanged()
+            }
+        }
     }
 
     override fun onItemClick(locationBean: LocationBean) {
         setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, locationBean.locationName))
+        finish()
     }
 }

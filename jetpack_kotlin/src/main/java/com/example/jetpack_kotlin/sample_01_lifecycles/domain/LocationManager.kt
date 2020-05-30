@@ -2,6 +2,10 @@ package com.example.jetpack_kotlin.sample_01_lifecycles.domain
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import com.example.jetpack_kotlin.sample_01_lifecycles.data.bean.LocationBean
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.concurrent.timerTask
 
 /**
  * @author Flywith24
@@ -10,18 +14,49 @@ import androidx.lifecycle.LifecycleOwner
  * description
  */
 class LocationManager private constructor() : DefaultLifecycleObserver {
+    private var mTimer: Timer? = null
+    private var mLocationBeans = ArrayList<LocationBean>()
 
+    private var mILocationCallback: ILocationCallback? = null
+
+    fun setILocationCallback(callback: ((List<LocationBean>) -> Unit)?) {
+        mILocationCallback = object : ILocationCallback {
+            override fun onListChanged(list: List<LocationBean>) {
+                callback?.invoke(list)
+            }
+        }
+    }
+
+    override fun onResume(owner: LifecycleOwner) {
+        //TODO 我是获取附近位置列表信息的后台定位服务，我耗电巨大，我随着页面的 onResume 开启了
+        mTimer = Timer()
+        val task = timerTask {
+            //模拟定位，假设开启了 GPS 并且每秒获取若干条新的位置信息
+
+            mLocationBeans.add(LocationBean("台北夜市 ${System.currentTimeMillis()} 号"))
+
+            mILocationCallback?.onListChanged(mLocationBeans)
+            onResume(owner)
+        }
+
+        mTimer?.schedule(task, 1000)
+    }
+
+    override fun onPause(owner: LifecycleOwner) {
+        //TODO 我随着页面的 onPause 而关闭了
+
+        mTimer?.cancel()
+        mTimer = null
+
+        mLocationBeans.clear()
+    }
 
     companion object {
         private val sManager = LocationManager()
         fun newInstance(): LocationManager = sManager
     }
 
-    override fun onResume(owner: LifecycleOwner) {
-        //TODO 我是获取附近位置列表信息的后台定位服务，我耗电巨大，我随着页面的 onResume 开启了
-    }
-
-    override fun onPause(owner: LifecycleOwner) {
-        //TODO 我随着页面的 onPause 而关闭了
+    interface ILocationCallback {
+        fun onListChanged(list: List<LocationBean>)
     }
 }
