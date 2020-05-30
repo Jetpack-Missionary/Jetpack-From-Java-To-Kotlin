@@ -14,23 +14,27 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_02_livedata.ui;
+package com.example.jetpack_java.sample_02_livedata.data;
 
-import android.os.Bundle;
+import androidx.lifecycle.MutableLiveData;
 
-import com.kunminx.architecture.ui.BaseActivity;
+import com.example.jetpack_java.sample_02_livedata.data.bean.Moments;
 
 /**
- * Create by KunMinX at 19/10/16
+ * Create by KunMinX at 2020/5/30
  */
+public class DataRepository {
 
-public class LiveDataListActivity extends BaseActivity {
+    private static DataRepository sRepository = new DataRepository();
 
+    public static DataRepository getInstance() {
+        return sRepository;
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private DataRepository() {
+    }
 
+    public void requestList(MutableLiveData<Moments> liveData){
 
     }
 
