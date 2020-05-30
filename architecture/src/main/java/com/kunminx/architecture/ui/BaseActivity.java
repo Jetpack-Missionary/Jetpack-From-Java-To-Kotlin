@@ -42,10 +42,26 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private ViewModelProvider mActivityProvider;
 
+    public BaseActivity() {
+        super();
+    }
+
+    /**
+     * 从 AndroidX AppCompat 1.1.0 和 Fragment 1.1.0 开始，可以将布局id通过构造器传入
+     * <p>
+     * 例如
+     * <p>
+     * class MyActivity : AppCompatActivity(R.layout.my_activity)
+     * class MyFragmentActivity: FragmentActivity(R.layout.my_fragment_activity)
+     * class MyFragment : Fragment(R.layout.my_fragment)
+     *
+     * @param contentLayoutId 布局id
+     */
     @ContentView
     public BaseActivity(@LayoutRes int contentLayoutId) {
         super(contentLayoutId);
     }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
