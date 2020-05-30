@@ -37,12 +37,12 @@ public class LiveDataDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_lifecycles_detail);
+        setContentView(R.layout.activity_livedata_detail);
 
         Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
 
         findViewById(R.id.tv_locate).setOnClickListener(v -> {
-            startActivity(new Intent(this, LifecycleLocationActivity.class));
+//            startActivity(new Intent(this, LifecycleLocationActivity.class));
         });
     }
 
