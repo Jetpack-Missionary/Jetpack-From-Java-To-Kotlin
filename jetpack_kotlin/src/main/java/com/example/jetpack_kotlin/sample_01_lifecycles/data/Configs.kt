@@ -7,5 +7,7 @@ package com.example.jetpack_kotlin.sample_01_lifecycles.data
  * description
  */
 object Configs {
+    const val REQUEST_LOCATION_INFO = 0x00001
     const val LOCATION_RESULT = "LOCATION_RESULT"
+    const val THIS_MOMENT = "THIS_MOMENT"
 }

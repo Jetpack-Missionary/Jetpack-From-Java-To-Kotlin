@@ -2,10 +2,12 @@ package com.example.jetpack_kotlin.sample_01_lifecycles.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.jetpack_koltin.R
 import com.example.jetpack_kotlin.sample_01_lifecycles.data.APIs
+import com.example.jetpack_kotlin.sample_01_lifecycles.data.Configs
 import com.kunminx.architecture.ui.BaseActivity
 
 /**
@@ -23,12 +25,29 @@ class LifecycleDetailActivity : BaseActivity(R.layout.layout_activity_detail) {
      *
      * 详情参考 https://juejin.im/post/5e8ef0bc518825736b749705#heading-17
      */
+    private lateinit var mTvLocation: TextView
+    private lateinit var mImageView: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Glide.with(this).load(APIs.PIC_URL).into(findViewById(R.id.iv))
 
-        findViewById<TextView>(R.id.tv_locate).setOnClickListener {
-            startActivity(Intent(this, LifecycleLocationActivity::class.java))
+        mTvLocation = findViewById(R.id.tv_locate)
+        mImageView = findViewById(R.id.iv)
+
+        Glide.with(this).load(APIs.PIC_URL).into(mImageView)
+
+        mTvLocation.setOnClickListener {
+            startActivityForResult(Intent(this, LifecycleLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (resultCode) {
+            Configs.REQUEST_LOCATION_INFO -> {
+                val location = data?.getStringExtra(Configs.LOCATION_RESULT)
+                mTvLocation.text = location
+            }
         }
     }
 }

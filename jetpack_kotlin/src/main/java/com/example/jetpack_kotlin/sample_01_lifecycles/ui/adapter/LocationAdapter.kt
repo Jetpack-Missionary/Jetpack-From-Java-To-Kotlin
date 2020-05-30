@@ -31,7 +31,7 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var mTvTitle: TextView = itemView.findViewById(R.id.tv_title)
+        private var mTvTitle: TextView = itemView.findViewById(R.id.tv_title)
 
         fun bind(item: LocationBean) {
             mTvTitle.text = item.locationName
@@ -45,11 +45,11 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<LocationBean>() {
             override fun areItemsTheSame(oldItem: LocationBean, newItem: LocationBean): Boolean =
-                    oldItem.locationName == oldItem.locationName
+                    oldItem.locationName == newItem.locationName
 
 
             override fun areContentsTheSame(oldItem: LocationBean, newItem: LocationBean): Boolean =
-                    oldItem.locationName == oldItem.locationName
+                    oldItem.locationName == newItem.locationName
 
         }
     }
