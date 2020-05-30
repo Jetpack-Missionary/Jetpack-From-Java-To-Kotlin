@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_04_databinding.ui;
+package com.example.jetpack_java.sample_03_viewmodel.ui;
 
 import android.os.Bundle;
 
@@ -24,7 +24,7 @@ import com.kunminx.architecture.ui.BaseActivity;
  * Create by KunMinX at 19/10/16
  */
 
-public class MainActivity extends BaseActivity {
+public class ViewModelListActivity extends BaseActivity {
 
 //    private MainActivityViewModel mMainActivityViewModel;
 
