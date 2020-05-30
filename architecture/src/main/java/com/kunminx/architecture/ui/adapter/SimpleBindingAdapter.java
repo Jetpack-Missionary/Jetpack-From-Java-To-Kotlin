@@ -26,11 +26,11 @@ import androidx.recyclerview.widget.RecyclerView;
  * @author KunMinX
  * Create at 2018/6/30
  */
-public abstract class SimpleBaseBindingAdapter<M, B extends ViewDataBinding> extends BaseBindingAdapter {
+public abstract class SimpleBindingAdapter<M, B extends ViewDataBinding> extends BaseBindingAdapter {
 
     private final int layout;
 
-    public SimpleBaseBindingAdapter(Context context, int layout) {
+    public SimpleBindingAdapter(Context context, int layout) {
         super(context);
         this.layout = layout;
     }

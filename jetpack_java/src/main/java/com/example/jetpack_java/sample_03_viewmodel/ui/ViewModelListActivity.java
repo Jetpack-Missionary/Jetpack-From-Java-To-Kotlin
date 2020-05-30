@@ -24,7 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
 import com.example.jetpack_java.sample_02_livedata.ui.LiveDataDetailActivity;
-import com.example.jetpack_java.sample_02_livedata.ui.adapter.MomentAdapter;
+import com.example.jetpack_java.sample_03_viewmodel.ui.adapter.MomentAdapter;
 import com.example.jetpack_java.sample_03_viewmodel.ui.state.StateViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 

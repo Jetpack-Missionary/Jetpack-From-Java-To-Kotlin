@@ -16,9 +16,20 @@
 
 package com.example.jetpack_java.sample_04_databinding.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.jetpack_java.R;
+import com.example.jetpack_java.databinding.ActivityDatabindingListBinding;
+import com.example.jetpack_java.databinding.AdapterDatabindingMomentBinding;
+import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
+import com.example.jetpack_java.sample_04_databinding.data.bean.Moment;
+import com.example.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
+import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -26,16 +37,32 @@ import com.kunminx.architecture.ui.BaseActivity;
 
 public class DataBindingListActivity extends BaseActivity {
 
-//    private MainActivityViewModel mMainActivityViewModel;
+    private ListViewModel mListViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
 
-//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//        binding.setVm(mMainActivityViewModel);
+        mListViewModel = getActivityViewModel(ListViewModel.class);
 
+        ActivityDatabindingListBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding_list);
+
+        binding.setVm(mListViewModel);
+
+        binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterDatabindingMomentBinding>(getApplicationContext(), R.layout.adapter_databinding_moment) {
+            @Override
+            protected void onSimpleBindItem(AdapterDatabindingMomentBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
+                Intent intent = new Intent(DataBindingListActivity.this, DataBindingDetailActivity.class);
+                intent.putExtra(Configs.THIS_MOMENT, moment);
+                startActivity(intent);
+            }
+        });
+
+        mListViewModel.getListMutableLiveData().observe(this, moments -> {
+            mListViewModel.list.setValue(moments);
+        });
+
+        mListViewModel.requestList();
     }
 
 }

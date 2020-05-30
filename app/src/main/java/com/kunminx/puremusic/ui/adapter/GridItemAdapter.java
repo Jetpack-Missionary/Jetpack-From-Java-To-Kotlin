@@ -20,7 +20,7 @@ import android.content.Context;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kunminx.architecture.ui.adapter.SimpleBaseBindingAdapter;
+import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 import com.kunminx.puremusic.R;
 import com.kunminx.puremusic.data.bean.GridItem;
 import com.kunminx.puremusic.databinding.AdapterGridItemBinding;
@@ -28,7 +28,7 @@ import com.kunminx.puremusic.databinding.AdapterGridItemBinding;
 /**
  * Create by KunMinX at 20/4/19
  */
-public class GridItemAdapter extends SimpleBaseBindingAdapter<GridItem, AdapterGridItemBinding> {
+public class GridItemAdapter extends SimpleBindingAdapter<GridItem, AdapterGridItemBinding> {
 
     private OnItemClickListener mListener;
 
