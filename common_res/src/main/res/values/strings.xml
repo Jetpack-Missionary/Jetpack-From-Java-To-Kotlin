@@ -4,4 +4,5 @@
     <string name="location_empty">没有定位</string>
     <string name="choose_location">选择位置</string>
     <string name="image">image</string>
+    <string name="location">位置</string>
 </resources>
