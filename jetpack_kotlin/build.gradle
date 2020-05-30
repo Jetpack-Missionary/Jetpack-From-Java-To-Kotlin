@@ -1,6 +1,7 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
 import com.flywith24.version_config.dependencies.Testing
+import com.flywith24.version_config.dependencies.ThirdParty
 
 plugins {
     id "com.flywith24.version"
@@ -8,7 +9,7 @@ plugins {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
@@ -45,5 +46,11 @@ dependencies {
 
     implementation(AndroidX.appcompat)
     implementation(AndroidX.coreKtx)
+    implementation(AndroidX.recyclerView)
+    implementation(AndroidX.constraintlayout)
 
+    implementation(AndroidX.Lifecycle.commonJava8)
+
+    implementation(ThirdParty.Glide.glide)
+    kapt(ThirdParty.Glide.compiler)
 }
