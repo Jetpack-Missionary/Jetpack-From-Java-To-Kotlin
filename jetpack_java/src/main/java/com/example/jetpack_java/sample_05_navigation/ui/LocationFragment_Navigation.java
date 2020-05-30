@@ -63,6 +63,7 @@ public class LocationFragment_Navigation extends BaseFragment {
                 binding.setBean(item);
                 binding.getRoot().setOnClickListener(v -> {
                     mSharedViewModel.location.setValue(item.getLocationName());
+                    nav().navigateUp();
                 });
             }
         });
