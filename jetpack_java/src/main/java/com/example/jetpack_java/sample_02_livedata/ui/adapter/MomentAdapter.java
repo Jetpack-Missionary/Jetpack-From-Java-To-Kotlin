@@ -54,7 +54,7 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.adapter_moment, null);
+        View view = View.inflate(mContext, R.layout.adapter_moment_2, null);
         return new ViewHolder(view);
     }
 

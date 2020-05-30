@@ -30,49 +30,49 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/round_solid_gray" />
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="KunMinX" />
-
-    <TextView
-        android:id="@+id/tv_content"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="12dp"
-        android:maxHeight="100dp"
-        android:textSize="14sp"
+        android:orientation="vertical"
         app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        tools:text="@string/moment_content" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/iv_preview"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_margin="12dp"
-        android:src="@drawable/round_solid_gray"
-        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="KunMinX" />
 
-    <TextView
-        android:id="@+id/tv_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
-        app:layout_constraintTop_toBottomOf="@+id/iv_preview"
-        tools:text="台北小吃店" />
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="12dp"
+            android:maxHeight="100dp"
+            android:textSize="14sp"
+            tools:text="@string/moment_content" />
+
+        <ImageView
+            android:id="@+id/iv_preview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="12dp"
+            android:src="@drawable/round_solid_gray" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            tools:text="台北小吃店" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
