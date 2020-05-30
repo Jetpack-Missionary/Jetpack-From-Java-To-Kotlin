@@ -43,7 +43,7 @@ public class ViewModelListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mStateViewModel = getActivityViewModel(StateViewModel.class);
 
-        setContentView(R.layout.activity_livedata_list);
+        setContentView(R.layout.activity_viewmodel_list);
 
         mRecyclerView = findViewById(R.id.rv);
 
