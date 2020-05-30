@@ -52,7 +52,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.adapter_location, parent);
+        View view = View.inflate(mContext, R.layout.adapter_location, null);
         return new ViewHolder(view);
     }
 

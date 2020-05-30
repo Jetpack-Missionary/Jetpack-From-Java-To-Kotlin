@@ -54,7 +54,7 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(mContext, R.layout.adapter_moment, parent);
+        View view = View.inflate(mContext, R.layout.adapter_moment, null);
         return new ViewHolder(view);
     }
 
@@ -93,7 +93,7 @@ public class MomentAdapter extends RecyclerView.Adapter<MomentAdapter.ViewHolder
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name);
             tvContent = itemView.findViewById(R.id.tv_content);
-            tvLocation = itemView.findViewById(R.id.tv_locate);
+            tvLocation = itemView.findViewById(R.id.tv_location);
             ivAvatar = itemView.findViewById(R.id.iv_avatar);
             ivPreview = itemView.findViewById(R.id.iv_preview);
         }

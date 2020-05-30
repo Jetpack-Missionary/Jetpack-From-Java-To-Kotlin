@@ -18,6 +18,7 @@ package com.example.jetpack_java.sample_02_livedata.data;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.jetpack_java.sample_01_lifecycles.data.APIs;
 import com.example.jetpack_java.sample_02_livedata.data.bean.Moment;
 
 import java.util.ArrayList;
@@ -39,8 +40,30 @@ public class DataRepository {
 
     public void requestList(MutableLiveData<List<Moment>> liveData) {
         List<Moment> list = new ArrayList<>();
-        list.add(new Moment());
 
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
+
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
+
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
+
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
+
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
+
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
+
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
+
+        list.add(new Moment("刚刚在B站发表了最新一期的视频讲解，感兴趣的小伙伴可前往查阅",
+                "台北夜市一条街", APIs.PIC_URL, "KunMinX", APIs.PIC_URL));
 
         liveData.setValue(list);
     }

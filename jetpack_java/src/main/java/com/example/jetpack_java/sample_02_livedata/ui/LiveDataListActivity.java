@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.sample_01_lifecycles.data.Configs;
+import com.example.jetpack_java.sample_02_livedata.domain.MomentRequest;
 import com.example.jetpack_java.sample_02_livedata.ui.adapter.MomentAdapter;
 import com.kunminx.architecture.ui.BaseActivity;
 
@@ -34,12 +35,15 @@ public class LiveDataListActivity extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private MomentAdapter mMomentAdapter;
+    private MomentRequest mMomentRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_livedata_list);
+
+        mMomentRequest = new MomentRequest();
 
         mRecyclerView = findViewById(R.id.rv);
 
@@ -49,7 +53,11 @@ public class LiveDataListActivity extends BaseActivity {
             startActivity(intent);
         }));
 
+        mMomentRequest.getListMutableLiveData().observe(this, moments -> {
+            mMomentAdapter.setList(moments);
+        });
 
+        mMomentRequest.requestList();
     }
 
 }
