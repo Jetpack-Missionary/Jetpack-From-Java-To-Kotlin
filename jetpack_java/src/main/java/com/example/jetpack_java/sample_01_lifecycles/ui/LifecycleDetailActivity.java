@@ -36,7 +36,7 @@ public class LifecycleDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.layout_activity_detail);
+        setContentView(R.layout.activity_lifecycles_detail);
 
         Glide.with(this).load(APIs.PIC_URL).into((ImageView) findViewById(R.id.iv));
 

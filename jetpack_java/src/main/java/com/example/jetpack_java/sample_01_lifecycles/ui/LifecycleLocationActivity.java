@@ -39,7 +39,7 @@ public class LifecycleLocationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.layout_lifecycles_activity_location);
+        setContentView(R.layout.activity_lifecycles_location);
 
         mRecyclerView = findViewById(R.id.rv);
 
