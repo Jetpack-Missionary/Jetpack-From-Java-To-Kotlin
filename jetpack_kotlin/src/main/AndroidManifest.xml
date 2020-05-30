@@ -4,5 +4,7 @@
     <application>
 
         <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleLocationActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity" />
+
     </application>
 </manifest>
