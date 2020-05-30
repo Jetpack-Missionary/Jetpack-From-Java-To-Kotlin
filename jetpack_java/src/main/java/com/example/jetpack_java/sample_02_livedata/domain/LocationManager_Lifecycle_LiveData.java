@@ -24,6 +24,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.jetpack_java.common_data.bean.LocationBean;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -46,6 +47,8 @@ public class LocationManager_Lifecycle_LiveData implements DefaultLifecycleObser
 
     private MutableLiveData<List<LocationBean>> mLocationBeans = new MutableLiveData<>();
 
+    private List<LocationBean> mList = new ArrayList<>();
+
     public LiveData<List<LocationBean>> getLocationBeans() {
         return mLocationBeans;
     }
@@ -62,8 +65,8 @@ public class LocationManager_Lifecycle_LiveData implements DefaultLifecycleObser
 
                 //模拟定位，假设开启了 GPS 并且每秒获取若干条新的位置信息
 
-                mLocationBeans.getValue().add(new LocationBean("台北夜市 " + System.currentTimeMillis() + " 号"));
-                mLocationBeans.postValue(mLocationBeans.getValue());
+                mList.add(new LocationBean("台北夜市 " + System.currentTimeMillis() + " 号"));
+                mLocationBeans.postValue(mList);
 
                 onResume(owner);
             }
@@ -80,6 +83,6 @@ public class LocationManager_Lifecycle_LiveData implements DefaultLifecycleObser
         mTimer.cancel();
         mTimer = null;
 
-        mLocationBeans.getValue().clear();
+        mList.clear();
     }
 }

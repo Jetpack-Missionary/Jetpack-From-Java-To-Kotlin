@@ -52,7 +52,7 @@ public class LocationActivity_Lifecycle_LiveData extends BaseActivity {
             finish();
         }));
 
-        getLifecycle().addObserver(LocationManager_Lifecycle.getInstance());
+        getLifecycle().addObserver(LocationManager_Lifecycle_LiveData.getInstance());
 
         LocationManager_Lifecycle_LiveData.getInstance().getLocationBeans().observe(this, locationBeans -> {
             mLocationAdapter.setList(locationBeans);
