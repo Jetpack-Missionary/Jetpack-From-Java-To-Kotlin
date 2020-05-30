@@ -18,6 +18,7 @@ package com.example.jetpack_java.sample_02_livedata.ui;
 
 import android.os.Bundle;
 
+import com.example.jetpack_java.R;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
@@ -30,6 +31,8 @@ public class LiveDataListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_livedata_list);
 
 
     }
