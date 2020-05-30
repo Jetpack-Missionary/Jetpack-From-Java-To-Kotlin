@@ -41,6 +41,8 @@ dependencies {
     androidTestImplementation(Testing.androidRunner)
     androidTestImplementation(Testing.espresso)
 
+    implementation project(':architecture')
+
     implementation(AndroidX.appcompat)
     implementation(AndroidX.coreKtx)
 
