@@ -17,7 +17,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   11:20
  * description
  */
-class LifecycleLocationActivity : BaseActivity(R.layout.layout_lifecycles_activity_location), LocationAdapter.OnItemClickListener {
+class LifecycleLocationActivity : BaseActivity(R.layout.activity_lifecycles_location), LocationAdapter.OnItemClickListener {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById

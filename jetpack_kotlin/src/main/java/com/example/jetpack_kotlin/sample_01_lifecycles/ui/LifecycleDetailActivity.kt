@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.jetpack_koltin.R
 import com.example.jetpack_kotlin.sample_01_lifecycles.data.APIs
 import com.example.jetpack_kotlin.sample_01_lifecycles.data.Configs
 import com.kunminx.architecture.ui.BaseActivity
+import com.kunminx.architecture.utils.loadImage
 
 /**
  * @author Flywith24
@@ -16,7 +16,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   11:39
  * description
  */
-class LifecycleDetailActivity : BaseActivity(R.layout.layout_activity_detail) {
+class LifecycleDetailActivity : BaseActivity(R.layout.activity_lifecycles_detail) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -34,7 +34,7 @@ class LifecycleDetailActivity : BaseActivity(R.layout.layout_activity_detail) {
         mTvLocation = findViewById(R.id.tv_locate)
         mImageView = findViewById(R.id.iv)
 
-        Glide.with(this).load(APIs.PIC_URL).into(mImageView)
+        mImageView.loadImage(APIs.PIC_URL)
 
         mTvLocation.setOnClickListener {
             startActivityForResult(Intent(this, LifecycleLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
