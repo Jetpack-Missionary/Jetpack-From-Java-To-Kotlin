@@ -1,15 +1,13 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
+import com.flywith24.version_config.dependencies.Google
 import com.flywith24.version_config.dependencies.Testing
-import com.flywith24.version_config.dependencies.ThirdParty
 
 plugins {
     id "com.flywith24.version"
 }
-
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion BuildConfig.compileSdkVersion
@@ -22,7 +20,7 @@ android {
         versionName BuildConfig.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -31,28 +29,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
+    implementation fileTree(dir: "libs", include: ["*.jar"])
     testImplementation(Testing.jUnit)
     androidTestImplementation(Testing.androidJunit)
     androidTestImplementation(Testing.androidRunner)
     androidTestImplementation(Testing.espresso)
 
-    implementation project(':architecture')
-    implementation project(':common_res')
 
-    implementation(AndroidX.appcompat)
-    implementation(AndroidX.coreKtx)
-    implementation(AndroidX.recyclerView)
     implementation(AndroidX.constraintlayout)
+    implementation(AndroidX.recyclerView)
+    implementation(AndroidX.appcompat)
+    implementation(Google.material)
 
-    implementation(AndroidX.Lifecycle.commonJava8)
-
-    implementation(ThirdParty.Glide.glide)
-    kapt(ThirdParty.Glide.compiler)
 }

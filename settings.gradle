@@ -1,3 +1,4 @@
+include ':common_res'
 includeBuild('version_config')
 include ':app', ':architecture'
 rootProject.name = 'PureMusic'
