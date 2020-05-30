@@ -25,12 +25,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.kunminx.architecture.BaseApplication;
 import com.kunminx.architecture.utils.Utils;
 
 /**
  * Create by KunMinX at 19/10/29
  */
-public class App extends Application implements ViewModelStoreOwner {
+public class App extends BaseApplication implements ViewModelStoreOwner {
 
     private ViewModelStore mAppViewModelStore;
 
