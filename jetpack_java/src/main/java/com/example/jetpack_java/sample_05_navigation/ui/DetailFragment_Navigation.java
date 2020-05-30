@@ -36,6 +36,8 @@ public class DetailFragment_Navigation extends BaseFragment {
 
     private DetailViewModel mDetailViewModel;
 
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

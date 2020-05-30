@@ -18,6 +18,11 @@ package com.example.jetpack_java.sample_05_navigation.ui;
 
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
+
+import com.example.jetpack_java.R;
+import com.example.jetpack_java.databinding.ActivityMainNavigationBinding;
+import com.example.jetpack_java.sample_05_navigation.ui.state.MainViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
@@ -26,16 +31,15 @@ import com.kunminx.architecture.ui.BaseActivity;
 
 public class MainActivity_Navigation extends BaseActivity {
 
-//    private MainActivityViewModel mMainActivityViewModel;
+    private MainViewModel mMainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
+        mMainViewModel = getActivityViewModel(MainViewModel.class);
 
-//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//        binding.setVm(mMainActivityViewModel);
-
+        ActivityMainNavigationBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main_navigation);
+        
     }
 
 }

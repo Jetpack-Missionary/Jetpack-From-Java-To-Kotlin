@@ -54,7 +54,7 @@ public class DataRepository implements ILocalRequest, IRemoteRequest {
         list.add(new GridItem("LiveData", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_02_livedata.ui.EditorActivity_LiveData"));
         list.add(new GridItem("ViewModel", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_03_viewmodel.ui.ListActivity_ViewModel"));
         list.add(new GridItem("DataBinding", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_04_databinding.ui.ListActivity_DataBinding"));
-        list.add(new GridItem("Navigation", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_05_navigation.ui.NavigationMainActivity"));
+        list.add(new GridItem("Navigation", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_05_navigation.ui.MainActivity_Navigation"));
         list.add(new GridItem("Room", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
         list.add(new GridItem("Paging", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
         list.add(new GridItem("XX", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2018-2020 KunMinX
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment_Navigation">
+
+    <fragment
+        android:id="@+id/listFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.ListFragment_Navigation"
+        android:label="ListFragment_Navigation"
+        tools:layout="@layout/fragment_list_navigation">
+        <action
+            android:id="@+id/action_listFragment_Navigation_to_editorFragment_Navigation"
+            app:destination="@id/editorFragment_Navigation" />
+        <action
+            android:id="@+id/action_listFragment_Navigation_to_detailFragment_Navigation"
+            app:destination="@id/detailFragment_Navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.DetailFragment_Navigation"
+        android:label="DetailFragment_Navigation"
+        tools:layout="@layout/fragment_detail_navigation" />
+    <fragment
+        android:id="@+id/editorFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.EditorFragment_Navigation"
+        android:label="EditorFragment_Navigation"
+        tools:layout="@layout/fragment_editor_navigation">
+        <action
+            android:id="@+id/action_editorFragment_Navigation_to_locationFragment_Navigation"
+            app:destination="@id/locationFragment_Navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.LocationFragment_Navigation"
+        android:label="LocationFragment_Navigation"
+        tools:layout="@layout/fragment_location_navigation" />
+</navigation>
