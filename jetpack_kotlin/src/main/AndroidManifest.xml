@@ -5,8 +5,8 @@
     <application>
         <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleLocationActivity" />
         <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleEditorActivity" />
-        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataListActivity" />
-        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataDetailActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataLocationActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataEditorActivity" />
 
     </application>
 
