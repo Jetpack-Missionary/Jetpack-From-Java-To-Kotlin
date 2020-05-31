@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.bean.Moment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Create by KunMinX at 2020/5/29
@@ -54,6 +58,11 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
         });
         this.mContext = context;
         this.mListener = listener;
+    }
+
+    @Override
+    public void submitList(@Nullable List<Moment> list) {
+        super.submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
     }
 
     @NonNull

@@ -48,7 +48,6 @@ public class LiveDataLocationManager implements DefaultLifecycleObserver {
     private MutableLiveData<List<LocationBean>> mLocationBeans = new MutableLiveData<>();
 
     private List<LocationBean> mList = new ArrayList<>();
-    private List<LocationBean> mNewList;
 
     public LiveData<List<LocationBean>> getLocationBeans() {
         return mLocationBeans;
@@ -67,8 +66,7 @@ public class LiveDataLocationManager implements DefaultLifecycleObserver {
                 //模拟定位，假设开启了 GPS 并且每秒获取若干条新的位置信息
 
                 mList.add(new LocationBean("台北夜市 " + System.currentTimeMillis() + " 号"));
-                mNewList = new ArrayList<>(mList);
-                mLocationBeans.postValue(mNewList);
+                mLocationBeans.postValue(mList);
 
                 onResume(owner);
             }
