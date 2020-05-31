@@ -5,6 +5,7 @@ package com.kunminx.puremusic.data.bean;
  */
 public class GridItem {
 
+    private String uuid;
     private String title;
     private int drawable;
     private String packageName;
@@ -13,16 +14,20 @@ public class GridItem {
     public GridItem() {
     }
 
-    public GridItem(String title, int drawable) {
-        this.title = title;
-        this.drawable = drawable;
-    }
-
-    public GridItem(String title, int drawable, String packageName, String activityPath) {
+    public GridItem(String uuid, String title, int drawable, String packageName, String activityPath) {
+        this.uuid = uuid;
         this.title = title;
         this.drawable = drawable;
         this.packageName = packageName;
         this.activityPath = activityPath;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getTitle() {

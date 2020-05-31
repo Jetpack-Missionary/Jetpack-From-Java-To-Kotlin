@@ -42,7 +42,7 @@ public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.V
         super(new DiffUtil.ItemCallback<LocationBean>() {
             @Override
             public boolean areItemsTheSame(@NonNull LocationBean oldItem, @NonNull LocationBean newItem) {
-                return oldItem.getLocationName().equals(newItem.getLocationName());
+                return oldItem.equals(newItem);
             }
 
             @Override
@@ -61,7 +61,7 @@ public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.V
         ViewHolder holder = new ViewHolder(view);
         holder.itemView.setOnClickListener(v -> {
             if (mListener != null) {
-                mListener.onItemClick(getItem(holder.getAbsoluteAdapterPosition()));
+                mListener.onItemClick(getItem(holder.getBindingAdapterPosition()));
             }
         });
         return holder;
@@ -70,11 +70,6 @@ public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mTvTitle.setText(getItem(position).getLocationName());
-    }
-
-    @Override
-    public int getItemCount() {
-        return getCurrentList().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

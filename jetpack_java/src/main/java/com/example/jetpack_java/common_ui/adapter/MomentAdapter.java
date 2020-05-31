@@ -44,16 +44,12 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
         super(new DiffUtil.ItemCallback<Moment>() {
             @Override
             public boolean areItemsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.getUuid().equals(newItem.getUuid());
+                return oldItem.equals(newItem);
             }
 
             @Override
             public boolean areContentsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.getUserName().equals(newItem.getUserName())
-                        && oldItem.getContent().equals(newItem.getContent())
-                        && oldItem.getLocation().equals(newItem.getLocation())
-                        && oldItem.getImgUrl().equals(newItem.getImgUrl())
-                        && oldItem.getUserAvatar().equals(newItem.getUserAvatar());
+                return oldItem.getUuid().equals(newItem.getUuid());
             }
         });
         this.mContext = context;
@@ -67,7 +63,7 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
         ViewHolder holder = new ViewHolder(view);
         holder.itemView.setOnClickListener(v -> {
             if (mListener != null) {
-                mListener.onItemClick(getItem(holder.getAbsoluteAdapterPosition()));
+                mListener.onItemClick(getItem(holder.getBindingAdapterPosition()));
             }
         });
         return holder;
@@ -89,11 +85,6 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
                 mListener.onItemClick(moment);
             }
         });
-    }
-
-    @Override
-    public int getItemCount() {
-        return getCurrentList().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
