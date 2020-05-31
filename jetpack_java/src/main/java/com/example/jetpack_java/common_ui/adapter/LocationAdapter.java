@@ -61,7 +61,7 @@ public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.V
     @Override
     public void submitList(@Nullable List<LocationBean> list) {
         super.submitList(list, () -> {
-            submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
+            super.submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
         });
     }
 
