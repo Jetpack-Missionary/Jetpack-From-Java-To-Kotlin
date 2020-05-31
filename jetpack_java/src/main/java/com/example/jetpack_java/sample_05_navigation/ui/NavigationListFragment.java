@@ -23,16 +23,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.Configs;
-import com.example.jetpack_java.common_data.bean.Moment;
-import com.example.jetpack_java.databinding.AdapterMomentDatabindingBinding;
 import com.example.jetpack_java.databinding.FragmentListNavigationBinding;
+import com.example.jetpack_java.sample_04_databinding.ui.adapter.DataBindingMomentAdapter;
 import com.example.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
 import com.kunminx.architecture.ui.BaseFragment;
-import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 
 /**
  * Create by KunMinX at 2020/5/30
@@ -55,17 +52,14 @@ public class NavigationListFragment extends BaseFragment {
         binding.setLifecycleOwner(this);
         binding.setVm(mListViewModel);
         binding.setClick(new ClickProxy());
-        binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding>(mActivity.getApplicationContext(), R.layout.adapter_moment_databinding) {
-            @Override
-            protected void onSimpleBindItem(AdapterMomentDatabindingBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
-                binding.setMoment(moment);
-                binding.getRoot().setOnClickListener(v -> {
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable(Configs.THIS_MOMENT, moment);
-                    nav().navigate(R.id.action_listFragment_Navigation_to_detailFragment_Navigation, bundle);
-                });
-            }
-        });
+
+        DataBindingMomentAdapter adapter = new DataBindingMomentAdapter(mActivity.getApplicationContext());
+        adapter.setOnItemClickListener(((item, position) -> {
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(Configs.THIS_MOMENT, item);
+            nav().navigate(R.id.action_listFragment_Navigation_to_detailFragment_Navigation, bundle);
+        }));
+        binding.setAdapter(adapter);
 
         return view;
     }

@@ -25,7 +25,7 @@
 
         <variable
             name="adapter"
-            type="com.kunminx.architecture.ui.adapter.SimpleBindingAdapter" />
+            type="androidx.recyclerview.widget.ListAdapter" />
 
         <variable
             name="click"

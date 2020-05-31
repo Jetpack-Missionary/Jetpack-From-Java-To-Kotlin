@@ -24,7 +24,7 @@
 
         <variable
             name="adapter"
-            type="com.kunminx.architecture.ui.adapter.SimpleBindingAdapter" />
+            type="androidx.recyclerview.widget.ListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

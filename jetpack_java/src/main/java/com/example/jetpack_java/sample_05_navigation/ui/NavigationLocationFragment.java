@@ -16,6 +16,7 @@
 
 package com.example.jetpack_java.sample_05_navigation.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +27,12 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
+import com.example.jetpack_java.common_data.Configs;
 import com.example.jetpack_java.common_data.bean.LocationBean;
 import com.example.jetpack_java.databinding.AdapterLocationDatabindingBinding;
 import com.example.jetpack_java.databinding.FragmentLocationNavigationBinding;
 import com.example.jetpack_java.sample_02_livedata.domain.LiveDataLocationManager;
+import com.example.jetpack_java.sample_04_databinding.ui.adapter.DataBindingLocationAdapter;
 import com.example.jetpack_java.sample_04_databinding.ui.state.LocationViewModel;
 import com.example.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel;
 import com.kunminx.architecture.ui.BaseFragment;
@@ -57,16 +60,13 @@ public class NavigationLocationFragment extends BaseFragment {
         FragmentLocationNavigationBinding binding = FragmentLocationNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
         binding.setVm(mLocationViewModel);
-        binding.setAdapter(new SimpleBindingAdapter<LocationBean, AdapterLocationDatabindingBinding>(mActivity.getApplicationContext(), R.layout.adapter_location_databinding) {
-            @Override
-            protected void onSimpleBindItem(AdapterLocationDatabindingBinding binding, LocationBean item, RecyclerView.ViewHolder holder) {
-                binding.setBean(item);
-                binding.getRoot().setOnClickListener(v -> {
-                    mSharedViewModel.location.setValue(item.getLocationName());
-                    nav().navigateUp();
-                });
-            }
-        });
+
+        DataBindingLocationAdapter adapter = new DataBindingLocationAdapter(mActivity.getApplicationContext());
+        adapter.setOnItemClickListener(((item, position) -> {
+            mSharedViewModel.location.setValue(item.getLocationName());
+            nav().navigateUp();
+        }));
+        binding.setAdapter(adapter);
 
         return view;
     }

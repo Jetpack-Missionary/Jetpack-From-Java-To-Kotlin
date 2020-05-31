@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.kunminx.puremusic.ui.adapter;
+package com.example.jetpack_java.sample_04_databinding.ui.adapter;
 
 import android.content.Context;
 
@@ -22,32 +22,32 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.jetpack_java.R;
+import com.example.jetpack_java.common_data.bean.Moment;
+import com.example.jetpack_java.databinding.AdapterMomentDatabindingBinding;
 import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
-import com.kunminx.puremusic.R;
-import com.kunminx.puremusic.data.bean.GridItem;
-import com.kunminx.puremusic.databinding.AdapterGridItemBinding;
 
 /**
- * Create by KunMinX at 20/4/19
+ * Create by KunMinX at 2020/5/31
  */
-public class GridItemAdapter extends SimpleBindingAdapter<GridItem, AdapterGridItemBinding> {
+public class DataBindingMomentAdapter extends SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding> {
 
-    public GridItemAdapter(Context context) {
-        super(context, R.layout.adapter_grid_item, new DiffUtil.ItemCallback<GridItem>() {
+    public DataBindingMomentAdapter(Context context) {
+        super(context, R.layout.adapter_moment_databinding, new DiffUtil.ItemCallback<Moment>() {
             @Override
-            public boolean areItemsTheSame(@NonNull GridItem oldItem, @NonNull GridItem newItem) {
+            public boolean areItemsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
                 return oldItem.equals(newItem);
             }
 
             @Override
-            public boolean areContentsTheSame(@NonNull GridItem oldItem, @NonNull GridItem newItem) {
+            public boolean areContentsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
                 return oldItem.getUuid().equals(newItem.getUuid());
             }
         });
     }
 
     @Override
-    protected void onBindItem(AdapterGridItemBinding binding, GridItem item, RecyclerView.ViewHolder holder) {
-        binding.setItem(item);
+    protected void onBindItem(AdapterMomentDatabindingBinding binding, Moment item, RecyclerView.ViewHolder holder) {
+        binding.setMoment(item);
     }
 }

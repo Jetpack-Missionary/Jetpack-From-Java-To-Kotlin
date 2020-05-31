@@ -20,16 +20,13 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.Configs;
-import com.example.jetpack_java.common_data.bean.Moment;
 import com.example.jetpack_java.databinding.ActivityListDatabindingBinding;
-import com.example.jetpack_java.databinding.AdapterMomentDatabindingBinding;
+import com.example.jetpack_java.sample_04_databinding.ui.adapter.DataBindingMomentAdapter;
 import com.example.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
-import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -50,17 +47,13 @@ public class DataBindingListActivity extends BaseActivity {
         binding.setVm(mListViewModel);
         binding.setClick(new ClickProxy());
 
-        binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding>(getApplicationContext(), R.layout.adapter_moment_databinding) {
-            @Override
-            protected void onSimpleBindItem(AdapterMomentDatabindingBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
-                binding.setMoment(moment);
-                binding.getRoot().setOnClickListener(v -> {
-                    Intent intent = new Intent(DataBindingListActivity.this, DataBindingDetailActivity.class);
-                    intent.putExtra(Configs.THIS_MOMENT, moment);
-                    startActivity(intent);
-                });
-            }
-        });
+        DataBindingMomentAdapter adapter = new DataBindingMomentAdapter(getApplicationContext());
+        adapter.setOnItemClickListener(((item, position) -> {
+            Intent intent = new Intent(DataBindingListActivity.this, DataBindingDetailActivity.class);
+            intent.putExtra(Configs.THIS_MOMENT, item);
+            startActivity(intent);
+        }));
+        binding.setAdapter(adapter);
 
         mListViewModel.getListMutableLiveData().observe(this, moments -> {
             mListViewModel.list.setValue(moments);

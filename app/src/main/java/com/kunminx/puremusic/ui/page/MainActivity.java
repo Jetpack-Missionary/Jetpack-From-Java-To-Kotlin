@@ -45,17 +45,21 @@ public class MainActivity extends BaseActivity {
         binding.setVm(mMainActivityViewModel);
         binding.setClick(new ClickProxy());
 
-        binding.setAdapterJava(new GridItemAdapter(getApplicationContext(), item -> {
+        GridItemAdapter adapterJava = new GridItemAdapter(getApplicationContext());
+        adapterJava.setOnItemClickListener((item, position) -> {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(item.getPackageName(), item.getActivityPath()));
             startActivity(intent);
-        }));
+        });
+        binding.setAdapterJava(adapterJava);
 
-        binding.setAdapterKotlin(new GridItemAdapter(getApplicationContext(), item -> {
+        GridItemAdapter adapterKotlin = new GridItemAdapter(getApplicationContext());
+        adapterKotlin.setOnItemClickListener(((item, position) -> {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(item.getPackageName(), item.getActivityPath()));
             startActivity(intent);
         }));
+        binding.setAdapterKotlin(adapterKotlin);
 
         mMainActivityViewModel.getJavaItemsLiveData().observe(this, gridItems -> {
             mMainActivityViewModel.javaList.setValue(gridItems);
