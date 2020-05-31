@@ -69,5 +69,7 @@ public class NavigationEditorFragment extends BaseFragment {
         public void locate() {
             nav().navigate(R.id.action_editorFragment_Navigation_to_locationFragment_Navigation);
         }
+
+        public void addPic(){}
     }
 }
