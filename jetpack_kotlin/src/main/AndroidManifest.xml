@@ -4,9 +4,10 @@
 
     <application>
         <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleLocationActivity" />
-        <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity" />
-        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataListActivity" />
-        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataDetailActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleEditorActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataLocationActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataEditorActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_03_viewmodel.ui.ViewModelListActivity" />
 
     </application>
 

@@ -13,7 +13,7 @@ import kotlin.concurrent.timerTask
  * time   12:23
  * description
  */
-class LocationManagerLifecycle private constructor() : DefaultLifecycleObserver {
+class LifecycleLocationManager private constructor() : DefaultLifecycleObserver {
     private var mTimer: Timer? = null
     private var mLocationBeans = ArrayList<LocationBean>()
 
@@ -39,7 +39,7 @@ class LocationManagerLifecycle private constructor() : DefaultLifecycleObserver 
             onResume(owner)
         }
 
-        mTimer?.schedule(task, 1000)
+        mTimer?.schedule(task, 250)
     }
 
     override fun onPause(owner: LifecycleOwner) {
@@ -52,8 +52,8 @@ class LocationManagerLifecycle private constructor() : DefaultLifecycleObserver 
     }
 
     companion object {
-        private val sManager = LocationManagerLifecycle()
-        fun newInstance(): LocationManagerLifecycle = sManager
+        private val sManager = LifecycleLocationManager()
+        fun getInstance(): LifecycleLocationManager = sManager
     }
 
     interface ILocationCallback {

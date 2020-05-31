@@ -1,4 +1,4 @@
-package com.example.jetpack_kotlin.sample_01_lifecycles.ui
+package com.example.jetpack_kotlin.sample_02_livedata.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,10 +13,10 @@ import com.kunminx.architecture.utils.loadImage
 /**
  * @author Flywith24
  * @date   2020/5/30
- * time   11:39
+ * time   20:31
  * description
  */
-class LifecycleDetailActivity : BaseActivity(R.layout.activity_lifecycles_detail) {
+class LiveDataEditorActivity : BaseActivity(R.layout.activity_livedata_detail) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -25,25 +25,24 @@ class LifecycleDetailActivity : BaseActivity(R.layout.activity_lifecycles_detail
      *
      * 详情参考 https://juejin.im/post/5e8ef0bc518825736b749705#heading-17
      */
-    private lateinit var mTvLocation: TextView
     private lateinit var mImageView: ImageView
+    private lateinit var mTvLocation: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        mTvLocation = findViewById(R.id.tv_locate)
         mImageView = findViewById(R.id.iv)
+        mTvLocation = findViewById(R.id.tv_locate)
 
         mImageView.loadImage(APIs.PIC_URL)
 
         mTvLocation.setOnClickListener {
-            startActivityForResult(Intent(this, LifecycleLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
+            startActivityForResult(Intent(this, LiveDataLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when (resultCode) {
+        when (requestCode) {
             Configs.REQUEST_LOCATION_INFO -> {
                 val location = data?.getStringExtra(Configs.LOCATION_RESULT)
                 mTvLocation.text = location

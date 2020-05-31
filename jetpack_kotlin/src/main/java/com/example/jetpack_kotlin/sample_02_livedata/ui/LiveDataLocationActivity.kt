@@ -1,23 +1,24 @@
-package com.example.jetpack_kotlin.sample_01_lifecycles.ui
+package com.example.jetpack_kotlin.sample_02_livedata.ui
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpack_koltin.R
 import com.example.jetpack_kotlin.common_data.Configs
 import com.example.jetpack_kotlin.common_data.bean.LocationBean
 import com.example.jetpack_kotlin.common_ui.adapter.LocationAdapter
-import com.example.jetpack_kotlin.sample_01_lifecycles.domain.LifecycleLocationManager
+import com.example.jetpack_kotlin.sample_02_livedata.domain.LiveDataLocationManager
 import com.kunminx.architecture.ui.BaseActivity
 
 /**
  * @author Flywith24
  * @date   2020/5/30
- * time   11:20
+ * time   20:31
  * description
  */
-class LifecycleLocationActivity : BaseActivity(R.layout.activity_lifecycles_location), LocationAdapter.OnItemClickListener {
+class LiveDataLocationActivity : BaseActivity(R.layout.activity_livedata_list), LocationAdapter.OnItemClickListener {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -27,19 +28,18 @@ class LifecycleLocationActivity : BaseActivity(R.layout.activity_lifecycles_loca
      * 详情参考 https://juejin.im/post/5e8ef0bc518825736b749705#heading-17
      */
     private lateinit var mRecyclerView: RecyclerView
-    private val mAdapter by lazy { LocationAdapter(this) }
+    private val mAdapter: LocationAdapter by lazy { LocationAdapter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         mRecyclerView = findViewById(R.id.rv)
         mRecyclerView.adapter = mAdapter
 
-        lifecycle.addObserver(LifecycleLocationManager.getInstance())
+        lifecycle.addObserver(LiveDataLocationManager.getInstance())
 
-        LifecycleLocationManager.getInstance().setILocationCallback { list ->
-            runOnUiThread {
-                mAdapter.submitList(list)
-            }
+        LiveDataLocationManager.getInstance().getLocationBeans().observe(this) { list ->
+            mAdapter.submitList(list)
         }
     }
 
