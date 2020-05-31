@@ -1,5 +1,6 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
+import com.flywith24.version_config.dependencies.Google
 import com.flywith24.version_config.dependencies.Testing
 import com.flywith24.version_config.dependencies.ThirdParty
 
@@ -60,6 +61,8 @@ dependencies {
     implementation(AndroidX.Lifecycle.commonJava8)
     implementation(AndroidX.Lifecycle.liveDataKtx)
     implementation(AndroidX.Lifecycle.viewModelKtx)
+
+    implementation(Google.material)
 
     implementation(ThirdParty.Glide.glide)
     kapt(ThirdParty.Glide.compiler)
