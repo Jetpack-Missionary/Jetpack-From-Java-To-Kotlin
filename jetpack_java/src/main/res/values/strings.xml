@@ -18,4 +18,5 @@
 <resources>
 
     <string name="tip_of_enter_moment">请输入动态</string>
+    <string name="viewmodel_item_click_tip">本模块点击不作跳转，下一个模块支持跳转</string>
 </resources>

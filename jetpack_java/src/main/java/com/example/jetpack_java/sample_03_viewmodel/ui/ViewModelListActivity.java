@@ -45,7 +45,7 @@ public class ViewModelListActivity extends BaseActivity {
         mRecyclerView = findViewById(R.id.rv);
 
         mRecyclerView.setAdapter(mMomentAdapter = new MomentAdapter(getApplicationContext(), moment -> {
-
+            showLongToast(getString(R.string.viewmodel_item_click_tip));
         }));
 
         mListViewModel.getListMutableLiveData().observe(this, moments -> {
