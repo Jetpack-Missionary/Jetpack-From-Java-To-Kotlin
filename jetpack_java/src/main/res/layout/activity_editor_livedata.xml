@@ -65,7 +65,7 @@
         android:paddingRight="12dp"
         android:paddingBottom="4dp"
         android:text="@string/location_empty"
-        android:textColor="#1E90FF"
+        android:textColor="@color/blue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv" />
 

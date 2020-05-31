@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lifecycle_hint">测试 Lifecycles，请点击 \'添加定位\'</string>
-    <string name="location_empty">没有定位</string>
+    <string name="location_empty">添加定位</string>
     <string name="choose_location">选择位置</string>
     <string name="image">image</string>
     <string name="location">位置</string>

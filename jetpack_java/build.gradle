@@ -84,4 +84,6 @@ dependencies {
 //    implementation(ThirdParty.materialiconlib)
     implementation(ThirdParty.Glide.glide)
     annotationProcessor(ThirdParty.Glide.compiler)
+
+    implementation(ThirdParty.roundedImageView)
 }

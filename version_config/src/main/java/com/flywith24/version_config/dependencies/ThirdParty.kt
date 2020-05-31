@@ -18,4 +18,7 @@ object ThirdParty {
         const val glide = "com.github.bumptech.glide:glide:$glide_version"
         const val compiler = "com.github.bumptech.glide:compiler:$glide_version"
     }
+
+    const val roundedImageView = "com.makeramen:roundedimageview:2.3.0"
+
 }
