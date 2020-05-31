@@ -55,6 +55,8 @@ dependencies {
     implementation(AndroidX.recyclerView)
     implementation(AndroidX.constraintlayout)
 
+    implementation(AndroidX.Fragment.fragmentKtx)
+
     implementation(AndroidX.Lifecycle.commonJava8)
     implementation(AndroidX.Lifecycle.liveDataKtx)
     implementation(AndroidX.Lifecycle.viewModelKtx)
