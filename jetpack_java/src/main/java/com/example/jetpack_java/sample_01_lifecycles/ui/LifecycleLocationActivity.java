@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.common_data.Configs;
-import com.example.jetpack_java.sample_01_lifecycles.domain.LocationManager_Lifecycle;
+import com.example.jetpack_java.sample_01_lifecycles.domain.LifecycleLocationManager;
 import com.example.jetpack_java.common_ui.adapter.LocationAdapter;
 import com.kunminx.architecture.ui.BaseActivity;
 
@@ -31,7 +31,7 @@ import com.kunminx.architecture.ui.BaseActivity;
  * Create by KunMinX at 19/10/16
  */
 
-public class LocationActivity_Lifecycle extends BaseActivity {
+public class LifecycleLocationActivity extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private LocationAdapter mLocationAdapter;
@@ -51,9 +51,9 @@ public class LocationActivity_Lifecycle extends BaseActivity {
             finish();
         }));
 
-        getLifecycle().addObserver(LocationManager_Lifecycle.getInstance());
+        getLifecycle().addObserver(LifecycleLocationManager.getInstance());
 
-        LocationManager_Lifecycle.getInstance().setILocationCallback(list -> {
+        LifecycleLocationManager.getInstance().setILocationCallback(list -> {
             runOnUiThread(() -> {
                 mLocationAdapter.submitList(list);
                 mLocationAdapter.notifyDataSetChanged();

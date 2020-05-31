@@ -27,7 +27,7 @@ import com.example.jetpack_java.common_data.Configs;
 import com.example.jetpack_java.common_data.bean.LocationBean;
 import com.example.jetpack_java.databinding.ActivityLocationDatabindingBinding;
 import com.example.jetpack_java.databinding.AdapterLocationDatabindingBinding;
-import com.example.jetpack_java.sample_02_livedata.domain.LocationManager_LiveData;
+import com.example.jetpack_java.sample_02_livedata.domain.LiveDataLocationManager;
 import com.example.jetpack_java.sample_04_databinding.ui.state.LocationViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
@@ -36,7 +36,7 @@ import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
  * Create by KunMinX at 19/10/16
  */
 
-public class LocationActivity_DataBinding extends BaseActivity {
+public class DataBindingLocationActivity extends BaseActivity {
 
     private LocationViewModel mLocationViewModel;
 
@@ -62,9 +62,9 @@ public class LocationActivity_DataBinding extends BaseActivity {
             }
         });
 
-        getLifecycle().addObserver(LocationManager_LiveData.getInstance());
+        getLifecycle().addObserver(LiveDataLocationManager.getInstance());
 
-        LocationManager_LiveData.getInstance().getLocationBeans().observe(this, locationBeans -> {
+        LiveDataLocationManager.getInstance().getLocationBeans().observe(this, locationBeans -> {
             mLocationViewModel.list.setValue(locationBeans);
         });
     }

@@ -35,7 +35,7 @@ import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
  * Create by KunMinX at 19/10/16
  */
 
-public class ListActivity_DataBinding extends BaseActivity {
+public class DataBindingListActivity extends BaseActivity {
 
     private ListViewModel mListViewModel;
 
@@ -55,7 +55,7 @@ public class ListActivity_DataBinding extends BaseActivity {
             protected void onSimpleBindItem(AdapterMomentDatabindingBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
                 binding.setMoment(moment);
                 binding.getRoot().setOnClickListener(v -> {
-                    Intent intent = new Intent(ListActivity_DataBinding.this, DetailActivity_DataBinding.class);
+                    Intent intent = new Intent(DataBindingListActivity.this, DataBindingDetailActivity.class);
                     intent.putExtra(Configs.THIS_MOMENT, moment);
                     startActivity(intent);
                 });
@@ -71,7 +71,7 @@ public class ListActivity_DataBinding extends BaseActivity {
 
     public class ClickProxy {
         public void fabClick() {
-            Intent intent = new Intent(ListActivity_DataBinding.this, EditorActivity_DataBinding.class);
+            Intent intent = new Intent(DataBindingListActivity.this, DataBindingEditorActivity.class);
             startActivity(intent);
         }
     }

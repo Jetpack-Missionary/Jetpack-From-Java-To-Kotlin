@@ -14,58 +14,56 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_04_databinding.ui;
+package com.example.jetpack_java.sample_01_lifecycles.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 
+import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
+import com.example.jetpack_java.common_data.APIs;
 import com.example.jetpack_java.common_data.Configs;
-import com.example.jetpack_java.common_data.bean.Moment;
-import com.example.jetpack_java.databinding.ActivityEditorDatabindingBinding;
-import com.example.jetpack_java.sample_02_livedata.ui.LocationActivity_LiveData;
-import com.example.jetpack_java.sample_04_databinding.ui.state.EditorViewModel;
 import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
  */
 
-public class EditorActivity_DataBinding extends BaseActivity {
+public class LifecycleEditorActivity extends BaseActivity {
 
-    private EditorViewModel mEditorViewModel;
+    private TextView mTvLocation;
+    private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEditorViewModel = getActivityViewModel(EditorViewModel.class);
 
-        ActivityEditorDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_editor_databinding);
-        binding.setLifecycleOwner(this);
-        binding.setVm(mEditorViewModel);
-        binding.setClick(new ClickProxy());
+        setContentView(R.layout.activity_editor_lifecycle);
 
-    }
+        mTvLocation = findViewById(R.id.tv_locate);
+        mImageView = findViewById(R.id.iv);
 
-    public class ClickProxy {
-        public void locate() {
-            Intent intent = new Intent(EditorActivity_DataBinding.this, LocationActivity_DataBinding.class);
+        Glide.with(this).load(APIs.PIC_URL).into(mImageView);
+
+        mTvLocation.setOnClickListener(v -> {
+            Intent intent = new Intent(this, LifecycleLocationActivity.class);
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
-        }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(data==null){
+        if (data == null) {
             return;
         }
         if (requestCode == Configs.REQUEST_LOCATION_INFO) {
             String location = data.getStringExtra(Configs.LOCATION_RESULT);
-            mEditorViewModel.location.set(location);
+            mTvLocation.setText(location);
         }
     }
 }

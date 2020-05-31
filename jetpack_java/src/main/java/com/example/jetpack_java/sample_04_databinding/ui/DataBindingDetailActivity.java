@@ -31,7 +31,7 @@ import com.kunminx.architecture.ui.BaseActivity;
  * Create by KunMinX at 19/10/16
  */
 
-public class DetailActivity_DataBinding extends BaseActivity {
+public class DataBindingDetailActivity extends BaseActivity {
 
     private DetailViewModel mDetailViewModel;
 

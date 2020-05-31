@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/listFragment_Navigation"
-        android:name="com.example.jetpack_java.sample_05_navigation.ui.ListFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.NavigationListFragment"
         android:label="ListFragment_Navigation"
         tools:layout="@layout/fragment_list_navigation">
         <action
@@ -34,12 +34,12 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment_Navigation"
-        android:name="com.example.jetpack_java.sample_05_navigation.ui.DetailFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.NavigationDetailFragment"
         android:label="DetailFragment_Navigation"
         tools:layout="@layout/fragment_detail_navigation" />
     <fragment
         android:id="@+id/editorFragment_Navigation"
-        android:name="com.example.jetpack_java.sample_05_navigation.ui.EditorFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.NavigationEditorFragment"
         android:label="EditorFragment_Navigation"
         tools:layout="@layout/fragment_editor_navigation">
         <action
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/locationFragment_Navigation"
-        android:name="com.example.jetpack_java.sample_05_navigation.ui.LocationFragment_Navigation"
+        android:name="com.example.jetpack_java.sample_05_navigation.ui.NavigationLocationFragment"
         android:label="LocationFragment_Navigation"
         tools:layout="@layout/fragment_location_navigation" />
 </navigation>

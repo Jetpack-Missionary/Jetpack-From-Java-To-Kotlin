@@ -33,7 +33,7 @@ import com.kunminx.architecture.ui.BaseFragment;
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class EditorFragment_Navigation extends BaseFragment {
+public class NavigationEditorFragment extends BaseFragment {
 
     private EditorViewModel mEditorViewModel;
     private SharedViewModel mSharedViewModel;

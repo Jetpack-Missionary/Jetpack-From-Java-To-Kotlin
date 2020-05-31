@@ -26,44 +26,43 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jetpack_java.R;
-import com.example.jetpack_java.common_data.bean.LocationBean;
-import com.example.jetpack_java.databinding.AdapterLocationDatabindingBinding;
-import com.example.jetpack_java.databinding.FragmentLocationNavigationBinding;
-import com.example.jetpack_java.sample_02_livedata.domain.LocationManager_LiveData;
-import com.example.jetpack_java.sample_04_databinding.ui.state.LocationViewModel;
-import com.example.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel;
+import com.example.jetpack_java.common_data.Configs;
+import com.example.jetpack_java.common_data.bean.Moment;
+import com.example.jetpack_java.databinding.AdapterMomentDatabindingBinding;
+import com.example.jetpack_java.databinding.FragmentListNavigationBinding;
+import com.example.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
 import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class LocationFragment_Navigation extends BaseFragment {
+public class NavigationListFragment extends BaseFragment {
 
-    private LocationViewModel mLocationViewModel;
-    private SharedViewModel mSharedViewModel;
+    private ListViewModel mListViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLocationViewModel = getFragmentViewModel(LocationViewModel.class);
-        mSharedViewModel = getActivityViewModel(SharedViewModel.class);
+        mListViewModel = getFragmentViewModel(ListViewModel.class);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_location_navigation, container, false);
-        FragmentLocationNavigationBinding binding = FragmentLocationNavigationBinding.bind(view);
+        View view = inflater.inflate(R.layout.fragment_list_navigation, container, false);
+        FragmentListNavigationBinding binding = FragmentListNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
-        binding.setVm(mLocationViewModel);
-        binding.setAdapter(new SimpleBindingAdapter<LocationBean, AdapterLocationDatabindingBinding>(mActivity.getApplicationContext(), R.layout.adapter_location_databinding) {
+        binding.setVm(mListViewModel);
+        binding.setClick(new ClickProxy());
+        binding.setAdapter(new SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding>(mActivity.getApplicationContext(), R.layout.adapter_moment_databinding) {
             @Override
-            protected void onSimpleBindItem(AdapterLocationDatabindingBinding binding, LocationBean item, RecyclerView.ViewHolder holder) {
-                binding.setBean(item);
+            protected void onSimpleBindItem(AdapterMomentDatabindingBinding binding, Moment moment, RecyclerView.ViewHolder holder) {
+                binding.setMoment(moment);
                 binding.getRoot().setOnClickListener(v -> {
-                    mSharedViewModel.location.setValue(item.getLocationName());
-                    nav().navigateUp();
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable(Configs.THIS_MOMENT, moment);
+                    nav().navigate(R.id.action_listFragment_Navigation_to_detailFragment_Navigation, bundle);
                 });
             }
         });
@@ -75,10 +74,16 @@ public class LocationFragment_Navigation extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getLifecycle().addObserver(LocationManager_LiveData.getInstance());
-
-        LocationManager_LiveData.getInstance().getLocationBeans().observe(getViewLifecycleOwner(), locationBeans -> {
-            mLocationViewModel.list.setValue(locationBeans);
+        mListViewModel.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
+            mListViewModel.list.setValue(moments);
         });
+
+        mListViewModel.requestList();
+    }
+
+    public class ClickProxy {
+        public void fabClick() {
+            nav().navigate(R.id.action_listFragment_Navigation_to_editorFragment_Navigation);
+        }
     }
 }

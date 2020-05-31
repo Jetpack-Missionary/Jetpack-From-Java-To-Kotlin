@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpack_java.sample_01_lifecycles.ui;
+package com.example.jetpack_java.sample_02_livedata.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +33,7 @@ import com.kunminx.architecture.ui.BaseActivity;
  * Create by KunMinX at 19/10/16
  */
 
-public class EditorActivity_Lifecycle extends BaseActivity {
+public class LiveDataEditorActivity extends BaseActivity {
 
     private TextView mTvLocation;
     private ImageView mImageView;
@@ -42,7 +42,7 @@ public class EditorActivity_Lifecycle extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_editor_lifecycle);
+        setContentView(R.layout.activity_editor_livedata);
 
         mTvLocation = findViewById(R.id.tv_locate);
         mImageView = findViewById(R.id.iv);
@@ -50,7 +50,7 @@ public class EditorActivity_Lifecycle extends BaseActivity {
         Glide.with(this).load(APIs.PIC_URL).into(mImageView);
 
         mTvLocation.setOnClickListener(v -> {
-            Intent intent = new Intent(this, LocationActivity_Lifecycle.class);
+            Intent intent = new Intent(this, LiveDataLocationActivity.class);
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         });
     }

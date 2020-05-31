@@ -29,7 +29,7 @@ import com.kunminx.architecture.ui.BaseActivity;
  * Create by KunMinX at 19/10/16
  */
 
-public class ListActivity_ViewModel extends BaseActivity {
+public class ViewModelListActivity extends BaseActivity {
 
     private ListViewModel mListViewModel;
     private RecyclerView mRecyclerView;

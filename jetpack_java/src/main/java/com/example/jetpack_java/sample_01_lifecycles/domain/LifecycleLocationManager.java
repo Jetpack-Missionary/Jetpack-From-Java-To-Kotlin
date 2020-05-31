@@ -30,17 +30,17 @@ import java.util.TimerTask;
 /**
  * Create by KunMinX at 2020/5/30
  */
-public class LocationManager_Lifecycle implements DefaultLifecycleObserver {
+public class LifecycleLocationManager implements DefaultLifecycleObserver {
 
-    private static LocationManager_Lifecycle sManager = new LocationManager_Lifecycle();
+    private static LifecycleLocationManager sManager = new LifecycleLocationManager();
 
     private Timer mTimer;
 
-    public static LocationManager_Lifecycle getInstance() {
+    public static LifecycleLocationManager getInstance() {
         return sManager;
     }
 
-    private LocationManager_Lifecycle() {
+    private LifecycleLocationManager() {
     }
 
     private List<LocationBean> mLocationBeans = new ArrayList<>();
