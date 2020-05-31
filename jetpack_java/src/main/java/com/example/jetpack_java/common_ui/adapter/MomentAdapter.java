@@ -44,12 +44,13 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
         super(new DiffUtil.ItemCallback<Moment>() {
             @Override
             public boolean areItemsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.getUserName().equals(newItem.getUserName());
+                return oldItem.getUuid().equals(newItem.getUuid());
             }
 
             @Override
             public boolean areContentsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.getContent().equals(newItem.getContent())
+                return oldItem.getUserName().equals(newItem.getUserName())
+                        && oldItem.getContent().equals(newItem.getContent())
                         && oldItem.getLocation().equals(newItem.getLocation())
                         && oldItem.getImgUrl().equals(newItem.getImgUrl())
                         && oldItem.getUserAvatar().equals(newItem.getUserAvatar());

@@ -24,6 +24,7 @@ import android.os.Parcelable;
  */
 public class Moment implements Parcelable {
 
+    private String uuid;
     private String content;
     private String location;
     private String imgUrl;
@@ -33,7 +34,8 @@ public class Moment implements Parcelable {
     public Moment() {
     }
 
-    public Moment(String content, String location, String imgUrl, String userName, String userAvatar) {
+    public Moment(String uuid, String content, String location, String imgUrl, String userName, String userAvatar) {
+        this.uuid = uuid;
         this.content = content;
         this.location = location;
         this.imgUrl = imgUrl;
@@ -42,6 +44,7 @@ public class Moment implements Parcelable {
     }
 
     protected Moment(Parcel in) {
+        uuid = in.readString();
         content = in.readString();
         location = in.readString();
         imgUrl = in.readString();
@@ -60,6 +63,14 @@ public class Moment implements Parcelable {
             return new Moment[size];
         }
     };
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 
     public String getContent() {
         return content;
@@ -101,6 +112,7 @@ public class Moment implements Parcelable {
         this.userAvatar = userAvatar;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -108,6 +120,7 @@ public class Moment implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uuid);
         dest.writeString(content);
         dest.writeString(location);
         dest.writeString(imgUrl);
