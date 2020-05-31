@@ -14,7 +14,8 @@
   ~ limitations under the License.
   -->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -36,7 +37,8 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="24dp"
             android:text="@{bean.locationName}"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:text="@string/location" />
 
         <View
             android:layout_width="match_parent"
@@ -44,7 +46,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="12dp"
-            android:background="#aaa" />
+            android:background="@color/light_gray" />
 
     </LinearLayout>
 </layout>
