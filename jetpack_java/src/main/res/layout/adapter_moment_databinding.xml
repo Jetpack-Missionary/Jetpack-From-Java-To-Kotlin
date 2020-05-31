@@ -29,15 +29,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/iv_avatar"
             imageUrl="@{moment.userAvatar}"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_margin="12dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
             android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="6dp"
             tools:src="@drawable/round_solid_gray" />
 
         <TextView
@@ -45,13 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
             android:text="@{moment.userName}"
             android:textColor="@color/dark_blue_for_name"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
             tools:text="KunMinX" />
 
         <TextView
@@ -70,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
             tools:text="@string/moment_content" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/iv_preview"
             imageUrl="@{moment.imgUrl}"
             android:layout_width="0dp"
@@ -79,15 +80,18 @@
             android:src="@drawable/round_solid_gray"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_content"
+            app:riv_corner_radius="6dp" />
 
         <TextView
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
+            android:paddingBottom="12dp"
             android:text="@{moment.location}"
             android:textColor="@color/dark_blue_for_name"
+            android:textSize="12sp"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             app:layout_constraintTop_toBottomOf="@+id/iv_preview"
             tools:text="台北小吃店" />

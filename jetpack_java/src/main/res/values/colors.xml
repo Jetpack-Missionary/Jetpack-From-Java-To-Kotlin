@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2018-2020 KunMinX
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,5 +18,5 @@
     <color name="black">#000</color>
     <color name="gray">#ccc</color>
     <color name="blue">#1E90FF</color>
-    <color name="dark_blue_for_name">#00008B</color>
+    <color name="dark_blue_for_name">#505b91</color>
 </resources>
