@@ -69,7 +69,7 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Moment moment = getCurrentList().get(position);
+        Moment moment = getItem(position);
 
         holder.tvName.setText(moment.getUserName());
         holder.tvContent.setText(moment.getContent());
@@ -79,7 +79,7 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
 
         holder.itemView.setOnClickListener(v -> {
             if (mListener != null) {
-                mListener.onItemClick(getCurrentList().get(position));
+                mListener.onItemClick(moment);
             }
         });
     }

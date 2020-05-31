@@ -63,11 +63,10 @@ public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.V
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //todo 这里可以使用 getItem(position)
-        holder.mTvTitle.setText(getCurrentList().get(position).getLocationName());
+        holder.mTvTitle.setText(getItem(position).getLocationName());
         holder.itemView.setOnClickListener(v -> {
             if (mListener != null) {
-                mListener.onItemClick(getCurrentList().get(position));
+                mListener.onItemClick(getItem(position));
             }
         });
     }
