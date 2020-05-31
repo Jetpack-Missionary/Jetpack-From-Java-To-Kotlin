@@ -8,6 +8,10 @@
         <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataLocationActivity" />
         <activity android:name="com.example.jetpack_kotlin.sample_02_livedata.ui.LiveDataEditorActivity" />
         <activity android:name="com.example.jetpack_kotlin.sample_03_viewmodel.ui.ViewModelListActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_04_databinding.DataBindingEditorActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_04_databinding.DataBindingDetailActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_04_databinding.DataBindingListActivity" />
+        <activity android:name="com.example.jetpack_kotlin.sample_04_databinding.DataBindingLocationActivity" />
 
     </application>
 
