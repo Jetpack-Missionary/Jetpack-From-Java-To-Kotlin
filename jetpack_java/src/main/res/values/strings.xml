@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2018-2020 KunMinX
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,5 +17,5 @@
 <resources>
 
     <string name="tip_of_enter_moment">请输入动态</string>
-    <string name="viewmodel_item_click_tip">本模块点击不作跳转，下一个模块支持跳转</string>
+    <string name="viewmodel_item_click_tip">ViewModel 组件示例 item 点击不提供跳转，下一个组件示例（DataBinding）提供跳转</string>
 </resources>
