@@ -64,7 +64,13 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_moment, parent, false);
-        return new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view);
+        holder.itemView.setOnClickListener(v -> {
+            if (mListener != null) {
+                mListener.onItemClick(getItem(holder.getAbsoluteAdapterPosition()));
+            }
+        });
+        return holder;
     }
 
     @Override

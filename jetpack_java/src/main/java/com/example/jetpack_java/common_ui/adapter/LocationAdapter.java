@@ -58,17 +58,18 @@ public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.V
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_location, parent, false);
-        return new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view);
+        holder.itemView.setOnClickListener(v -> {
+            if (mListener != null) {
+                mListener.onItemClick(getItem(holder.getAbsoluteAdapterPosition()));
+            }
+        });
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mTvTitle.setText(getItem(position).getLocationName());
-        holder.itemView.setOnClickListener(v -> {
-            if (mListener != null) {
-                mListener.onItemClick(getItem(position));
-            }
-        });
     }
 
     @Override
