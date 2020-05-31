@@ -63,7 +63,7 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
     @Override
     public void submitList(@Nullable List<Moment> list) {
         super.submitList(list, () -> {
-            submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
+            super.submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
         });
     }
 
