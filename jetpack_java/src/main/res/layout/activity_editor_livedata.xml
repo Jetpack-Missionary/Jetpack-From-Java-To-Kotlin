@@ -36,6 +36,7 @@
         android:layout_margin="16dp"
         android:background="@drawable/round_solid_gray"
         android:gravity="top"
+        android:hint="@string/tip_of_enter_moment"
         android:maxHeight="200dp"
         android:padding="16dp"
         android:text="@string/lifecycle_hint"

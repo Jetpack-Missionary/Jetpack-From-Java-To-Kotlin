@@ -17,4 +17,5 @@
 
 <resources>
 
+    <string name="tip_of_enter_moment">请输入动态</string>
 </resources>
