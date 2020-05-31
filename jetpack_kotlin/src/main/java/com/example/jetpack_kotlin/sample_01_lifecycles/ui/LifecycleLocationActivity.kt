@@ -34,9 +34,9 @@ class LifecycleLocationActivity : BaseActivity(R.layout.activity_lifecycles_loca
         mRecyclerView = findViewById(R.id.rv)
         mRecyclerView.adapter = mAdapter
 
-        lifecycle.addObserver(LifecycleLocationManager.newInstance())
+        lifecycle.addObserver(LifecycleLocationManager.getInstance())
 
-        LifecycleLocationManager.newInstance().setILocationCallback { list ->
+        LifecycleLocationManager.getInstance().setILocationCallback { list ->
             runOnUiThread {
                 mAdapter.submitList(list)
             }

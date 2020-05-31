@@ -53,7 +53,7 @@ class LifecycleLocationManager private constructor() : DefaultLifecycleObserver 
 
     companion object {
         private val sManager = LifecycleLocationManager()
-        fun newInstance(): LifecycleLocationManager = sManager
+        fun getInstance(): LifecycleLocationManager = sManager
     }
 
     interface ILocationCallback {
