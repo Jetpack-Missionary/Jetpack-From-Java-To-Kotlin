@@ -63,7 +63,8 @@
             android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et" />
+            app:layout_constraintTop_toBottomOf="@+id/et"
+            app:riv_corner_radius="6dp" />
 
         <TextView
             android:id="@+id/tv_locate"
