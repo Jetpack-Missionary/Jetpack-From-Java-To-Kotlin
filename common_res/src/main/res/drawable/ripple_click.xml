@@ -14,9 +14,7 @@
   ~ limitations under the License.
   -->
 
-<resources>
-    <color name="black">#000</color>
-    <color name="gray">#ccc</color>
-    <color name="blue">#1E90FF</color>
-    <color name="dark_blue_for_name">#505b91</color>
-</resources>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/light_gray">
+
+</ripple>

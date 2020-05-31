@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jetpack_java" >
+    package="com.example.jetpack_java">
 
     <application>
 
@@ -13,5 +13,6 @@
         <activity android:name=".sample_04_databinding.ui.DataBindingLocationActivity" />
         <activity android:name=".sample_05_navigation.ui.NavigationMainActivity" />
         <activity android:name=".sample_04_databinding.ui.DataBindingEditorActivity" />
+
     </application>
 </manifest>
