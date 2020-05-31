@@ -8,7 +8,7 @@ import com.example.jetpack_koltin.R
 import com.example.jetpack_kotlin.common_data.Configs
 import com.example.jetpack_kotlin.common_data.bean.LocationBean
 import com.example.jetpack_kotlin.common_ui.adapter.LocationAdapter
-import com.example.jetpack_kotlin.sample_01_lifecycles.domain.LocationManagerLifecycle
+import com.example.jetpack_kotlin.sample_01_lifecycles.domain.LifecycleLocationManager
 import com.kunminx.architecture.ui.BaseActivity
 
 /**
@@ -28,17 +28,17 @@ class LifecycleLocationActivity : BaseActivity(R.layout.activity_lifecycles_loca
      */
     private lateinit var mRecyclerView: RecyclerView
     private val mAdapter by lazy { LocationAdapter(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mRecyclerView = findViewById(R.id.rv)
         mRecyclerView.adapter = mAdapter
 
-        lifecycle.addObserver(LocationManagerLifecycle.newInstance())
+        lifecycle.addObserver(LifecycleLocationManager.newInstance())
 
-        LocationManagerLifecycle.newInstance().setILocationCallback { list ->
+        LifecycleLocationManager.newInstance().setILocationCallback { list ->
             runOnUiThread {
                 mAdapter.submitList(list)
-                mAdapter.notifyDataSetChanged()
             }
         }
     }

@@ -23,7 +23,7 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
         val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_location, parent, false))
         // setOnClickListener 在此处调用，如果在 onBindViewHolder 中调用会执行多次
         holder.itemView.setOnClickListener {
-            listener.onItemClick(holder.item)
+            listener.onItemClick(getItem(holder.bindingAdapterPosition))
         }
         return holder
     }
@@ -33,12 +33,14 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
         holder.bind(getItem(position))
     }
 
+    override fun submitList(list: List<LocationBean>?) {
+        super.submitList(ArrayList(list ?: emptyList()))
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var mTvTitle: TextView = itemView.findViewById(R.id.tv_title)
-        lateinit var item: LocationBean
 
         fun bind(item: LocationBean) {
-            this.item = item
             mTvTitle.text = item.locationName
         }
     }

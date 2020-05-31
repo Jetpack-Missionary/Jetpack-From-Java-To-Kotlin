@@ -16,7 +16,7 @@ import com.kunminx.architecture.utils.loadImage
  * time   11:39
  * description
  */
-class LifecycleDetailActivity : BaseActivity(R.layout.activity_lifecycles_detail) {
+class LifecycleEditorActivity : BaseActivity(R.layout.activity_lifecycles_detail) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -43,7 +43,7 @@ class LifecycleDetailActivity : BaseActivity(R.layout.activity_lifecycles_detail
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when (resultCode) {
+        when (requestCode) {
             Configs.REQUEST_LOCATION_INFO -> {
                 val location = data?.getStringExtra(Configs.LOCATION_RESULT)
                 mTvLocation.text = location
