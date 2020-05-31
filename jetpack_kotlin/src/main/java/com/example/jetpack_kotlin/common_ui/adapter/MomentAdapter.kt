@@ -25,7 +25,7 @@ class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Mom
         val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_moment, parent, false))
         // setOnClickListener 在此处调用，如果在 onBindViewHolder 中调用会执行多次
         holder.itemView.setOnClickListener {
-            listener.onItemClick(holder.item)
+            listener.onItemClick(getItem(holder.bindingAdapterPosition))
         }
         return holder
     }
@@ -35,6 +35,12 @@ class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Mom
         holder.bind(getItem(position))
     }
 
+    override fun submitList(list: List<Moment>?) {
+        super.submitList(list) {
+            submitList(if (list == null) emptyList() else ArrayList(list))
+        }
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvName = itemView.findViewById<TextView>(R.id.tv_name)
         private val tvContent = itemView.findViewById<TextView>(R.id.tv_content)
@@ -42,10 +48,7 @@ class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Mom
         private val ivAvatar = itemView.findViewById<ImageView>(R.id.iv_avatar)
         private val ivPreview = itemView.findViewById<ImageView>(R.id.iv_preview)
 
-        lateinit var item: Moment
-
         fun bind(item: Moment) {
-            this.item = item
             tvName.text = item.username
             tvContent.text = item.content
             tvLocation.text = item.location
@@ -65,14 +68,14 @@ class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Mom
 
         private val diffCallback = object : DiffUtil.ItemCallback<Moment>() {
             override fun areItemsTheSame(oldItem: Moment, newItem: Moment): Boolean {
-                //默认 username 为唯一表示
-                return oldItem.username == newItem.username
+                return oldItem.uuid == newItem.uuid
             }
 
             override fun areContentsTheSame(oldItem: Moment, newItem: Moment): Boolean {
                 return oldItem.content == newItem.content &&
                         oldItem.imgUrl == newItem.imgUrl &&
                         oldItem.location == newItem.location &&
+                        oldItem.username == newItem.username &&
                         oldItem.userAvatar == newItem.userAvatar
             }
         }
