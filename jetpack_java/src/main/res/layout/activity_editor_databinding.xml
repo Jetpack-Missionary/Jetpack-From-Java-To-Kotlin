@@ -24,7 +24,7 @@
 
         <variable
             name="click"
-            type="com.example.jetpack_java.sample_04_databinding.ui.DataBindingEditorActivity" />
+            type="com.example.jetpack_java.sample_04_databinding.ui.DataBindingEditorActivity.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

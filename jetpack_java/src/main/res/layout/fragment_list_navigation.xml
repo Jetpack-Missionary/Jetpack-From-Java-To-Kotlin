@@ -29,7 +29,7 @@
 
         <variable
             name="click"
-            type="com.example.jetpack_java.sample_05_navigation.ui.NavigationListFragment" />
+            type="com.example.jetpack_java.sample_05_navigation.ui.NavigationListFragment.ClickProxy" />
 
     </data>
 

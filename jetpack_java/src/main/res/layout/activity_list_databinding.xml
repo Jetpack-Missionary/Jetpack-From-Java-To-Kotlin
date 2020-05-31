@@ -29,7 +29,7 @@
 
         <variable
             name="click"
-            type="com.example.jetpack_java.sample_04_databinding.ui.DataBindingListActivity" />
+            type="com.example.jetpack_java.sample_04_databinding.ui.DataBindingListActivity.ClickProxy" />
 
     </data>
 
