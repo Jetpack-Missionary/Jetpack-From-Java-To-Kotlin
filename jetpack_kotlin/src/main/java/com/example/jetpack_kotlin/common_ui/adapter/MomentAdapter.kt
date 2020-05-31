@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetpack_koltin.R
@@ -19,7 +18,7 @@ import com.kunminx.architecture.utils.loadImage
  * description
  * ListAdapter 强制使用 DiffUtil 比较数据变化，开发者无需手动调用各种 notify 方法亦可使用 recyclerView 的动画
  */
-class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Moment, MomentAdapter.ViewHolder>(diffCallback) {
+class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Moment, MomentAdapter.ViewHolder>(momentDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_moment, parent, false))
@@ -64,20 +63,4 @@ class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Mom
         fun onItemClick(moment: Moment)
     }
 
-    companion object {
-
-        private val diffCallback = object : DiffUtil.ItemCallback<Moment>() {
-            override fun areItemsTheSame(oldItem: Moment, newItem: Moment): Boolean {
-                return oldItem.uuid == newItem.uuid
-            }
-
-            override fun areContentsTheSame(oldItem: Moment, newItem: Moment): Boolean {
-                return oldItem.content == newItem.content &&
-                        oldItem.imgUrl == newItem.imgUrl &&
-                        oldItem.location == newItem.location &&
-                        oldItem.username == newItem.username &&
-                        oldItem.userAvatar == newItem.userAvatar
-            }
-        }
-    }
 }
