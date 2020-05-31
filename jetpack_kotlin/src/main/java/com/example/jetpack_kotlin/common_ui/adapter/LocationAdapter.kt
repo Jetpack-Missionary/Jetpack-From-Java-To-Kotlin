@@ -35,7 +35,7 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
 
     override fun submitList(list: List<LocationBean>?) {
         super.submitList(list) {
-            submitList(ArrayList(list ?: emptyList()))
+            submitList(if (list == null) emptyList() else ArrayList(list))
         }
     }
 
@@ -54,7 +54,7 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<LocationBean>() {
             override fun areItemsTheSame(oldItem: LocationBean, newItem: LocationBean): Boolean =
-                    oldItem.locationName == newItem.locationName
+                    oldItem == newItem
 
 
             override fun areContentsTheSame(oldItem: LocationBean, newItem: LocationBean): Boolean =
