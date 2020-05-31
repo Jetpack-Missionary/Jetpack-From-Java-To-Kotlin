@@ -44,7 +44,7 @@ public class LifecycleLocationManager implements DefaultLifecycleObserver {
     }
 
     private List<LocationBean> mLocationBeans = new ArrayList<>();
-
+    private List<LocationBean> mNewList;
     private ILocationCallback mILocationCallback;
 
     public void setILocationCallback(ILocationCallback ILocationCallback) {
@@ -66,7 +66,8 @@ public class LifecycleLocationManager implements DefaultLifecycleObserver {
                 mLocationBeans.add(new LocationBean("台北夜市 " + System.currentTimeMillis() + " 号"));
 
                 if (mILocationCallback != null) {
-                    mILocationCallback.onListChanged(mLocationBeans);
+                    mNewList = new ArrayList<>(mLocationBeans);
+                    mILocationCallback.onListChanged(mNewList);
                 }
 
                 onResume(owner);

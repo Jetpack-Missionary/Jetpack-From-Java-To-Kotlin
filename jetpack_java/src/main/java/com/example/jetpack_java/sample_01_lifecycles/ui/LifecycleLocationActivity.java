@@ -56,7 +56,6 @@ public class LifecycleLocationActivity extends BaseActivity {
         LifecycleLocationManager.getInstance().setILocationCallback(list -> {
             runOnUiThread(() -> {
                 mLocationAdapter.submitList(list);
-                mLocationAdapter.notifyDataSetChanged();
             });
         });
     }
