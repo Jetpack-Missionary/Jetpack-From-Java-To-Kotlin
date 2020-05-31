@@ -59,7 +59,9 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends L
 
     @Override
     public void submitList(@Nullable List<M> list) {
-        super.submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
+        super.submitList(list, () -> {
+            submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
+        });
     }
 
     @Override
@@ -107,7 +109,7 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends L
      */
     protected abstract void onBindItem(B binding, M item, RecyclerView.ViewHolder holder);
 
-    public class BaseBindingViewHolder extends RecyclerView.ViewHolder {
+    public static class BaseBindingViewHolder extends RecyclerView.ViewHolder {
         BaseBindingViewHolder(View itemView) {
             super(itemView);
         }
