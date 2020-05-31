@@ -19,6 +19,7 @@ package com.example.jetpack_java.sample_04_databinding.ui.state;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
 
+import com.example.jetpack_java.common_data.APIs;
 import com.example.jetpack_java.common_data.bean.Moment;
 
 /**
@@ -32,5 +33,6 @@ public class EditorViewModel extends ViewModel {
 
     {
         location.set("添加定位");
+        imgUrl.set(APIs.ADD_PIC_TIP_URL);
     }
 }

@@ -53,6 +53,10 @@ public class DataBindingEditorActivity extends BaseActivity {
             Intent intent = new Intent(DataBindingEditorActivity.this, DataBindingLocationActivity.class);
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         }
+
+        public void addPic(){
+
+        }
     }
 
     @Override
