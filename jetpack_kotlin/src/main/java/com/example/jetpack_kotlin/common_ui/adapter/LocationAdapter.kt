@@ -34,7 +34,9 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
     }
 
     override fun submitList(list: List<LocationBean>?) {
-        super.submitList(ArrayList(list ?: emptyList()))
+        super.submitList(list) {
+            submitList(ArrayList(list ?: emptyList()))
+        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
