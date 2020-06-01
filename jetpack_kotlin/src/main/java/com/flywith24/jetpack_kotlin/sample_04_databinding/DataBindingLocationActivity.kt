@@ -30,7 +30,7 @@ class DataBindingLocationActivity : BaseActivity() {
         binding.lifecycleOwner = this
         binding.vm = mLocationViewModel
 
-        val adapter = DataBindingLocationAdapter(this)
+        val adapter = DataBindingLocationAdapter(applicationContext)
         adapter.setOnItemClickListener { item, _ ->
             setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, item.locationName))
             finish()
