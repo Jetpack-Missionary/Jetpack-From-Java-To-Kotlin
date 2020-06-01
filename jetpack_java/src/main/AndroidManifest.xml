@@ -1,18 +1,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jetpack_java">
+    package="com.kunminx.jetpack_java">
 
     <application>
 
-        <activity android:name=".sample_01_lifecycles.ui.LifecycleEditorActivity" />
-        <activity android:name=".sample_01_lifecycles.ui.LifecycleLocationActivity" />
-        <activity android:name=".sample_02_livedata.ui.LiveDataEditorActivity" />
-        <activity android:name=".sample_02_livedata.ui.LiveDataLocationActivity" />
-        <activity android:name=".sample_03_viewmodel.ui.ViewModelListActivity" />
-        <activity android:name=".sample_04_databinding.ui.DataBindingDetailActivity" />
-        <activity android:name=".sample_04_databinding.ui.DataBindingListActivity" />
-        <activity android:name=".sample_04_databinding.ui.DataBindingLocationActivity" />
-        <activity android:name=".sample_05_navigation.ui.NavigationMainActivity" />
-        <activity android:name=".sample_04_databinding.ui.DataBindingEditorActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_01_lifecycles.ui.LifecycleEditorActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_01_lifecycles.ui.LifecycleLocationActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_02_livedata.ui.LiveDataEditorActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_02_livedata.ui.LiveDataLocationActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_03_viewmodel.ui.ViewModelListActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingDetailActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingListActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingLocationActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_05_navigation.ui.NavigationMainActivity" />
+        <activity android:name="com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingEditorActivity" />
 
     </application>
 </manifest>

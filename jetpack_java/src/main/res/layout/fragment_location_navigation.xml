@@ -20,7 +20,7 @@
 
         <variable
             name="vm"
-            type="com.example.jetpack_java.sample_04_databinding.ui.state.LocationViewModel" />
+            type="com.kunminx.jetpack_java.sample_04_databinding.ui.state.LocationViewModel" />
 
         <variable
             name="adapter"

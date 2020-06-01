@@ -20,11 +20,11 @@
 
         <variable
             name="vm"
-            type="com.example.jetpack_java.sample_04_databinding.ui.state.EditorViewModel" />
+            type="com.kunminx.jetpack_java.sample_04_databinding.ui.state.EditorViewModel" />
 
         <variable
             name="click"
-            type="com.example.jetpack_java.sample_04_databinding.ui.DataBindingEditorActivity.ClickProxy" />
+            type="com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingEditorActivity.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

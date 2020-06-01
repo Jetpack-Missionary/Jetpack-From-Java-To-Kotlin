@@ -22,7 +22,7 @@
 
         <variable
             name="moment"
-            type="com.example.jetpack_java.common_data.bean.Moment" />
+            type="com.kunminx.jetpack_java.common_data.bean.Moment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

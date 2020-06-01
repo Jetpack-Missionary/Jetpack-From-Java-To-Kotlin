@@ -51,14 +51,14 @@ public class DataRepository implements ILocalRequest, IRemoteRequest {
     public void getJavaItems(MutableLiveData<List<GridItem>> liveData) {
 
         List<GridItem> list = new ArrayList<>();
-        list.add(new GridItem(getUUID(), "Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleEditorActivity"));
-        list.add(new GridItem(getUUID(), "LiveData", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_02_livedata.ui.LiveDataEditorActivity"));
-        list.add(new GridItem(getUUID(), "ViewModel", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_03_viewmodel.ui.ViewModelListActivity"));
-        list.add(new GridItem(getUUID(), "DataBinding", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_04_databinding.ui.DataBindingListActivity"));
-        list.add(new GridItem(getUUID(), "Navigation", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_05_navigation.ui.NavigationMainActivity"));
-        list.add(new GridItem(getUUID(), "Room", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem(getUUID(), "Paging", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem(getUUID(), "One More Thing", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.example.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
+        list.add(new GridItem(getUUID(), "Lifecycles", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_01_lifecycles.ui.LifecycleEditorActivity"));
+        list.add(new GridItem(getUUID(), "LiveData", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_02_livedata.ui.LiveDataEditorActivity"));
+        list.add(new GridItem(getUUID(), "ViewModel", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_03_viewmodel.ui.ViewModelListActivity"));
+        list.add(new GridItem(getUUID(), "DataBinding", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingListActivity"));
+        list.add(new GridItem(getUUID(), "Navigation", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_05_navigation.ui.NavigationMainActivity"));
+        list.add(new GridItem(getUUID(), "Room", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
+        list.add(new GridItem(getUUID(), "Paging", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
+        list.add(new GridItem(getUUID(), "One More Thing", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_01_lifecycles.ui.LifecycleDetailActivity"));
 
         liveData.setValue(list);
     }

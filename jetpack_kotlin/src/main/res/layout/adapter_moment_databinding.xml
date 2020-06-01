@@ -23,7 +23,7 @@
 
         <variable
             name="bean"
-            type="com.example.jetpack_kotlin.common_data.bean.Moment" />
+            type="com.kunminx.jetpack_kotlin.common_data.bean.Moment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

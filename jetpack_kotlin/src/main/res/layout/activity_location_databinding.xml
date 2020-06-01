@@ -22,7 +22,7 @@
 
         <variable
             name="vm"
-            type="com.example.jetpack_kotlin.sample_04_databinding.state.LocationViewModel" />
+            type="com.kunminx.jetpack_kotlin.sample_04_databinding.state.LocationViewModel" />
 
         <variable
             name="adapter"

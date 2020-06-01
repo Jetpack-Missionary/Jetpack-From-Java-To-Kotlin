@@ -21,7 +21,7 @@
 
         <variable
             name="bean"
-            type="com.example.jetpack_java.common_data.bean.LocationBean" />
+            type="com.kunminx.jetpack_java.common_data.bean.LocationBean" />
     </data>
 
     <LinearLayout
