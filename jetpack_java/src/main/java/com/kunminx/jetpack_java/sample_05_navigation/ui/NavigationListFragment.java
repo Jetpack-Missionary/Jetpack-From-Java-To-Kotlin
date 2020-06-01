@@ -24,12 +24,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.Configs;
 import com.kunminx.jetpack_java.databinding.FragmentListNavigationBinding;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.adapter.DataBindingMomentAdapter;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
-import com.kunminx.architecture.ui.BaseFragment;
+import com.kunminx.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel;
 
 /**
  * Create by KunMinX at 2020/5/30
@@ -37,11 +38,13 @@ import com.kunminx.architecture.ui.BaseFragment;
 public class NavigationListFragment extends BaseFragment {
 
     private ListViewModel mListViewModel;
+    private SharedViewModel mSharedViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mListViewModel = getFragmentViewModel(ListViewModel.class);
+        mSharedViewModel = getActivityViewModel(SharedViewModel.class);
     }
 
     @Nullable
@@ -70,6 +73,11 @@ public class NavigationListFragment extends BaseFragment {
 
         mListViewModel.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
             mListViewModel.list.setValue(moments);
+        });
+
+        mSharedViewModel.moment.observe(getViewLifecycleOwner(), moment -> {
+            mListViewModel.list.getValue().add(0, moment);
+            mListViewModel.list.setValue(mListViewModel.list.getValue());
         });
 
         mListViewModel.requestList();
