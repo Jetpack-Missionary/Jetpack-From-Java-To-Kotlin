@@ -92,7 +92,7 @@ public class DataBindingEditorActivity extends BaseActivity {
             return;
         }
         if (requestCode == Configs.REQUEST_LOCATION_INFO) {
-            String location = data.getStringExtra(Configs.NEW_MOMENT);
+            String location = data.getStringExtra(Configs.LOCATION_RESULT);
             mEditorViewModel.location.set(location);
         }
     }
