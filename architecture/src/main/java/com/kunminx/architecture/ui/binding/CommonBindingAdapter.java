@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
@@ -81,5 +82,15 @@ public class CommonBindingAdapter {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         params.height = adjustHeight;
         view.setLayoutParams(params);
+    }
+
+    @BindingAdapter(value = {"toolbarNavigationClick"})
+    public static void setNavigationClick(Toolbar toolbar, View.OnClickListener listener) {
+        toolbar.setNavigationOnClickListener(listener);
+    }
+
+    @BindingAdapter(value = {"toolbarMenuItemClick"})
+    public static void setMenuItemClick(Toolbar toolbar, Toolbar.OnMenuItemClickListener listener) {
+        toolbar.setOnMenuItemClickListener(listener);
     }
 }

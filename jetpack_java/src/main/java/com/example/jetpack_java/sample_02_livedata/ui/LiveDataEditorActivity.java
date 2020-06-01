@@ -20,9 +20,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.jetpack_java.R;
@@ -57,7 +57,7 @@ public class LiveDataEditorActivity extends BaseActivity {
         mToolbar.inflateMenu(R.menu.editor_menu);
         mToolbar.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.menu_save) {
-                showLongToast(getString(R.string.lifecycle_save_tip));
+                showLongToast(getString(R.string.liveData_save_tip));
             }
             return true;
         });

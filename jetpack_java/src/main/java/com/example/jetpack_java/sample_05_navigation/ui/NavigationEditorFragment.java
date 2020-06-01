@@ -18,11 +18,13 @@ package com.example.jetpack_java.sample_05_navigation.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.jetpack_java.R;
 import com.example.jetpack_java.databinding.FragmentEditorNavigationBinding;
@@ -65,11 +67,25 @@ public class NavigationEditorFragment extends BaseFragment {
         });
     }
 
-    public class ClickProxy {
+    public class ClickProxy implements Toolbar.OnMenuItemClickListener {
+
         public void locate() {
             nav().navigate(R.id.action_editorFragment_Navigation_to_locationFragment_Navigation);
         }
 
-        public void addPic(){}
+        public void addPic() {
+        }
+
+        public void back() {
+            nav().navigateUp();
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            if (item.getItemId() == R.id.menu_save) {
+//                showLongToast(getString(R.string.lifecycle_save_tip));
+            }
+            return true;
+        }
     }
 }

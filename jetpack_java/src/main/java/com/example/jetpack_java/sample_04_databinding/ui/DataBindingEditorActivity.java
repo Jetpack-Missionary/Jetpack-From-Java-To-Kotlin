@@ -47,7 +47,6 @@ public class DataBindingEditorActivity extends BaseActivity {
         binding.setLifecycleOwner(this);
         binding.setVm(mEditorViewModel);
         binding.setClick(new ClickProxy());
-
     }
 
     public class ClickProxy implements Toolbar.OnMenuItemClickListener {
@@ -61,14 +60,14 @@ public class DataBindingEditorActivity extends BaseActivity {
 
         }
 
-        public void back(){
+        public void back() {
             finish();
         }
 
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if (item.getItemId() == R.id.menu_save) {
-                showLongToast(getString(R.string.lifecycle_save_tip));
+//                showLongToast(getString(R.string.lifecycle_save_tip));
             }
             return true;
         }
