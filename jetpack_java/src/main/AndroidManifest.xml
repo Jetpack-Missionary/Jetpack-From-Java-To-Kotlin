@@ -13,6 +13,7 @@
         <activity android:name="com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingLocationActivity" />
         <activity android:name="com.kunminx.jetpack_java.sample_05_navigation.ui.NavigationMainActivity" />
         <activity android:name="com.kunminx.jetpack_java.sample_04_databinding.ui.DataBindingEditorActivity" />
+        <activity android:name=".sample_one_more_thing.ui.OneMoreThingActivity" />
 
     </application>
 </manifest>
