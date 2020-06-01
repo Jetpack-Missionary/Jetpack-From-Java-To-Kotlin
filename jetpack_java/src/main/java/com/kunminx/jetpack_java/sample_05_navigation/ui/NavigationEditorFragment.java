@@ -26,11 +26,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
+import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.jetpack_java.R;
+import com.kunminx.jetpack_java.common_data.APIs;
+import com.kunminx.jetpack_java.common_data.bean.Moment;
 import com.kunminx.jetpack_java.databinding.FragmentEditorNavigationBinding;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.state.EditorViewModel;
 import com.kunminx.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel;
-import com.kunminx.architecture.ui.BaseFragment;
+
+import java.util.UUID;
 
 /**
  * Create by KunMinX at 2020/5/30
@@ -74,6 +78,7 @@ public class NavigationEditorFragment extends BaseFragment {
         }
 
         public void addPic() {
+            mEditorViewModel.imgUrl.set(APIs.PIC_URL);
         }
 
         public void back() {
@@ -83,7 +88,15 @@ public class NavigationEditorFragment extends BaseFragment {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if (item.getItemId() == R.id.menu_save) {
-//                showLongToast(getString(R.string.lifecycle_save_tip));
+                Moment moment = new Moment();
+                moment.setUuid(UUID.randomUUID().toString());
+                moment.setUserAvatar(APIs.PIC_URL);
+                moment.setUserName("KunMinX");
+                moment.setLocation(mEditorViewModel.location.get());
+                moment.setImgUrl(mEditorViewModel.imgUrl.get());
+                moment.setContent(mEditorViewModel.content.get());
+                mSharedViewModel.moment.setValue(moment);
+                nav().navigateUp();
             }
             return true;
         }

@@ -32,6 +32,7 @@ public class EditorViewModel extends ViewModel {
 
     {
         location.set("添加定位");
+        content.set("");
         imgUrl.set(APIs.ADD_PIC_TIP_URL);
     }
 }

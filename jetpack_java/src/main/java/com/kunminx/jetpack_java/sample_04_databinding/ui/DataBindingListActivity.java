@@ -19,14 +19,16 @@ package com.kunminx.jetpack_java.sample_04_databinding.ui;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
+import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.Configs;
+import com.kunminx.jetpack_java.common_data.bean.Moment;
 import com.kunminx.jetpack_java.databinding.ActivityListDatabindingBinding;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.adapter.DataBindingMomentAdapter;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
-import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -65,7 +67,20 @@ public class DataBindingListActivity extends BaseActivity {
     public class ClickProxy {
         public void fabClick() {
             Intent intent = new Intent(DataBindingListActivity.this, DataBindingEditorActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, Configs.REQUEST_NEW_MOMENT);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null) {
+            return;
+        }
+        if (requestCode == Configs.REQUEST_NEW_MOMENT) {
+            Moment moment = data.getParcelableExtra(Configs.NEW_MOMENT);
+            mListViewModel.list.getValue().add(0, moment);
+            mListViewModel.list.setValue(mListViewModel.list.getValue());
         }
     }
 }
