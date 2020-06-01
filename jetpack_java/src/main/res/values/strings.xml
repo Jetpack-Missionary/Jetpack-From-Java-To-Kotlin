@@ -16,9 +16,5 @@
 
 <resources>
 
-    <string name="tip_of_enter_moment">请输入动态</string>
-    <string name="viewmodel_item_click_tip">ViewModel 组件示例 item 点击不提供跳转，下一个组件示例（DataBinding）提供跳转</string>
-    <string name="save">保存</string>
-    <string name="lifecycle_save_tip">Lifecycle 组件示例不提供保存功能，具体会在 DataBinding 组件示例开始提供</string>
-    <string name="liveData_save_tip">liveData 组件示例不提供保存功能，具体会在 DataBinding 组件示例开始提供</string>
+
 </resources>
