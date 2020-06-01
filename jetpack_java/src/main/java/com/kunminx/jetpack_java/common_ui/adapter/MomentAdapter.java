@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,17 +44,7 @@ public class MomentAdapter extends ListAdapter<Moment, MomentAdapter.ViewHolder>
     private OnItemClickListener mListener;
 
     public MomentAdapter(Context context, OnItemClickListener listener) {
-        super(new DiffUtil.ItemCallback<Moment>() {
-            @Override
-            public boolean areItemsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.equals(newItem);
-            }
-
-            @Override
-            public boolean areContentsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.getUuid().equals(newItem.getUuid());
-            }
-        });
+        super(new DiffUtilCallbacks().getMomentItemCallback());
         this.mContext = context;
         this.mListener = listener;
     }

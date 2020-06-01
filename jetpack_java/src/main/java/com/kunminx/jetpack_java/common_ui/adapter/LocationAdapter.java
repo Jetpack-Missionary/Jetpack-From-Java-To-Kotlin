@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,17 +42,7 @@ public class LocationAdapter extends ListAdapter<LocationBean, LocationAdapter.V
     private OnItemClickListener mListener;
 
     public LocationAdapter(Context context, OnItemClickListener listener) {
-        super(new DiffUtil.ItemCallback<LocationBean>() {
-            @Override
-            public boolean areItemsTheSame(@NonNull LocationBean oldItem, @NonNull LocationBean newItem) {
-                return oldItem.equals(newItem);
-            }
-
-            @Override
-            public boolean areContentsTheSame(@NonNull LocationBean oldItem, @NonNull LocationBean newItem) {
-                return oldItem.getLocationName().equals(newItem.getLocationName());
-            }
-        });
+        super(new DiffUtilCallbacks().getLocationBeanItemCallback());
         this.mContext = context;
         this.mListener = listener;
     }

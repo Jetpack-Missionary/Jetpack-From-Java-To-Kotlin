@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.bean.LocationBean;
+import com.kunminx.jetpack_java.common_ui.adapter.DiffUtilCallbacks;
 import com.kunminx.jetpack_java.databinding.AdapterLocationDatabindingBinding;
 import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 
@@ -33,17 +34,7 @@ import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 public class DataBindingLocationAdapter extends SimpleBindingAdapter<LocationBean, AdapterLocationDatabindingBinding> {
 
     public DataBindingLocationAdapter(Context context) {
-        super(context, R.layout.adapter_location_databinding, new DiffUtil.ItemCallback<LocationBean>() {
-            @Override
-            public boolean areItemsTheSame(@NonNull LocationBean oldItem, @NonNull LocationBean newItem) {
-                return oldItem.equals(newItem);
-            }
-
-            @Override
-            public boolean areContentsTheSame(@NonNull LocationBean oldItem, @NonNull LocationBean newItem) {
-                return oldItem.getLocationName().equals(newItem.getLocationName());
-            }
-        });
+        super(context, R.layout.adapter_location_databinding, new DiffUtilCallbacks().getLocationBeanItemCallback());
     }
 
     @Override

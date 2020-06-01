@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.bean.Moment;
+import com.kunminx.jetpack_java.common_ui.adapter.DiffUtilCallbacks;
 import com.kunminx.jetpack_java.databinding.AdapterMomentDatabindingBinding;
 import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 
@@ -33,17 +34,7 @@ import com.kunminx.architecture.ui.adapter.SimpleBindingAdapter;
 public class DataBindingMomentAdapter extends SimpleBindingAdapter<Moment, AdapterMomentDatabindingBinding> {
 
     public DataBindingMomentAdapter(Context context) {
-        super(context, R.layout.adapter_moment_databinding, new DiffUtil.ItemCallback<Moment>() {
-            @Override
-            public boolean areItemsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.equals(newItem);
-            }
-
-            @Override
-            public boolean areContentsTheSame(@NonNull Moment oldItem, @NonNull Moment newItem) {
-                return oldItem.getUuid().equals(newItem.getUuid());
-            }
-        });
+        super(context, R.layout.adapter_moment_databinding, new DiffUtilCallbacks().getMomentItemCallback());
     }
 
     @Override
