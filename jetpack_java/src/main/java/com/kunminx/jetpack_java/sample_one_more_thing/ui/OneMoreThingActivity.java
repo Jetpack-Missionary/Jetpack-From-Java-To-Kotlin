@@ -42,5 +42,12 @@ public class OneMoreThingActivity extends BaseActivity {
         ActivityOneMoreThingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_one_more_thing);
         binding.setLifecycleOwner(this);
         binding.setVm(mOneMoreThingViewModel);
+        binding.setClick(new ClickProxy());
+    }
+
+    public class ClickProxy {
+        public void back() {
+            finish();
+        }
     }
 }

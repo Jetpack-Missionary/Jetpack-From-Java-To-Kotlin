@@ -23,6 +23,10 @@
             name="vm"
             type="com.kunminx.jetpack_java.sample_one_more_thing.ui.state.OneMoreThingViewModel" />
 
+        <variable
+            name="click"
+            type="com.kunminx.jetpack_java.sample_one_more_thing.ui.OneMoreThingActivity.ClickProxy" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +35,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            toolbarNavigationClick="@{()->click.back()}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -43,9 +48,13 @@
         <WebView
             android:id="@+id/web_view"
             pageAssetPath="@{vm.pageAssetPath}"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
