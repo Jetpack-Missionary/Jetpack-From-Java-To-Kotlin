@@ -39,6 +39,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:menu="@menu/editor_menu"
             app:navigationIcon="@drawable/ic_back"
             app:title="发布动态" />
 

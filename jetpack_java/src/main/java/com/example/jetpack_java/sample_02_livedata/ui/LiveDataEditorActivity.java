@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
 
@@ -37,6 +38,7 @@ public class LiveDataEditorActivity extends BaseActivity {
 
     private TextView mTvLocation;
     private ImageView mImageView;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,19 @@ public class LiveDataEditorActivity extends BaseActivity {
 
         mTvLocation = findViewById(R.id.tv_locate);
         mImageView = findViewById(R.id.iv);
+        mToolbar = findViewById(R.id.toolbar);
+
+        mToolbar.setNavigationOnClickListener(v -> {
+            finish();
+        });
+
+        mToolbar.inflateMenu(R.menu.editor_menu);
+        mToolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == R.id.menu_save) {
+                showLongToast(getString(R.string.lifecycle_save_tip));
+            }
+            return true;
+        });
 
         Glide.with(this).load(APIs.PIC_URL).into(mImageView);
 

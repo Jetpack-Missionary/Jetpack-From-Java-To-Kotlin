@@ -18,8 +18,10 @@ package com.example.jetpack_java.sample_04_databinding.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.jetpack_java.R;
@@ -48,21 +50,34 @@ public class DataBindingEditorActivity extends BaseActivity {
 
     }
 
-    public class ClickProxy {
+    public class ClickProxy implements Toolbar.OnMenuItemClickListener {
+
         public void locate() {
             Intent intent = new Intent(DataBindingEditorActivity.this, DataBindingLocationActivity.class);
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         }
 
-        public void addPic(){
+        public void addPic() {
 
+        }
+
+        public void back(){
+            finish();
+        }
+
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            if (item.getItemId() == R.id.menu_save) {
+                showLongToast(getString(R.string.lifecycle_save_tip));
+            }
+            return true;
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(data==null){
+        if (data == null) {
             return;
         }
         if (requestCode == Configs.REQUEST_LOCATION_INFO) {

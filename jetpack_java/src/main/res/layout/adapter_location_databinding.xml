@@ -37,7 +37,8 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="24dp"
             android:text="@{bean.locationName}"
-            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             tools:text="@string/location" />
 
         <View
