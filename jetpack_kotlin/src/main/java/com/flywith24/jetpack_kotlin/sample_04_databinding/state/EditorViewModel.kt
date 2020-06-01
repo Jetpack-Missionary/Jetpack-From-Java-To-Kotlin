@@ -2,6 +2,7 @@ package com.flywith24.jetpack_kotlin.sample_04_databinding.state
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import com.flywith24.jetpack_kotlin.common_data.APIs
 
 /**
  * @author Flywith24
@@ -10,8 +11,8 @@ import androidx.lifecycle.ViewModel
  * description
  */
 class EditorViewModel : ViewModel() {
-    val imgUrl = ObservableField<String>()
+    val imgUrl = ObservableField(APIs.ADD_PIC_TIP_URL)
     val content = ObservableField<String>()
-    val location = ObservableField<String>("点击添加定位")
+    val location = ObservableField("点击添加定位")
 
 }
