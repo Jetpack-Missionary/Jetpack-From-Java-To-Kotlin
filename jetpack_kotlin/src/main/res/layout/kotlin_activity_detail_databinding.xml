@@ -21,7 +21,7 @@
 
         <variable
             name="vm"
-            type="com.flywith24.jetpack_kotlin.sample_04_databinding.state.DetailViewModel" />
+            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.DetailViewModel" />
 
     </data>
 

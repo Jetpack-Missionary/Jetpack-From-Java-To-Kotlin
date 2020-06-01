@@ -1,4 +1,4 @@
-package com.flywith24.jetpack_kotlin.sample_04_databinding
+package com.flywith24.jetpack_kotlin.sample_04_databinding.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,8 @@ import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.Configs
 import com.flywith24.jetpack_kotlin.databinding.KotlinActivityListDatabindingBinding
-import com.flywith24.jetpack_kotlin.sample_04_databinding.adapter.DataBindingMomentAdapter
-import com.flywith24.jetpack_kotlin.sample_04_databinding.state.ListViewModel
+import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingMomentAdapter
+import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.ListViewModel
 import com.kunminx.architecture.ui.BaseActivity
 
 /**

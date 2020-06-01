@@ -21,7 +21,7 @@
 
         <variable
             name="vm"
-            type="com.flywith24.jetpack_kotlin.sample_04_databinding.state.ListViewModel" />
+            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.ListViewModel" />
 
         <variable
             name="adapter"
@@ -29,7 +29,7 @@
 
         <variable
             name="click"
-            type="com.flywith24.jetpack_kotlin.sample_04_databinding.DataBindingListActivity.ClickProxy" />
+            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.DataBindingListActivity.ClickProxy" />
 
     </data>
 

@@ -1,4 +1,4 @@
-package com.flywith24.jetpack_kotlin.sample_04_databinding
+package com.flywith24.jetpack_kotlin.sample_04_databinding.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -7,7 +7,7 @@ import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.Configs
 import com.flywith24.jetpack_kotlin.common_data.bean.Moment
 import com.flywith24.jetpack_kotlin.databinding.KotlinActivityDetailDatabindingBinding
-import com.flywith24.jetpack_kotlin.sample_04_databinding.state.DetailViewModel
+import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.DetailViewModel
 import com.kunminx.architecture.ui.BaseActivity
 
 /**
