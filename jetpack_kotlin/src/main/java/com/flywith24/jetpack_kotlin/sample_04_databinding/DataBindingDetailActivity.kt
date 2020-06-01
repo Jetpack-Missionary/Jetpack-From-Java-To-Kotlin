@@ -27,6 +27,8 @@ class DataBindingDetailActivity : BaseActivity() {
         binding.vm = mDetailViewModel
 
         val moment = intent.getParcelableExtra<Moment>(Configs.THIS_MOMENT)
-        mDetailViewModel.initState(moment)
+        moment?.let {
+            mDetailViewModel.initState(it)
+        }
     }
 }
