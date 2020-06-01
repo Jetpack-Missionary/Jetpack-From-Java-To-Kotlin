@@ -56,7 +56,7 @@
             android:hint="@string/tip_of_enter_moment"
             android:maxHeight="200dp"
             android:padding="16dp"
-            android:text="@{vm.content}"
+            android:text="@={vm.content}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />

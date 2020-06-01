@@ -24,11 +24,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
+import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.jetpack_java.R;
+import com.kunminx.jetpack_java.common_data.APIs;
 import com.kunminx.jetpack_java.common_data.Configs;
+import com.kunminx.jetpack_java.common_data.bean.Moment;
 import com.kunminx.jetpack_java.databinding.ActivityEditorDatabindingBinding;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.state.EditorViewModel;
-import com.kunminx.architecture.ui.BaseActivity;
+
+import java.util.UUID;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -57,7 +61,7 @@ public class DataBindingEditorActivity extends BaseActivity {
         }
 
         public void addPic() {
-
+            mEditorViewModel.imgUrl.set(APIs.PIC_URL);
         }
 
         public void back() {
@@ -67,7 +71,15 @@ public class DataBindingEditorActivity extends BaseActivity {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if (item.getItemId() == R.id.menu_save) {
-//                showLongToast(getString(R.string.lifecycle_save_tip));
+                Moment moment = new Moment();
+                moment.setUuid(UUID.randomUUID().toString());
+                moment.setUserAvatar(APIs.PIC_URL);
+                moment.setUserName("KunMinX");
+                moment.setLocation(mEditorViewModel.location.get());
+                moment.setImgUrl(mEditorViewModel.imgUrl.get());
+                moment.setContent(mEditorViewModel.content.get());
+                setResult(Configs.REQUEST_NEW_MOMENT, new Intent().putExtra(Configs.NEW_MOMENT, moment));
+                finish();
             }
             return true;
         }
@@ -80,7 +92,7 @@ public class DataBindingEditorActivity extends BaseActivity {
             return;
         }
         if (requestCode == Configs.REQUEST_LOCATION_INFO) {
-            String location = data.getStringExtra(Configs.LOCATION_RESULT);
+            String location = data.getStringExtra(Configs.NEW_MOMENT);
             mEditorViewModel.location.set(location);
         }
     }
