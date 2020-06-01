@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.flywith24.jetpack_kotlin.R
@@ -61,7 +61,5 @@ class NavigationEditorFragment : BaseFragment() {
             }
             return true
         }
-
-
     }
 }
