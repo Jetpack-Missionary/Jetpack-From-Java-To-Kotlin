@@ -6,9 +6,9 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
-import com.flywith24.jetpack_kotlin.common_data.bean.Moment
-import com.flywith24.jetpack_kotlin.common_ui.adapter.MomentAdapter
+import com.flywith24.jetpack_kotlin.common_data.Configs
 import com.flywith24.jetpack_kotlin.databinding.KotlinActivityListDatabindingBinding
+import com.flywith24.jetpack_kotlin.sample_04_databinding.adapter.DataBindingMomentAdapter
 import com.flywith24.jetpack_kotlin.sample_04_databinding.state.ListViewModel
 import com.kunminx.architecture.ui.BaseActivity
 
@@ -18,9 +18,9 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   23:29
  * description
  */
-class DataBindingListActivity : BaseActivity(), MomentAdapter.OnItemClickListener {
+class DataBindingListActivity : BaseActivity() {
     private val mListViewModel by viewModels<ListViewModel>()
-    private val mAdapter by lazy { MomentAdapter(this) }
+    private val mAdapter by lazy { DataBindingMomentAdapter(applicationContext) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,12 @@ class DataBindingListActivity : BaseActivity(), MomentAdapter.OnItemClickListene
         binding.lifecycleOwner = this
         binding.vm = mListViewModel
         binding.click = ClickProxy()
-        binding.adapter = mAdapter
+        binding.adapter = mAdapter.apply {
+            setOnItemClickListener { item, _ ->
+                val intent = Intent(this@DataBindingListActivity, DataBindingDetailActivity::class.java).putExtra(Configs.THIS_MOMENT, item)
+                startActivity(intent)
+            }
+        }
 
         mListViewModel.getListMutableLiveData().observe(this) { moments ->
             mListViewModel.list.value = moments
@@ -42,9 +47,5 @@ class DataBindingListActivity : BaseActivity(), MomentAdapter.OnItemClickListene
         fun fabClick() {
             startActivity(Intent(this@DataBindingListActivity, DataBindingEditorActivity::class.java))
         }
-    }
-
-    override fun onItemClick(moment: Moment) {
-
     }
 }
