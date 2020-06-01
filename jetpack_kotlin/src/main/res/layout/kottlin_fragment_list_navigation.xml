@@ -21,7 +21,15 @@
 
         <variable
             name="vm"
-            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.DetailViewModel" />
+            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.ListViewModel" />
+
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.ListAdapter" />
+
+        <variable
+            name="click"
+            type="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationListFragment.ClickProxy" />
 
     </data>
 
@@ -38,48 +46,31 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
-            app:title="发布动态" />
+            app:title="@string/moment_list" />
 
-        <TextView
-            android:id="@+id/et"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            adapter="@{adapter}"
+            refreshList="@{vm.list}"
             android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/round_solid_gray"
-            android:gravity="top"
-            android:maxHeight="200dp"
-            android:padding="16dp"
-            android:text="@{vm.content}"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-        <ImageView
-            android:id="@+id/iv"
-            imageUrl="@{vm.imgUrl}"
-            android:layout_width="0dp"
-            android:layout_height="240dp"
-            android:layout_margin="16dp"
-            android:contentDescription="@string/image"
-            android:scaleType="centerCrop"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et" />
-
-        <TextView
-            android:id="@+id/tv_locate"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/round_stroke_blue"
-            android:paddingLeft="12dp"
-            android:paddingTop="4dp"
-            android:paddingRight="12dp"
-            android:paddingBottom="4dp"
-            android:text="@{vm.location}"
-            android:textColor="#1E90FF"
+            android:layout_margin="24dp"
+            android:onClick="@{()->click.fabClick()}"
+            android:src="@drawable/ic_add"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv" />
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

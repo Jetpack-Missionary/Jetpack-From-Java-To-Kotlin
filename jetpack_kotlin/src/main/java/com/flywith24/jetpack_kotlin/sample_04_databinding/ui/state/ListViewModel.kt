@@ -1,4 +1,4 @@
-package com.flywith24.jetpack_kotlin.sample_04_databinding.state
+package com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

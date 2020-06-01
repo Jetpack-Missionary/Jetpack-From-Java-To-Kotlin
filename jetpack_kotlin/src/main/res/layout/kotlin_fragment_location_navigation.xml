@@ -13,7 +13,6 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -21,16 +20,11 @@
 
         <variable
             name="vm"
-            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.ListViewModel" />
+            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.LocationViewModel" />
 
         <variable
             name="adapter"
             type="androidx.recyclerview.widget.ListAdapter" />
-
-        <variable
-            name="click"
-            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.DataBindingListActivity.ClickProxy" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,7 +40,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
-            app:title="@string/moment_list" />
+            app:title="@string/choose_location" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
@@ -59,18 +53,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:onClick="@{()->click.fabClick()}"
-            android:src="@drawable/ic_add"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

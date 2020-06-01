@@ -1,4 +1,4 @@
-package com.flywith24.jetpack_kotlin.sample_04_databinding
+package com.flywith24.jetpack_kotlin.sample_04_databinding.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.Configs
 import com.flywith24.jetpack_kotlin.databinding.KotlinActivityEditorDatabindingBinding
-import com.flywith24.jetpack_kotlin.sample_04_databinding.state.EditorViewModel
+import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.EditorViewModel
 import com.kunminx.architecture.ui.BaseActivity
 
 /**

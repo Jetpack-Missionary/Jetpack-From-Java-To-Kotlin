@@ -1,4 +1,4 @@
-package com.flywith24.jetpack_kotlin.sample_04_databinding.adapter
+package com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView

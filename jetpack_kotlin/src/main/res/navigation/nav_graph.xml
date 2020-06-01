@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listFragment_Navigation">
+
+    <fragment
+        android:id="@+id/listFragment_Navigation"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationListFragment"
+        android:label="ListFragment_Navigation">
+        <action
+            android:id="@+id/action_listFragment_Navigation_to_editorFragment_Navigation"
+            app:destination="@id/editorFragment_Navigation" />
+        <action
+            android:id="@+id/action_listFragment_Navigation_to_detailFragment_Navigation"
+            app:destination="@id/detailFragment_Navigation" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment_Navigation"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationDetailFragment"
+        android:label="DetailFragment_Navigation"
+        tools:layout="@layout/kotlin_fragment_detail_navigation" />
+
+    <fragment
+        android:id="@+id/editorFragment_Navigation"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationEditorFragment"
+        android:label="EditorFragment_Navigation"
+        tools:layout="@layout/kotlin_fragment_editor_navigation">
+        <action
+            android:id="@+id/action_editorFragment_Navigation_to_locationFragment_Navigation"
+            app:destination="@id/locationFragment_Navigation" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/locationFragment_Navigation"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationLocationFragment"
+        android:label="LocationFragment_Navigation"
+        tools:layout="@layout/kotlin_fragment_location_navigation" />
+
+
+</navigation>
