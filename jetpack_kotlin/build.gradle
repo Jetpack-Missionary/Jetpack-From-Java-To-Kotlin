@@ -34,6 +34,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -66,4 +70,6 @@ dependencies {
 
     implementation(ThirdParty.Glide.glide)
     kapt(ThirdParty.Glide.compiler)
+
+    implementation(ThirdParty.roundedImageView)
 }
