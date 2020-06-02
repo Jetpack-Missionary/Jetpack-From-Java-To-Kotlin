@@ -17,6 +17,7 @@
 package com.kunminx.jetpack_java.sample_05_navigation.ui;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
+import com.kunminx.architecture.bridge.callback.Event;
 import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.APIs;
@@ -66,8 +68,11 @@ public class NavigationEditorFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mSharedViewModel.location.observe(getViewLifecycleOwner(), s -> {
-            mEditorViewModel.location.set(s);
+        mSharedViewModel.location.observe(getViewLifecycleOwner(), stringEvent -> {
+            String location = stringEvent.getContent();
+            if (!TextUtils.isEmpty(location)) {
+                mEditorViewModel.location.set(location);
+            }
         });
     }
 
@@ -95,7 +100,7 @@ public class NavigationEditorFragment extends BaseFragment {
                 moment.setLocation(mEditorViewModel.location.get());
                 moment.setImgUrl(mEditorViewModel.imgUrl.get());
                 moment.setContent(mEditorViewModel.content.get());
-                mSharedViewModel.moment.setValue(moment);
+                mSharedViewModel.moment.setValue(new Event<>(moment));
                 nav().navigateUp();
             }
             return true;

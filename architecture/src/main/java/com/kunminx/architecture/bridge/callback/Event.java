@@ -14,22 +14,25 @@
  * limitations under the License.
  */
 
-package com.kunminx.jetpack_java.sample_05_navigation.ui.callback;
-
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-
-import com.kunminx.architecture.bridge.callback.Event;
-import com.kunminx.architecture.bridge.callback.UnPeekLiveData;
-import com.kunminx.jetpack_java.common_data.bean.Moment;
+package com.kunminx.architecture.bridge.callback;
 
 /**
- * Create by KunMinX at 2020/5/30
+ * Create by KunMinX at 2020/6/2
  */
-public class SharedViewModel extends ViewModel {
+public class Event<T> {
 
-    public final MutableLiveData<Event<String>> location = new MutableLiveData<>();
-    public final MutableLiveData<Event<Moment>> moment = new MutableLiveData<>();
+    private T content;
+    private boolean hasHandled;
 
+    public Event(T content) {
+        this.content = content;
+    }
 
+    public T getContent() {
+        if (hasHandled) {
+            return null;
+        }
+        hasHandled = true;
+        return content;
+    }
 }
