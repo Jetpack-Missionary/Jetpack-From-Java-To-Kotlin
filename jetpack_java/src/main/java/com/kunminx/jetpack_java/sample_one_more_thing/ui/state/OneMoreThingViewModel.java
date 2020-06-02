@@ -14,21 +14,19 @@
  * limitations under the License.
  */
 
-package com.kunminx.jetpack_java.sample_05_navigation.ui.callback;
+package com.kunminx.jetpack_java.sample_one_more_thing.ui.state;
 
-import androidx.lifecycle.MutableLiveData;
+import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModel;
 
-import com.kunminx.architecture.bridge.callback.Event;
-import com.kunminx.jetpack_java.common_data.bean.Moment;
-
 /**
- * Create by KunMinX at 2020/5/30
+ * Create by KunMinX at 2020/6/1
  */
-public class SharedViewModel extends ViewModel {
+public class OneMoreThingViewModel extends ViewModel {
 
-    public final MutableLiveData<Event<String>> location = new MutableLiveData<>();
-    public final MutableLiveData<Event<Moment>> moment = new MutableLiveData<>();
+    public final ObservableField<String> pageAssetPath = new ObservableField<>();
 
-
+    {
+        pageAssetPath.set("summary.html");
+    }
 }

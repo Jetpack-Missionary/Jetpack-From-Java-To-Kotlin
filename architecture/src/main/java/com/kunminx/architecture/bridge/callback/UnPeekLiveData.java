@@ -43,16 +43,12 @@ public class UnPeekLiveData<T> extends MutableLiveData<T> {
     private void hook(Observer<? super T> observer) {
         Class<LiveData> liveDataClass = LiveData.class;
         try {
-            //获取field private SafeIterableMap<Observer<T>, ObserverWrapper> mObservers
             Field mObservers = liveDataClass.getDeclaredField("mObservers");
             mObservers.setAccessible(true);
-            //获取SafeIterableMap集合mObservers
             Object observers = mObservers.get(this);
             Class<?> observersClass = observers.getClass();
-            //获取SafeIterableMap的get(Object obj)方法
             Method methodGet = observersClass.getDeclaredMethod("get", Object.class);
             methodGet.setAccessible(true);
-            //获取到observer在集合中对应的ObserverWrapper对象
             Object objectWrapperEntry = methodGet.invoke(observers, observer);
             Object objectWrapper = null;
             if (objectWrapperEntry instanceof Map.Entry) {
@@ -61,16 +57,12 @@ public class UnPeekLiveData<T> extends MutableLiveData<T> {
             if (objectWrapper == null) {
                 throw new NullPointerException("ObserverWrapper can not be null");
             }
-            //获取ObserverWrapper的Class对象  LifecycleBoundObserver extends ObserverWrapper
             Class<?> wrapperClass = objectWrapper.getClass().getSuperclass();
-            //获取ObserverWrapper的field mLastVersion
             Field mLastVersion = wrapperClass.getDeclaredField("mLastVersion");
             mLastVersion.setAccessible(true);
-            //获取liveData的field mVersion
             Field mVersion = liveDataClass.getDeclaredField("mVersion");
             mVersion.setAccessible(true);
             Object mV = mVersion.get(this);
-            //把当前ListData的mVersion赋值给 ObserverWrapper的field mLastVersion
             mLastVersion.set(objectWrapper, mV);
 
             mObservers.setAccessible(false);

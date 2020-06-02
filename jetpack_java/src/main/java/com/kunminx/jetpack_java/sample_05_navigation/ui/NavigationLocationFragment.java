@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.kunminx.architecture.bridge.callback.Event;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.databinding.AdapterLocationDatabindingBinding;
 import com.kunminx.jetpack_java.databinding.FragmentLocationNavigationBinding;
@@ -58,7 +59,7 @@ public class NavigationLocationFragment extends BaseFragment {
 
         DataBindingLocationAdapter adapter = new DataBindingLocationAdapter(mActivity.getApplicationContext());
         adapter.setOnItemClickListener(((item, position) -> {
-            mSharedViewModel.location.setValue(item.getLocationName());
+            mSharedViewModel.location.setValue(new Event<>(item.getLocationName()));
             nav().navigateUp();
         }));
         binding.setAdapter(adapter);
