@@ -27,7 +27,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 
 import com.kunminx.architecture.bridge.callback.Event;
-import com.kunminx.architecture.bridge.callback.UnPeekLiveData;
 
 import static java.util.Objects.requireNonNull;
 

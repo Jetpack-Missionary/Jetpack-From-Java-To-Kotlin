@@ -20,7 +20,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.kunminx.architecture.bridge.callback.Event;
-import com.kunminx.architecture.bridge.callback.UnPeekLiveData;
 import com.kunminx.jetpack_java.common_data.bean.Moment;
 
 /**
