@@ -12,7 +12,7 @@ import com.kunminx.architecture.BaseApplication
  * 扩展函数
  */
 
-fun ImageView.loadImage(url: String?) {
+fun ImageView.loadImage(url: String) {
     Glide.with(BaseApplication.instance.applicationContext)
             .load(url)
             .into(this)

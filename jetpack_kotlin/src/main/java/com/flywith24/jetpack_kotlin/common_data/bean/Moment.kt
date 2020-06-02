@@ -14,7 +14,7 @@ data class Moment(
         val uuid: String,
         val content: String?,
         val location: String?,
-        val imgUrl: String?,
+        val imgUrl: String,
         val username: String,
-        val userAvatar: String?
+        val userAvatar: String
 ) : Parcelable
