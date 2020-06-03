@@ -51,7 +51,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             adapter="@{adapter}"
-            forceScrollToTop="@{vm.forceScrollToTop}"
+            autoScrollToTopWhenInsert="@{vm.autoScrollToTopWhenInsert}"
             refreshList="@{vm.list}"
             android:layout_width="0dp"
             android:layout_height="0dp"

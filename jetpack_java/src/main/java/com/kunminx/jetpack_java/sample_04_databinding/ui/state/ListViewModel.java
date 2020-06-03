@@ -33,12 +33,12 @@ public class ListViewModel extends ViewModel implements Request.IMomentRequest {
 
     public final MutableLiveData<List<Moment>> list = new MutableLiveData<>();
 
-    public final MutableLiveData<Boolean> forceScrollToTop = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> autoScrollToTopWhenInsert = new MutableLiveData<>();
 
     private MomentRequest mMomentRequest = new MomentRequest();
 
     {
-        forceScrollToTop.setValue(true);
+        autoScrollToTopWhenInsert.setValue(true);
     }
 
     @Override

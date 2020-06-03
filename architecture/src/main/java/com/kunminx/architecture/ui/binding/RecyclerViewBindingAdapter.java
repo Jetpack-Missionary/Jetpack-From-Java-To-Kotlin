@@ -41,8 +41,10 @@ public class RecyclerViewBindingAdapter {
         }
     }
 
-    @BindingAdapter(value = {"adapter", "refreshList", "forceScrollToTop", "forceScrollToBottom"}, requireAll = false)
-    public static void bindList(RecyclerView recyclerView, ListAdapter adapter, List list, boolean forceScrollToTop, boolean forceScrollToBottom) {
+    @BindingAdapter(value = {"adapter", "refreshList", "autoScrollToTopWhenInsert", "autoScrollToBottomWhenInsert"}, requireAll = false)
+    public static void bindList(RecyclerView recyclerView, ListAdapter adapter, List list,
+                                boolean autoScrollToTopWhenInsert, boolean autoScrollToBottomWhenInsert) {
+
         if (recyclerView != null && list != null) {
             if (recyclerView.getAdapter() == null) {
                 recyclerView.setAdapter(adapter);
@@ -50,9 +52,9 @@ public class RecyclerViewBindingAdapter {
                 adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                     @Override
                     public void onItemRangeInserted(int positionStart, int itemCount) {
-                        if (forceScrollToTop) {
+                        if (autoScrollToTopWhenInsert) {
                             recyclerView.scrollToPosition(0);
-                        } else if (forceScrollToBottom) {
+                        } else if (autoScrollToBottomWhenInsert) {
                             recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount());
                         }
                     }
