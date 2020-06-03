@@ -30,8 +30,8 @@ import com.kunminx.jetpack_java.common_data.Configs;
 import com.kunminx.jetpack_java.common_data.bean.Moment;
 import com.kunminx.jetpack_java.databinding.FragmentListRoomBinding;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.adapter.DataBindingMomentAdapter;
-import com.kunminx.jetpack_java.sample_04_databinding.ui.state.ListViewModel;
 import com.kunminx.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel;
+import com.kunminx.jetpack_java.sample_06_room.ui.state.ListViewModel;
 
 /**
  * Create by KunMinX at 2020/5/30
