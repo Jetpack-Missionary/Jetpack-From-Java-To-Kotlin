@@ -16,6 +16,8 @@
 
 package com.kunminx.architecture.bridge.callback;
 
+import androidx.annotation.Nullable;
+
 /**
  * Create by KunMinX at 2020/6/2
  */
@@ -28,7 +30,8 @@ public class Event<T> {
         this.content = content;
     }
 
-    public T getContent() {
+    public @Nullable
+    T getContent() {
         if (hasHandled) {
             return null;
         }
