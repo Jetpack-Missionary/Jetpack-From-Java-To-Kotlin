@@ -21,8 +21,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kunminx.architecture.ui.adapter.BaseBindingAdapter;
-
 import java.util.List;
 
 /**
@@ -43,11 +41,22 @@ public class RecyclerViewBindingAdapter {
         }
     }
 
-    @BindingAdapter(value = {"adapter", "refreshList"}, requireAll = false)
-    public static void bindList(RecyclerView recyclerView, ListAdapter adapter, List list) {
+    @BindingAdapter(value = {"adapter", "refreshList", "forceScrollToTop", "forceScrollToBottom"}, requireAll = false)
+    public static void bindList(RecyclerView recyclerView, ListAdapter adapter, List list, boolean forceScrollToTop, boolean forceScrollToBottom) {
         if (recyclerView != null && list != null) {
             if (recyclerView.getAdapter() == null) {
                 recyclerView.setAdapter(adapter);
+
+                adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                    @Override
+                    public void onItemRangeInserted(int positionStart, int itemCount) {
+                        if (forceScrollToTop) {
+                            recyclerView.scrollToPosition(0);
+                        } else if (forceScrollToBottom) {
+                            recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount());
+                        }
+                    }
+                });
             }
 
             adapter.submitList(list);
