@@ -47,7 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 从 AndroidX AppCompat 1.1.0 和 Fragment 1.1.0 开始，可以将布局id通过构造器传入
+     * 对于 kotlin，从 AndroidX AppCompat 1.1.0 和 Fragment 1.1.0 开始，可以将布局id通过构造器传入
      * <p>
      * 例如
      * <p>
