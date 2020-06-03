@@ -12,8 +12,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Moment(
         val uuid: String,
-        val content: String,
-        val location: String,
+        val content: String?,
+        val location: String?,
         val imgUrl: String,
         val username: String,
         val userAvatar: String
