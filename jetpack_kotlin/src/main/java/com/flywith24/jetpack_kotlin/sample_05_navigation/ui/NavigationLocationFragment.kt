@@ -13,6 +13,7 @@ import com.flywith24.jetpack_kotlin.sample_02_livedata.domain.LiveDataLocationMa
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingLocationAdapter
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.LocationViewModel
 import com.flywith24.jetpack_kotlin.sample_05_navigation.ui.callback.SharedViewModel
+import com.kunminx.architecture.bridge.callback.Event
 import com.kunminx.architecture.ui.BaseFragment
 
 /**
@@ -24,7 +25,6 @@ import com.kunminx.architecture.ui.BaseFragment
 class NavigationLocationFragment : BaseFragment() {
 
     private val mLocationViewModel by viewModels<LocationViewModel>()
-
     private val mSharedViewModel by activityViewModels<SharedViewModel>()
 
 
@@ -35,7 +35,7 @@ class NavigationLocationFragment : BaseFragment() {
         binding.vm = mLocationViewModel
         binding.adapter = DataBindingLocationAdapter(requireContext()).apply {
             setOnItemClickListener { item, _ ->
-                mSharedViewModel.location.value = item.locationName
+                mSharedViewModel.location.value = Event(item.locationName)
                 nav().navigateUp()
             }
         }
