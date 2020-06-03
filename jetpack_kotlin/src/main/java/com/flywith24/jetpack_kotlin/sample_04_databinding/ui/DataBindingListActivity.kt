@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.Configs
+import com.flywith24.jetpack_kotlin.common_data.bean.Moment
 import com.flywith24.jetpack_kotlin.databinding.KotlinActivityListDatabindingBinding
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingMomentAdapter
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.ListViewModel
@@ -20,7 +21,6 @@ import com.kunminx.architecture.ui.BaseActivity
  */
 class DataBindingListActivity : BaseActivity() {
     private val mListViewModel by viewModels<ListViewModel>()
-    private val mAdapter by lazy { DataBindingMomentAdapter(applicationContext) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class DataBindingListActivity : BaseActivity() {
         binding.lifecycleOwner = this
         binding.vm = mListViewModel
         binding.click = ClickProxy()
-        binding.adapter = mAdapter.apply {
+        binding.adapter = DataBindingMomentAdapter(applicationContext).apply {
             setOnItemClickListener { item, _ ->
                 val intent = Intent(this@DataBindingListActivity, DataBindingDetailActivity::class.java).putExtra(Configs.THIS_MOMENT, item)
                 startActivity(intent)
@@ -43,9 +43,23 @@ class DataBindingListActivity : BaseActivity() {
         mListViewModel.requestList()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (resultCode) {
+            Configs.REQUEST_NEW_MOMENT -> {
+                val moment = data?.getParcelableExtra<Moment>(Configs.NEW_MOMENT)
+                mListViewModel.list.value?.let { list ->
+                    mListViewModel.list.value = ArrayList(list).apply { add(0, moment) }
+                }
+            }
+        }
+    }
+
     inner class ClickProxy {
         fun fabClick() {
-            startActivity(Intent(this@DataBindingListActivity, DataBindingEditorActivity::class.java))
+            startActivityForResult(
+                    Intent(this@DataBindingListActivity, DataBindingEditorActivity::class.java),
+                    Configs.REQUEST_NEW_MOMENT)
         }
     }
 }

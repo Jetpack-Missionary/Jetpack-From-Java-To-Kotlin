@@ -29,13 +29,13 @@ class DataBindingLocationActivity : BaseActivity() {
         val binding = DataBindingUtil.setContentView<KotlinActivityLocationDatabindingBinding>(this, R.layout.kotlin_activity_location_databinding)
         binding.lifecycleOwner = this
         binding.vm = mLocationViewModel
-
-        val adapter = DataBindingLocationAdapter(applicationContext)
-        adapter.setOnItemClickListener { item, _ ->
-            setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, item.locationName))
-            finish()
+        binding.adapter = DataBindingLocationAdapter(applicationContext).apply {
+            setOnItemClickListener { item, _ ->
+                setResult(Activity.RESULT_OK,
+                        Intent().putExtra(Configs.LOCATION_RESULT, item.locationName))
+                finish()
+            }
         }
-        binding.adapter = adapter
 
         lifecycle.addObserver(LiveDataLocationManager.getInstance())
 

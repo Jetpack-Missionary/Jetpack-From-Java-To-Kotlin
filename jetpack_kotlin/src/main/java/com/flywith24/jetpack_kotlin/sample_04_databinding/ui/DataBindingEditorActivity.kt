@@ -7,10 +7,13 @@ import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.flywith24.jetpack_kotlin.R
+import com.flywith24.jetpack_kotlin.common_data.APIs
 import com.flywith24.jetpack_kotlin.common_data.Configs
+import com.flywith24.jetpack_kotlin.common_data.bean.Moment
 import com.flywith24.jetpack_kotlin.databinding.KotlinActivityEditorDatabindingBinding
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.EditorViewModel
 import com.kunminx.architecture.ui.BaseActivity
+import java.util.*
 
 /**
  * @author Flywith24
@@ -54,7 +57,15 @@ class DataBindingEditorActivity : BaseActivity() {
 
         override fun onMenuItemClick(item: MenuItem?): Boolean {
             if (item?.itemId == R.id.menu_save) {
-//                showLongToast(getString(R.string.lifecycle_save_tip));
+                val moment = Moment(UUID.randomUUID().toString(),
+                        mEditorViewModel.content.get(),
+                        mEditorViewModel.location.get(),
+                        mEditorViewModel.imgUrl.get() ?: "",
+                        "Flywith24",
+                        APIs.PIC_URL
+                )
+                setResult(Configs.REQUEST_NEW_MOMENT, Intent().putExtra(Configs.NEW_MOMENT, moment))
+                finish()
             }
             return true
         }
