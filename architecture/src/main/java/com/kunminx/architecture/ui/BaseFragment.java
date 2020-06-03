@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Toast;
 
@@ -54,9 +55,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         NetworkStateManager.getInstance().networkStateCallback.observe(getViewLifecycleOwner(), netStateEvent -> {
             NetState netState = netStateEvent.getContent();
             if (netState != null) {
