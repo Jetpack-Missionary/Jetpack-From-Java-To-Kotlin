@@ -16,6 +16,7 @@ import com.flywith24.jetpack_kotlin.sample_03_viewmodel.domain.Request
 internal class ListViewModel : ViewModel(), Request.IMomentRequest {
 
     val list = MutableLiveData<List<Moment>>(emptyList())
+    val autoScrollToTopWhenInsert = MutableLiveData(true)
 
     private val mMomentRequest by lazy { MomentRequest() }
 
