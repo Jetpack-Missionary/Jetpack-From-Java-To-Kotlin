@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/kotlin_nav_graph"
+    app:startDestination="@id/listFragment">
+
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationListFragment"
+        android:label="NavigationListFragment">
+        <action
+            android:id="@+id/action_list_to_editor"
+            app:destination="@id/editorFragment" />
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editorFragment"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationEditorFragment"
+        android:label="NavigationEditorFragment">
+        <action
+            android:id="@+id/editor_to_location"
+            app:destination="@id/locationFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationLocationFragment"
+        android:label="NavigationLocationFragment" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationDetailFragment"
+        android:label="NavigationDetailFragment" />
+
+
+</navigation>
