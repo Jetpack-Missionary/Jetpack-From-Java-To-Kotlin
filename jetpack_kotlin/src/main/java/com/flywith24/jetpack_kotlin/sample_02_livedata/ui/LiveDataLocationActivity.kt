@@ -18,7 +18,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   20:31
  * description
  */
-class LiveDataLocationActivity : BaseActivity(R.layout.activity_livedata_list), LocationAdapter.OnItemClickListener {
+class LiveDataLocationActivity : BaseActivity(R.layout.kotlin_activity_livedata_list), LocationAdapter.OnItemClickListener {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById

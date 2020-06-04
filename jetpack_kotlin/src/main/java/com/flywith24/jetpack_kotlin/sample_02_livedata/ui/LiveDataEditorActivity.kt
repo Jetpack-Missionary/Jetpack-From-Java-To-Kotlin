@@ -16,7 +16,7 @@ import com.kunminx.architecture.utils.loadImage
  * time   20:31
  * description
  */
-class LiveDataEditorActivity : BaseActivity(R.layout.activity_livedata_detail) {
+class LiveDataEditorActivity : BaseActivity(R.layout.kotlin_activity_livedata_detail) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById

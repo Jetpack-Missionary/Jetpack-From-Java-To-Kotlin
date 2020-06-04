@@ -16,7 +16,7 @@ import com.kunminx.architecture.utils.loadImage
  * time   11:39
  * description
  */
-class LifecycleEditorActivity : BaseActivity(R.layout.activity_lifecycles_detail) {
+class LifecycleEditorActivity : BaseActivity(R.layout.kotlin_activity_lifecycles_detail) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById

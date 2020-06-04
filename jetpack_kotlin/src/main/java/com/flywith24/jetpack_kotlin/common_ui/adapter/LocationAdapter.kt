@@ -19,7 +19,7 @@ import com.flywith24.jetpack_kotlin.common_data.bean.LocationBean
 class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<LocationBean, LocationAdapter.ViewHolder>(locationDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_location, parent, false))
+        val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.kotlin_adapter_location, parent, false))
         // setOnClickListener 在此处调用，如果在 onBindViewHolder 中调用会执行多次
         holder.itemView.setOnClickListener {
             listener.onItemClick(getItem(holder.bindingAdapterPosition))

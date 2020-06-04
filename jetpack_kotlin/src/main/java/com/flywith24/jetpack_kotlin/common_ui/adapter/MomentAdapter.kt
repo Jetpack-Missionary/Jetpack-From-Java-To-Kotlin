@@ -21,7 +21,7 @@ import com.kunminx.architecture.utils.loadImage
 class MomentAdapter(private val listener: OnItemClickListener) : ListAdapter<Moment, MomentAdapter.ViewHolder>(momentDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.adapter_moment, parent, false))
+        val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.kotlin_adapter_moment, parent, false))
         // setOnClickListener 在此处调用，如果在 onBindViewHolder 中调用会执行多次
         holder.itemView.setOnClickListener {
             listener.onItemClick(getItem(holder.bindingAdapterPosition))

@@ -16,7 +16,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   22:02
  * description
  */
-class ViewModelListActivity : BaseActivity(R.layout.activity_list_viewmodel), MomentAdapter.OnItemClickListener {
+class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmodel), MomentAdapter.OnItemClickListener {
 
     /**
      * activity-ktx 扩展函数
