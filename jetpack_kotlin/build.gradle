@@ -41,13 +41,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    resourcePrefix "kotlin_"
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
 
     testImplementation(Testing.jUnit)
     androidTestImplementation(Testing.androidJunit)
