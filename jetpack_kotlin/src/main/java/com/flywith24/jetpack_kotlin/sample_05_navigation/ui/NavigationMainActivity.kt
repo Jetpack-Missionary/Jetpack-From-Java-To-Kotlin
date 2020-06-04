@@ -1,6 +1,7 @@
 package com.flywith24.jetpack_kotlin.sample_05_navigation.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.flywith24.jetpack_kotlin.R
@@ -19,7 +20,7 @@ class NavigationMainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Log.i("yyz11", "NavigationMainActivity")
         val binding = DataBindingUtil.setContentView<KotlinActivityMainNavigationBinding>(this, R.layout.kotlin_activity_main_navigation)
     }
 }

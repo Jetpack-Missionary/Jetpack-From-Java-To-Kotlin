@@ -1,6 +1,7 @@
 package com.flywith24.jetpack_kotlin.sample_05_navigation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
+import com.flywith24.jetpack_kotlin.base.observeEvent
 import com.flywith24.jetpack_kotlin.common_data.Configs
 import com.flywith24.jetpack_kotlin.databinding.KottlinFragmentListNavigationBinding
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingMomentAdapter
@@ -35,22 +37,25 @@ class NavigationListFragment : BaseFragment() {
         binding.adapter = DataBindingMomentAdapter(requireContext()).apply {
             setOnItemClickListener { item, _ ->
                 val bundle = Bundle().apply { putParcelable(Configs.THIS_MOMENT, item) }
-                nav().navigate(R.id.action_listFragment_Navigation_to_detailFragment_Navigation, bundle)
+                nav().navigate(R.id.action_list_to_detail, bundle)
             }
         }
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.i("yyz11", "onViewCreated NavigationListFragment")
+
         mListViewModel.getListMutableLiveData().observe(viewLifecycleOwner) { moments ->
+            Log.i("yyz11", "1. moments = $moments")
+
             mListViewModel.list.value = moments
         }
 
-        mSharedViewModel.moment.observe(viewLifecycleOwner) { momentEvent ->
-            momentEvent.content?.let { moment ->
-                mListViewModel.list.value?.let { list ->
-                    mListViewModel.list.value = ArrayList(list).apply { add(0, moment) }
-                }
+        mSharedViewModel.moment.observeEvent(viewLifecycleOwner) { moment ->
+            Log.i("yyz11", "2. moment = $moment")
+            mListViewModel.list.value?.let { list ->
+                mListViewModel.list.value = ArrayList(list).apply { add(0, moment) }
             }
         }
 
@@ -60,7 +65,7 @@ class NavigationListFragment : BaseFragment() {
 
     inner class ClickProxy {
         fun fabClick() {
-            nav().navigate(R.id.action_listFragment_Navigation_to_editorFragment_Navigation)
+            nav().navigate(R.id.action_list_to_editor)
         }
     }
 }

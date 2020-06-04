@@ -1,6 +1,7 @@
 package com.flywith24.jetpack_kotlin.sample_05_navigation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -8,14 +9,14 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
+import com.flywith24.jetpack_kotlin.base.Event
+import com.flywith24.jetpack_kotlin.base.observeEvent
 import com.flywith24.jetpack_kotlin.common_data.APIs
 import com.flywith24.jetpack_kotlin.common_data.bean.Moment
 import com.flywith24.jetpack_kotlin.databinding.KotlinFragmentEditorNavigationBinding
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.EditorViewModel
 import com.flywith24.jetpack_kotlin.sample_05_navigation.ui.callback.SharedViewModel
-import com.kunminx.architecture.bridge.callback.Event
 import com.kunminx.architecture.ui.BaseFragment
 import java.util.*
 
@@ -46,17 +47,15 @@ class NavigationEditorFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        mSharedViewModel.location.observe(viewLifecycleOwner) { stringEvent ->
-            val location = stringEvent.content
-            location?.let {
-                mEditorViewModel.location.set(it)
-            }
+        mSharedViewModel.location.observeEvent(viewLifecycleOwner) { location ->
+            mEditorViewModel.location.set(location)
+            Log.i("yyz11", "location = $location")
         }
     }
 
     inner class ClickProxy : Toolbar.OnMenuItemClickListener {
         fun locate() {
-            nav().navigate(R.id.action_editorFragment_Navigation_to_locationFragment_Navigation)
+            nav().navigate(R.id.editor_to_location)
         }
 
         fun addPic() {
