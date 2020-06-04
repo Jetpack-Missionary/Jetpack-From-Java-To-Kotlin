@@ -76,12 +76,9 @@ public class RoomListFragment extends BaseFragment {
             mListViewModel.list.setValue(moments);
         });
 
-        mSharedViewModel.moment.observe(getViewLifecycleOwner(), momentEvent -> {
-            Moment moment = momentEvent.getContent();
-            if (moment != null) {
-                mListViewModel.list.getValue().add(0, moment);
-                mListViewModel.list.setValue(mListViewModel.list.getValue());
-            }
+        mSharedViewModel.moment.observe(getViewLifecycleOwner(), moment -> {
+            mListViewModel.list.getValue().add(0, moment);
+            mListViewModel.list.setValue(mListViewModel.list.getValue());
         });
 
         mListViewModel.requestList();

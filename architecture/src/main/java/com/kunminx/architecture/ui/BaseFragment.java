@@ -56,12 +56,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        NetworkStateManager.getInstance().networkStateCallback.observe(getViewLifecycleOwner(), netStateEvent -> {
-            NetState netState = netStateEvent.getContent();
-            if (netState != null) {
-                onNetworkStateChanged(netState);
-            }
-        });
+        NetworkStateManager.getInstance().networkStateCallback.observe(getViewLifecycleOwner(), this::onNetworkStateChanged);
     }
 
     @SuppressWarnings("EmptyMethod")

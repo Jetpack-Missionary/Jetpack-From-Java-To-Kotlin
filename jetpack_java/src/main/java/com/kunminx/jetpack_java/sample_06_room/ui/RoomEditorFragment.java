@@ -17,7 +17,6 @@
 package com.kunminx.jetpack_java.sample_06_room.ui;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,11 +67,8 @@ public class RoomEditorFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mSharedViewModel.location.observe(getViewLifecycleOwner(), stringEvent -> {
-            String location = stringEvent.getContent();
-            if (!TextUtils.isEmpty(location)) {
-                mEditorViewModel.location.set(location);
-            }
+        mSharedViewModel.location.observe(getViewLifecycleOwner(), s -> {
+            mEditorViewModel.location.set(s);
         });
     }
 

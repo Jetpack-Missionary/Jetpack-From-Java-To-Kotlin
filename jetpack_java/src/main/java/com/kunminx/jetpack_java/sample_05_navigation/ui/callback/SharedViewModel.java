@@ -16,10 +16,9 @@
 
 package com.kunminx.jetpack_java.sample_05_navigation.ui.callback;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.kunminx.architecture.bridge.callback.Event;
+import com.kunminx.architecture.bridge.callback.EventLiveData;
 import com.kunminx.jetpack_java.common_data.bean.Moment;
 
 /**
@@ -27,8 +26,8 @@ import com.kunminx.jetpack_java.common_data.bean.Moment;
  */
 public class SharedViewModel extends ViewModel {
 
-    public final MutableLiveData<Event<String>> location = new MutableLiveData<>();
-    public final MutableLiveData<Event<Moment>> moment = new MutableLiveData<>();
+    public final EventLiveData<String> location = new EventLiveData<>();
+    public final EventLiveData<Moment> moment = new EventLiveData<>();
 
 
 }
