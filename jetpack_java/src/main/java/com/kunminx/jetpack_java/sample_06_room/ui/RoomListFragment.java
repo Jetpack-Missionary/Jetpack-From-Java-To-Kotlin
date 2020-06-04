@@ -27,7 +27,6 @@ import androidx.annotation.Nullable;
 import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.Configs;
-import com.kunminx.jetpack_java.common_data.bean.Moment;
 import com.kunminx.jetpack_java.databinding.FragmentListRoomBinding;
 import com.kunminx.jetpack_java.sample_04_databinding.ui.adapter.DataBindingMomentAdapter;
 import com.kunminx.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel;
