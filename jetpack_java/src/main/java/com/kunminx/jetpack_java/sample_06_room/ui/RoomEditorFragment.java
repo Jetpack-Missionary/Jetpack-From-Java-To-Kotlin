@@ -26,7 +26,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
-import com.kunminx.architecture.bridge.callback.Event;
 import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.APIs;
@@ -96,7 +95,7 @@ public class RoomEditorFragment extends BaseFragment {
                 moment.setLocation(mEditorViewModel.location.get());
                 moment.setImgUrl(mEditorViewModel.imgUrl.get());
                 moment.setContent(mEditorViewModel.content.get());
-                mSharedViewModel.moment.setValue(new Event<>(moment));
+                mSharedViewModel.moment.setValue(moment);
                 nav().navigateUp();
             }
             return true;
