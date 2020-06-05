@@ -8,7 +8,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
-import com.flywith24.jetpack_kotlin.base.Event
+import com.flywith24.jetpack_kotlin.base.setEventValue
 import com.flywith24.jetpack_kotlin.databinding.KotlinFragmentLocationNavigationBinding
 import com.flywith24.jetpack_kotlin.sample_02_livedata.domain.LiveDataLocationManager
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingLocationAdapter
@@ -35,7 +35,7 @@ class NavigationLocationFragment : BaseFragment() {
         binding.vm = mLocationViewModel
         binding.adapter = DataBindingLocationAdapter(requireContext()).apply {
             setOnItemClickListener { item, _ ->
-                mSharedViewModel.location.value = Event(item.locationName)
+                mSharedViewModel.location.setEventValue(item.locationName)
                 nav().navigateUp()
             }
         }
