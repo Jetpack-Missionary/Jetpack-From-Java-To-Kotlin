@@ -9,12 +9,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
-import com.flywith24.jetpack_kotlin.base.observeEvent
 import com.flywith24.jetpack_kotlin.common_data.Configs
 import com.flywith24.jetpack_kotlin.databinding.KottlinFragmentListNavigationBinding
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingMomentAdapter
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.ListViewModel
 import com.flywith24.jetpack_kotlin.sample_05_navigation.ui.callback.SharedViewModel
+import com.kunminx.architecture.kotlin.observeEvent
 import com.kunminx.architecture.ui.BaseFragment
 
 /**

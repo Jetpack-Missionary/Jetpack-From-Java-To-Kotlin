@@ -1,4 +1,4 @@
-package com.flywith24.jetpack_kotlin.base
+package com.kunminx.architecture.kotlin
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

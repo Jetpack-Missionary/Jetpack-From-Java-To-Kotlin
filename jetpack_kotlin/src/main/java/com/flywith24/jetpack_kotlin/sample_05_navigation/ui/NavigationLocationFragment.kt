@@ -8,12 +8,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.flywith24.jetpack_kotlin.R
-import com.flywith24.jetpack_kotlin.base.setEventValue
 import com.flywith24.jetpack_kotlin.databinding.KotlinFragmentLocationNavigationBinding
 import com.flywith24.jetpack_kotlin.sample_02_livedata.domain.LiveDataLocationManager
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingLocationAdapter
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.LocationViewModel
 import com.flywith24.jetpack_kotlin.sample_05_navigation.ui.callback.SharedViewModel
+import com.kunminx.architecture.kotlin.setEventValue
 import com.kunminx.architecture.ui.BaseFragment
 
 /**

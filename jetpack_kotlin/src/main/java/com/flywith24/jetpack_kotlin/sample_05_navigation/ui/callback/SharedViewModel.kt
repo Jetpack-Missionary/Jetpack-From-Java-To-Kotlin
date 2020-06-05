@@ -1,8 +1,8 @@
 package com.flywith24.jetpack_kotlin.sample_05_navigation.ui.callback
 
 import androidx.lifecycle.ViewModel
-import com.flywith24.jetpack_kotlin.base.EventMutableLiveData
 import com.flywith24.jetpack_kotlin.common_data.bean.Moment
+import com.kunminx.architecture.kotlin.EventMutableLiveData
 
 /**
  * @author Flywith24
