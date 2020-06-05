@@ -20,7 +20,7 @@ typealias EventLiveData<T> = LiveData<Event<T>>
  * 事件只能被唯一观察者消费
  */
 @MainThread
-inline fun <T> EventLiveData<T>.observeEvent(
+inline fun <T> EventMutableLiveData<T>.observeEvent(
         owner: LifecycleOwner,
         crossinline onChanged: (T) -> Unit
 ): Observer<Event<T>> {
@@ -38,7 +38,7 @@ inline fun <T> EventLiveData<T>.observeEvent(
  * 事件可被多个观察者消费，且每个观察者仅能消费一次
  */
 @MainThread
-inline fun <T> EventLiveData<T>.observeEvent(
+inline fun <T> EventMutableLiveData<T>.observeEvent(
         owner: LifecycleOwner,
         viewModelStore: ViewModelStore,
         crossinline onChanged: (T) -> Unit
