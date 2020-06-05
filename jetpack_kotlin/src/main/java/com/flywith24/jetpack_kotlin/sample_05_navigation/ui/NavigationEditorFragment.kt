@@ -10,8 +10,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.flywith24.jetpack_kotlin.R
-import com.flywith24.jetpack_kotlin.base.Event
 import com.flywith24.jetpack_kotlin.base.observeEvent
+import com.flywith24.jetpack_kotlin.base.setEventValue
 import com.flywith24.jetpack_kotlin.common_data.APIs
 import com.flywith24.jetpack_kotlin.common_data.bean.Moment
 import com.flywith24.jetpack_kotlin.databinding.KotlinFragmentEditorNavigationBinding
@@ -76,7 +76,7 @@ class NavigationEditorFragment : BaseFragment() {
                             "Flywith24",
                             APIs.PIC_URL
                     )
-                    mSharedViewModel.moment.value = Event(moment)
+                    mSharedViewModel.moment.setEventValue(moment)
                     nav().navigateUp()
                 }
             }

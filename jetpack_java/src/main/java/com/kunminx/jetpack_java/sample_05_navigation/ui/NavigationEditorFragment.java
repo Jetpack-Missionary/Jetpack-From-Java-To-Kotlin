@@ -96,7 +96,7 @@ public class NavigationEditorFragment extends BaseFragment {
                 moment.setLocation(mEditorViewModel.location.get());
                 moment.setImgUrl(mEditorViewModel.imgUrl.get());
                 moment.setContent(mEditorViewModel.content.get());
-                mSharedViewModel.moment.setValue(new Event<>(moment));
+                mSharedViewModel.moment.setValue(moment);
                 nav().navigateUp();
             }
             return true;
