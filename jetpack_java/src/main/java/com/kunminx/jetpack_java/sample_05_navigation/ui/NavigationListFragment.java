@@ -17,7 +17,6 @@
 package com.kunminx.jetpack_java.sample_05_navigation.ui;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +24,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.kunminx.architecture.kotlin.WrapperLiveDataKt;
 import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.Configs;
@@ -75,12 +73,6 @@ public class NavigationListFragment extends BaseFragment {
 
         mListViewModel.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
             mListViewModel.list.setValue(moments);
-        });
-
-        //todo 用法展示，可删除
-        WrapperLiveDataKt.observeEvent(mSharedViewModel.test, getViewLifecycleOwner(), getViewModelStore(), moment -> {
-            Log.d("NavigationListFragment", moment.toString());
-            return null;
         });
 
         mSharedViewModel.moment.observe(getViewLifecycleOwner(), moment -> {
