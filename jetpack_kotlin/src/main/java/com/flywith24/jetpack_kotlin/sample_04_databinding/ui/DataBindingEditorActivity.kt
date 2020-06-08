@@ -49,7 +49,9 @@ class DataBindingEditorActivity : BaseActivity() {
                     Configs.REQUEST_LOCATION_INFO)
         }
 
-        fun addPic() {}
+        fun addPic() {
+            mEditorViewModel.imgUrl.set(APIs.PIC_URL)
+        }
 
         fun back() {
             finish()
