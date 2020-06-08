@@ -76,6 +76,7 @@ dependencies {
     implementation(AndroidX.appcompat)
     implementation(AndroidX.constraintlayout)
     implementation(AndroidX.recyclerView)
+    implementation(AndroidX.Fragment.fragment)
     implementation(Google.material)
 
     implementation(AndroidX.Lifecycle.lifecycleRuntime)
