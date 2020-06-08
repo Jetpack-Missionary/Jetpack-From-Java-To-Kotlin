@@ -1,7 +1,6 @@
 package com.flywith24.jetpack_kotlin.sample_05_navigation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -49,7 +48,6 @@ class NavigationEditorFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         mSharedViewModel.location.observeEvent(viewLifecycleOwner) { location ->
             mEditorViewModel.location.set(location)
-            Log.i("yyz11", "location = $location")
         }
     }
 
