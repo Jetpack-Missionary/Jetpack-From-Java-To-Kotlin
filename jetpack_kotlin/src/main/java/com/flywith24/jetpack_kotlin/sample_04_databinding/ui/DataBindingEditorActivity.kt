@@ -3,8 +3,8 @@ package com.flywith24.jetpack_kotlin.sample_04_databinding.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.activity.viewModels
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.APIs
