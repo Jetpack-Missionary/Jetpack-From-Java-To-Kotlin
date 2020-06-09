@@ -20,7 +20,12 @@ import com.kunminx.architecture.ui.BaseActivity
 class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmodel), MomentAdapter.OnItemClickListener {
 
     /**
+     * activity 级别共享 ViewModel
+     *
      * activity-ktx 扩展函数
+     *
+     * ViewModel 如何控制作用域，请参考
+     * https://juejin.im/post/5e786d415188255e00661a4e#heading-10
      */
     private val mListViewModel by viewModels<ListViewModel>()
 
