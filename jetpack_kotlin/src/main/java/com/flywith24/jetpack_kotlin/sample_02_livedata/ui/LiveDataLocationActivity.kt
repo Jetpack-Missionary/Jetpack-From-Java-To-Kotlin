@@ -3,6 +3,7 @@ package com.flywith24.jetpack_kotlin.sample_02_livedata.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import com.flywith24.jetpack_kotlin.R
@@ -28,10 +29,15 @@ class LiveDataLocationActivity : BaseActivity(R.layout.kotlin_activity_livedata_
      * 详情参考 https://juejin.im/post/5e8ef0bc518825736b749705#heading-17
      */
     private lateinit var mRecyclerView: RecyclerView
+    private lateinit var mToolbar: Toolbar
+
     private val mAdapter: LocationAdapter by lazy { LocationAdapter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        mToolbar = findViewById(R.id.toolbar)
+        mToolbar.setNavigationOnClickListener { finish() }
 
         mRecyclerView = findViewById(R.id.rv)
         mRecyclerView.adapter = mAdapter

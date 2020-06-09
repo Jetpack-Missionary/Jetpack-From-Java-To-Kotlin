@@ -34,6 +34,7 @@ class LiveDataEditorActivity : BaseActivity(R.layout.kotlin_activity_livedata_ed
         super.onCreate(savedInstanceState)
         mImageView = findViewById(R.id.iv)
         mTvLocation = findViewById(R.id.tv_locate)
+
         mToolbar = findViewById(R.id.toolbar)
         mToolbar.apply {
             setNavigationOnClickListener { finish() }
