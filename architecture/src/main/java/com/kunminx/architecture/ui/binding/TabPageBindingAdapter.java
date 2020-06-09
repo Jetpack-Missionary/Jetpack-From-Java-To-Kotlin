@@ -34,4 +34,8 @@ public class TabPageBindingAdapter {
         tabLayout.addOnTabSelectedListener(listener);
     }
 
+    @BindingAdapter(value = {"setOffsetLimit"})
+    public static void setOffsetLimit(ViewPager viewPager, int count) {
+        viewPager.setOffscreenPageLimit(count);
+    }
 }
