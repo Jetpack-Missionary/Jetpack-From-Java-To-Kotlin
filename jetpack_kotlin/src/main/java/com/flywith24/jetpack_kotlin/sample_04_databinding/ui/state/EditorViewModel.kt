@@ -12,7 +12,7 @@ import com.flywith24.jetpack_kotlin.common_data.APIs
  */
 class EditorViewModel : ViewModel() {
     val imgUrl = ObservableField(APIs.ADD_PIC_TIP_URL)
-    val content = ObservableField<String>()
+    val content = ObservableField("")
     val location = ObservableField("点击添加定位")
 
 }

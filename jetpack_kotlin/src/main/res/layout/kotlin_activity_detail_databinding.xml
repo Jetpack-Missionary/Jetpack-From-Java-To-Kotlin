@@ -15,7 +15,8 @@
   -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -23,6 +24,9 @@
             name="vm"
             type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.DetailViewModel" />
 
+        <variable
+            name="click"
+            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.DataBindingDetailActivity.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +35,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            toolbarNavigationClick="@{()->click.back()}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -39,6 +44,32 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
             app:title="发布动态" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_avatar"
+            imageUrl="@{vm.avatar}"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:riv_corner_radius="6dp"
+            tools:src="@drawable/round_solid_gray" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{vm.name}"
+            android:textColor="@color/dark_blue_for_name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+            tools:text="KunMinX" />
 
         <TextView
             android:id="@+id/et"
@@ -52,9 +83,9 @@
             android:text="@{vm.content}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/iv"
             imageUrl="@{vm.imgUrl}"
             android:layout_width="0dp"
@@ -64,20 +95,21 @@
             android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et" />
+            app:layout_constraintTop_toBottomOf="@+id/et"
+            app:riv_corner_radius="6dp" />
 
         <TextView
             android:id="@+id/tv_locate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/round_stroke_blue"
+            android:background="@drawable/round_solid_gray"
             android:paddingLeft="12dp"
             android:paddingTop="4dp"
             android:paddingRight="12dp"
             android:paddingBottom="4dp"
             android:text="@{vm.location}"
-            android:textColor="#1E90FF"
+            android:textColor="@color/dark_blue_for_name"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv" />
 

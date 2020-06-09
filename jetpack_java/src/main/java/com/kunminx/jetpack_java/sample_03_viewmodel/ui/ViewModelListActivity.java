@@ -18,12 +18,13 @@ package com.kunminx.jetpack_java.sample_03_viewmodel.ui;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_ui.adapter.MomentAdapter;
 import com.kunminx.jetpack_java.sample_03_viewmodel.ui.state.ListViewModel;
-import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -33,6 +34,7 @@ public class ViewModelListActivity extends BaseActivity {
 
     private ListViewModel mListViewModel;
     private RecyclerView mRecyclerView;
+    private Toolbar mToolbar;
     private MomentAdapter mMomentAdapter;
 
     @Override
@@ -41,6 +43,8 @@ public class ViewModelListActivity extends BaseActivity {
         mListViewModel = getActivityViewModel(ListViewModel.class);
 
         setContentView(R.layout.activity_list_viewmodel);
+        mToolbar = findViewById(R.id.toolbar);
+        mToolbar.setNavigationOnClickListener(v -> finish());
 
         mRecyclerView = findViewById(R.id.rv);
 
@@ -50,7 +54,6 @@ public class ViewModelListActivity extends BaseActivity {
 
         mListViewModel.getListMutableLiveData().observe(this, moments -> {
             mMomentAdapter.submitList(moments);
-            mMomentAdapter.notifyDataSetChanged();
         });
 
         mListViewModel.requestList();

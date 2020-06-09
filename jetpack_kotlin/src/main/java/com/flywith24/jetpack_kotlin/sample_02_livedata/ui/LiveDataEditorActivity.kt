@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.APIs
 import com.flywith24.jetpack_kotlin.common_data.Configs
@@ -16,7 +17,7 @@ import com.kunminx.architecture.utils.loadImage
  * time   20:31
  * description
  */
-class LiveDataEditorActivity : BaseActivity(R.layout.kotlin_activity_livedata_detail) {
+class LiveDataEditorActivity : BaseActivity(R.layout.kotlin_activity_livedata_editor) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -27,20 +28,40 @@ class LiveDataEditorActivity : BaseActivity(R.layout.kotlin_activity_livedata_de
      */
     private lateinit var mImageView: ImageView
     private lateinit var mTvLocation: TextView
+    private lateinit var mToolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mImageView = findViewById(R.id.iv)
         mTvLocation = findViewById(R.id.tv_locate)
+        mToolbar = findViewById(R.id.toolbar)
+        mToolbar.apply {
+            setNavigationOnClickListener { finish() }
+            inflateMenu(R.menu.editor_menu)
+            setOnMenuItemClickListener { item ->
+                if (item.itemId == R.id.menu_save) {
+                    showLongToast(getString(R.string.liveData_save_tip))
+                }
+                return@setOnMenuItemClickListener true
+            }
+        }
 
-        mImageView.loadImage(APIs.PIC_URL)
+        mImageView.loadImage(APIs.SCENE_URL)
 
         mTvLocation.setOnClickListener {
+            /**
+             * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+             * 详情见 https://developer.android.com/training/basics/intents/result
+             */
             startActivityForResult(Intent(this, LiveDataLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        /**
+         * onActivityResult API 已弃用，可以使用新的 ActivityResult API
+         * 详情见 https://developer.android.com/training/basics/intents/result
+         */
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             Configs.REQUEST_LOCATION_INFO -> {

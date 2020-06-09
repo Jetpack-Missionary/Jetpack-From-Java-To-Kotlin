@@ -43,6 +43,9 @@ class LifecycleLocationActivity : BaseActivity(R.layout.kotlin_activity_lifecycl
         }
     }
 
+    /**
+     * RecyclerView item click
+     */
     override fun onItemClick(locationBean: LocationBean) {
         setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, locationBean.locationName))
         finish()

@@ -17,6 +17,9 @@ import com.kunminx.architecture.ui.BaseActivity
  * description
  */
 class DataBindingDetailActivity : BaseActivity() {
+    /**
+     * activity-ktx 扩展函数
+     */
     private val mDetailViewModel by viewModels<DetailViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +28,17 @@ class DataBindingDetailActivity : BaseActivity() {
         val binding = DataBindingUtil.setContentView<KotlinActivityDetailDatabindingBinding>(this, R.layout.kotlin_activity_detail_databinding)
         binding.lifecycleOwner = this
         binding.vm = mDetailViewModel
+        binding.click = ClickProxy()
 
         val moment = intent.getParcelableExtra<Moment>(Configs.THIS_MOMENT)
         moment?.let {
             mDetailViewModel.initState(it)
+        }
+    }
+
+    inner class ClickProxy {
+        fun back() {
+            finish()
         }
     }
 }
