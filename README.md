@@ -6,6 +6,10 @@
 
 换言之，通过本项目，你可迅速了解到 在引入了 Jetpack 的项目中 **"到底写了什么"**，以及 Kotlin 相较 Java **写法的差异之所在**，
 
+|                         组件示例入口                         |                         列表 - 详情                          |                      列表 - 编辑 - 定位                      |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![Untitled.gif](https://i.loli.net/2020/06/09/2ThFWwMtV4rlUby.gif) | ![Untitled1.gif](https://i.loli.net/2020/06/09/blUaTWpEuKF28nN.gif) | ![Untitled2.gif](https://i.loli.net/2020/06/09/wHvqG5TOQYSVnLg.gif) |
+
 在简单感受一下项目源码后，如你开始对 **"具体该怎么写"、"为什么要这样写"** 产生了一丝好奇心，想要继续深入探索，那我们的愿望也就达到了 😉
 
 以下是我们为你精心准备的[《Jetpack MVVM 最佳实践》](https://github.com/KunMinX/Jetpack-MVVM-Best-Practice)和[《Kotlin Jetpack 背包》](https://github.com/Flywith24/Flywith24-Jetpack-Demo)：
@@ -17,7 +21,6 @@
 [《Kotlin Jetpack 背包》](https://github.com/Flywith24/Flywith24-Jetpack-Demo)：
 
 该项目专注于跟进 Jetpack kotlin 最新技术动向，**目前已点到为止地提供数十个技术点示例代码**， 通过它你可在要求使用 kotlin 的工作中随时查阅、随取随用。
-
 
 
 
