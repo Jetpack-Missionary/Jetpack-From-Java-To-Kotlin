@@ -2,6 +2,7 @@ package com.flywith24.jetpack_kotlin.sample_03_viewmodel.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import com.flywith24.jetpack_kotlin.R
@@ -32,11 +33,14 @@ class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmod
      * 详情参考 https://juejin.im/post/5e8ef0bc518825736b749705#heading-17
      */
     private lateinit var mRecyclerView: RecyclerView
+    private lateinit var mToolbar: Toolbar
 
     private val mAdapter by lazy { MomentAdapter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mToolbar = findViewById(R.id.toolbar)
+        mToolbar.setNavigationOnClickListener { finish() }
 
         mRecyclerView = findViewById(R.id.rv)
 
