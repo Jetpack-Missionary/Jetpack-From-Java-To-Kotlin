@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/editor_menu"
             app:navigationIcon="@drawable/ic_back"
-            app:title="发布动态" />
+            app:title="@string/send_moment" />
 
         <EditText
             android:id="@+id/et"
