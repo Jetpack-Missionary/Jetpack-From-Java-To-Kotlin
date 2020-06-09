@@ -29,7 +29,6 @@ import com.kunminx.puremusic.domain.request.Request;
 import java.util.List;
 
 /**
-
  * Create by KunMinX at 19/10/29
  */
 public class MainActivityViewModel extends ViewModel implements Request.IGridItemRequest {
@@ -37,6 +36,8 @@ public class MainActivityViewModel extends ViewModel implements Request.IGridIte
     public final ObservableBoolean initTabAndPage = new ObservableBoolean();
 
     public final ObservableField<String> pageAssetPath = new ObservableField<>();
+
+    public final ObservableField<String> homeImg = new ObservableField<>();
 
     public final MutableLiveData<List<GridItem>> javaList = new MutableLiveData<>();
     public final MutableLiveData<List<GridItem>> kotlinList = new MutableLiveData<>();
@@ -46,6 +47,7 @@ public class MainActivityViewModel extends ViewModel implements Request.IGridIte
     {
         initTabAndPage.set(true);
         pageAssetPath.set("summary.html");
+        homeImg.set("https://i.loli.net/2020/06/09/FNirPTWgKyp4QSH.jpg");
     }
 
     @Override

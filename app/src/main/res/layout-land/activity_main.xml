@@ -67,18 +67,17 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Java" />
+                    android:text="@string/java_lang" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kotlin" />
+                    android:text="@string/kotlin_lang" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="关于" />
-
+                    android:text="@string/about" />
 
             </com.google.android.material.tabs.TabLayout>
 
