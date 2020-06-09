@@ -89,7 +89,7 @@ public class NavigationListFragment extends BaseFragment {
         }
 
         public void back() {
-            nav().navigateUp();
+            mSharedViewModel.closeActivity.setValue(true);
         }
     }
 }

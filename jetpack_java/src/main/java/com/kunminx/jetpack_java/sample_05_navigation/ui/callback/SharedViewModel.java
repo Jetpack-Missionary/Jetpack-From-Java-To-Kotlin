@@ -28,5 +28,6 @@ public class SharedViewModel extends ViewModel {
 
     public final EventLiveData<String> location = new EventLiveData<>();
     public final EventLiveData<Moment> moment = new EventLiveData<>();
+    public final EventLiveData<Boolean> closeActivity = new EventLiveData<>();
 
 }
