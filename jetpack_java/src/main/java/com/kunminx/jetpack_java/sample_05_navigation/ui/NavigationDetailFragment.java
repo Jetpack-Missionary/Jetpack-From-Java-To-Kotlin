@@ -51,6 +51,7 @@ public class NavigationDetailFragment extends BaseFragment {
         FragmentDetailNavigationBinding binding = FragmentDetailNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
         binding.setVm(mDetailViewModel);
+        binding.setClick(new ClickProxy());
         return view;
     }
 
@@ -60,5 +61,11 @@ public class NavigationDetailFragment extends BaseFragment {
 
         Moment moment = (Moment) getArguments().getParcelable(Configs.THIS_MOMENT);
         mDetailViewModel.initState(moment);
+    }
+
+    public class ClickProxy {
+        public void back() {
+            nav().navigateUp();
+        }
     }
 }

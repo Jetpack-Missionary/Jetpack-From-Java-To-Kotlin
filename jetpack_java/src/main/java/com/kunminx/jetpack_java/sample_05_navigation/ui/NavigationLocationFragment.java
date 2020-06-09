@@ -54,6 +54,7 @@ public class NavigationLocationFragment extends BaseFragment {
         FragmentLocationNavigationBinding binding = FragmentLocationNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
         binding.setVm(mLocationViewModel);
+        binding.setClick(new ClickProxy());
 
         DataBindingLocationAdapter adapter = new DataBindingLocationAdapter(mActivity.getApplicationContext());
         adapter.setOnItemClickListener(((item, position) -> {
@@ -74,5 +75,11 @@ public class NavigationLocationFragment extends BaseFragment {
         LiveDataLocationManager.getInstance().getLocationBeans().observe(getViewLifecycleOwner(), locationBeans -> {
             mLocationViewModel.list.setValue(locationBeans);
         });
+    }
+
+    public class ClickProxy {
+        public void back() {
+            nav().navigateUp();
+        }
     }
 }
