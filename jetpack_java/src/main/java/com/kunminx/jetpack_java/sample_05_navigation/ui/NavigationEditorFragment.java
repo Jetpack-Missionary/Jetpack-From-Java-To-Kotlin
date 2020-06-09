@@ -26,7 +26,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
-import com.kunminx.architecture.bridge.callback.Event;
 import com.kunminx.architecture.ui.BaseFragment;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.APIs;
@@ -91,7 +90,7 @@ public class NavigationEditorFragment extends BaseFragment {
             if (item.getItemId() == R.id.menu_save) {
                 Moment moment = new Moment();
                 moment.setUuid(UUID.randomUUID().toString());
-                moment.setUserAvatar(APIs.PIC_URL);
+                moment.setUserAvatar(APIs.KUNMINX_URL);
                 moment.setUserName("KunMinX");
                 moment.setLocation(mEditorViewModel.location.get());
                 moment.setImgUrl(mEditorViewModel.imgUrl.get());

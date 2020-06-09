@@ -73,7 +73,7 @@ public class DataBindingEditorActivity extends BaseActivity {
             if (item.getItemId() == R.id.menu_save) {
                 Moment moment = new Moment();
                 moment.setUuid(UUID.randomUUID().toString());
-                moment.setUserAvatar(APIs.PIC_URL);
+                moment.setUserAvatar(APIs.KUNMINX_URL);
                 moment.setUserName("KunMinX");
                 moment.setLocation(mEditorViewModel.location.get());
                 moment.setImgUrl(mEditorViewModel.imgUrl.get());

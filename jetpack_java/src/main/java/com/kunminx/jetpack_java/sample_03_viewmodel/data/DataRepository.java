@@ -43,28 +43,28 @@ public class DataRepository {
         List<Moment> list = new ArrayList<>();
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.KUNMINX_URL));
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "Flywith24", APIs.FLYWITH24_URL));
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.KUNMINX_URL));
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "Flywith24", APIs.FLYWITH24_URL));
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.KUNMINX_URL));
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "Flywith24", APIs.FLYWITH24_URL));
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.KUNMINX_URL));
 
         list.add(new Moment(getUUID(), "刚刚在掘金发表了最新一期动态，感兴趣的小伙伴可前往查阅",
-                "重庆朝天门码头", APIs.SCENE_URL, "KunMinX", APIs.PIC_URL));
+                "重庆朝天门码头", APIs.SCENE_URL, "Flywith24", APIs.FLYWITH24_URL));
 
         liveData.setValue(list);
     }
