@@ -21,10 +21,6 @@
     <data>
 
         <variable
-            name="click"
-            type="com.kunminx.puremusic.ui.page.MainActivity.ClickProxy" />
-
-        <variable
             name="vm"
             type="com.kunminx.puremusic.ui.state.MainActivityViewModel" />
 

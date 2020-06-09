@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity {
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setVm(mMainActivityViewModel);
-        binding.setClick(new ClickProxy());
 
         GridItemAdapter adapterJava = new GridItemAdapter(getApplicationContext());
         adapterJava.setOnItemClickListener((item, position) -> {
@@ -73,19 +72,4 @@ public class MainActivity extends BaseActivity {
         mMainActivityViewModel.requestKotlinItems();
     }
 
-    public class ClickProxy {
-
-        public void openMenu() {
-
-        }
-
-        public void login() {
-//            nav().navigate(R.id.action_mainFragment_to_loginFragment);
-        }
-
-        public void search() {
-//            nav().navigate(R.id.action_mainFragment_to_searchFragment);
-        }
-
-    }
 }
