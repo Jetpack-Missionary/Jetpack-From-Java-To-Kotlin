@@ -87,5 +87,9 @@ public class NavigationListFragment extends BaseFragment {
         public void fabClick() {
             nav().navigate(R.id.action_listFragment_Navigation_to_editorFragment_Navigation);
         }
+
+        public void back() {
+            nav().navigateUp();
+        }
     }
 }
