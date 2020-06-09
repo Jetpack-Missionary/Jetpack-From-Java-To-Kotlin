@@ -43,7 +43,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
-            app:title="@string/moment_list" />
+            app:title="@string/best_practice" />
 
         <WebView
             android:id="@+id/web_view"

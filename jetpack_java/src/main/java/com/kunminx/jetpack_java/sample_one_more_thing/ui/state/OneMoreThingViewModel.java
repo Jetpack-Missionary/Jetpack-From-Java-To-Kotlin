@@ -27,6 +27,6 @@ public class OneMoreThingViewModel extends ViewModel {
     public final ObservableField<String> pageAssetPath = new ObservableField<>();
 
     {
-        pageAssetPath.set("summary.html");
+        pageAssetPath.set("best_practice.html");
     }
 }

@@ -17,4 +17,6 @@
 <resources>
 
 
+    <string name="one_more_thing">One More Thing</string>
+    <string name="best_practice">Jetpack MVVM 最佳实践</string>
 </resources>
