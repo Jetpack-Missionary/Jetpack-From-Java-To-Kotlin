@@ -61,7 +61,7 @@ public class DataBindingEditorActivity extends BaseActivity {
         }
 
         public void addPic() {
-            mEditorViewModel.imgUrl.set(APIs.PIC_URL);
+            mEditorViewModel.imgUrl.set(APIs.SCENE_URL);
         }
 
         public void back() {

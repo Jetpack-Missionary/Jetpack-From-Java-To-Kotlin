@@ -83,13 +83,9 @@ dependencies {
 
     compileOnly(AndroidX.Navigation.runtime)
 
-    implementation(AndroidX.Room.roomRuntime)
-    annotationProcessor(AndroidX.Room.roomCompiler)
-
     implementation(Google.gson)
 
     implementation(ThirdParty.permission)
-//    implementation(ThirdParty.materialiconlib)
     implementation(ThirdParty.Glide.glide)
     annotationProcessor(ThirdParty.Glide.compiler)
 
