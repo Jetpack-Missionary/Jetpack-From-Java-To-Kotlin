@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.APIs
 import com.flywith24.jetpack_kotlin.common_data.Configs
@@ -27,16 +28,31 @@ class LifecycleEditorActivity : BaseActivity(R.layout.kotlin_activity_lifecycles
      */
     private lateinit var mTvLocation: TextView
     private lateinit var mImageView: ImageView
+    private lateinit var mToolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mTvLocation = findViewById(R.id.tv_locate)
         mImageView = findViewById(R.id.iv)
+        mToolbar = findViewById(R.id.toolbar)
+        mToolbar.apply {
+            setNavigationOnClickListener { finish() }
+            inflateMenu(R.menu.editor_menu)
+            setOnMenuItemClickListener { item ->
+                if (item.itemId == R.id.menu_save) {
+                    showLongToast(getString(R.string.lifecycle_save_tip))
+                }
+                return@setOnMenuItemClickListener true
+            }
+        }
 
-        mImageView.loadImage(APIs.PIC_URL)
+        mImageView.loadImage(APIs.SCENE_URL)
 
         mTvLocation.setOnClickListener {
+            /**
+             * startActivityForResult API 已弃用，可以使用新的 Result API
+             */
             startActivityForResult(Intent(this, LifecycleLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
         }
     }
