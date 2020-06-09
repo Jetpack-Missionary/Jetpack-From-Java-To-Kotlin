@@ -19,6 +19,9 @@ import com.kunminx.architecture.ui.BaseFragment
  * description
  */
 class NavigationDetailFragment : BaseFragment() {
+    /**
+     * fragment-ktx 扩展函数
+     */
     private val mDetailViewModel by viewModels<DetailViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,7 +29,7 @@ class NavigationDetailFragment : BaseFragment() {
         val binding = KotlinFragmentDetailNavigationBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.vm = mDetailViewModel
-
+        binding.click = ClickProxy()
         return view
     }
 
@@ -36,6 +39,12 @@ class NavigationDetailFragment : BaseFragment() {
         val moment = arguments?.getParcelable<Moment>(Configs.THIS_MOMENT)
         moment?.let {
             mDetailViewModel.initState(it)
+        }
+    }
+
+    inner class ClickProxy {
+        fun back() {
+            nav().navigateUp()
         }
     }
 }

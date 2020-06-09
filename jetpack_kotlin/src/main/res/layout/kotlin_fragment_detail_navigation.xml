@@ -23,6 +23,9 @@
             name="vm"
             type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.state.DetailViewModel" />
 
+        <variable
+            name="click"
+            type="com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationDetailFragment.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +34,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            toolbarNavigationClick="@{()->click.back()}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -64,7 +68,7 @@
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             app:layout_constraintTop_toTopOf="@+id/iv_avatar"
-            tools:text="KunMinX" />
+            tools:text="Flywith24" />
 
         <TextView
             android:id="@+id/et"

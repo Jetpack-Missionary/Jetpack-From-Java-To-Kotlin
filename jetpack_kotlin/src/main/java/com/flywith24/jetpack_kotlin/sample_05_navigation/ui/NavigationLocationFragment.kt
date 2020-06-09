@@ -23,8 +23,25 @@ import com.kunminx.architecture.ui.BaseFragment
  * description
  */
 class NavigationLocationFragment : BaseFragment() {
-
+    /**
+     * fragment 级别共享 ViewModel
+     *
+     * fragment-ktx 扩展函数
+     *
+     * ViewModel 如何控制作用域，请参考
+     * https://juejin.im/post/5e786d415188255e00661a4e#heading-10
+     */
     private val mLocationViewModel by viewModels<LocationViewModel>()
+
+
+    /**
+     * activity 级别共享 ViewModel
+     *
+     * fragment-ktx 扩展函数
+     *
+     * ViewModel 如何控制作用域，请参考
+     * https://juejin.im/post/5e786d415188255e00661a4e#heading-10
+     */
     private val mSharedViewModel by activityViewModels<SharedViewModel>()
 
 
@@ -33,6 +50,7 @@ class NavigationLocationFragment : BaseFragment() {
         val binding = KotlinFragmentLocationNavigationBinding.bind(view)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.vm = mLocationViewModel
+        binding.click = ClickProxy()
         binding.adapter = DataBindingLocationAdapter(requireContext()).apply {
             setOnItemClickListener { item, _ ->
                 mSharedViewModel.location.setEventValue(item.locationName)
@@ -43,10 +61,18 @@ class NavigationLocationFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         lifecycle.addObserver(LiveDataLocationManager.getInstance())
 
         LiveDataLocationManager.getInstance().getLocationBeans().observe(viewLifecycleOwner) { locationBeans ->
             mLocationViewModel.list.value = locationBeans
+        }
+    }
+
+    inner class ClickProxy {
+        fun back() {
+            nav().navigateUp()
         }
     }
 }

@@ -28,11 +28,21 @@ import java.util.*
 class NavigationEditorFragment : BaseFragment() {
     /**
      * fragment 级别共享 ViewModel
+     *
+     * fragment-ktx 扩展函数
+     *
+     * ViewModel 如何控制作用域，请参考
+     * https://juejin.im/post/5e786d415188255e00661a4e#heading-10
      */
     private val mEditorViewModel by viewModels<EditorViewModel>()
 
     /**
      * activity 级别共享 ViewModel
+     *
+     * fragment-ktx 扩展函数
+     *
+     * ViewModel 如何控制作用域，请参考
+     * https://juejin.im/post/5e786d415188255e00661a4e#heading-10
      */
     private val mSharedViewModel by activityViewModels<SharedViewModel>()
 
@@ -72,7 +82,7 @@ class NavigationEditorFragment : BaseFragment() {
                             mEditorViewModel.location.get(),
                             mEditorViewModel.imgUrl.get() ?: "",
                             "Flywith24",
-                            APIs.PIC_URL
+                            APIs.FLYWITH24_URL
                     )
                     mSharedViewModel.moment.setEventValue(moment)
                     nav().navigateUp()

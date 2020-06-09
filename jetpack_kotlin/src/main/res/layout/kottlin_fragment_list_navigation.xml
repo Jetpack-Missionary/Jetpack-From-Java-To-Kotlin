@@ -39,6 +39,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            toolbarNavigationClick="@{()->click.back()}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -51,6 +52,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             adapter="@{adapter}"
+            autoScrollToTopWhenInsert="@{vm.autoScrollToTopWhenInsert}"
             refreshList="@{vm.list}"
             android:layout_width="0dp"
             android:layout_height="0dp"

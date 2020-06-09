@@ -1,7 +1,6 @@
 package com.flywith24.jetpack_kotlin.sample_05_navigation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,8 +23,24 @@ import com.kunminx.architecture.ui.BaseFragment
  * description
  */
 class NavigationListFragment : BaseFragment() {
-
+    /**
+     * fragment 级别共享 ViewModel
+     *
+     * fragment-ktx 扩展函数
+     *
+     * ViewModel 如何控制作用域，请参考
+     * https://juejin.im/post/5e786d415188255e00661a4e#heading-10
+     */
     private val mListViewModel by viewModels<ListViewModel>()
+
+    /**
+     * activity 级别共享 ViewModel
+     *
+     * fragment-ktx 扩展函数
+     *
+     * ViewModel 如何控制作用域，请参考
+     * https://juejin.im/post/5e786d415188255e00661a4e#heading-10
+     */
     private val mSharedViewModel by activityViewModels<SharedViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,16 +59,11 @@ class NavigationListFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.i("yyz11", "onViewCreated NavigationListFragment")
-
         mListViewModel.getListMutableLiveData().observe(viewLifecycleOwner) { moments ->
-            Log.i("yyz11", "1. moments = $moments")
-
             mListViewModel.list.value = moments
         }
 
         mSharedViewModel.moment.observeEvent(viewLifecycleOwner) { moment ->
-            Log.i("yyz11", "2. moment = $moment")
             mListViewModel.list.value?.let { list ->
                 mListViewModel.list.value = ArrayList(list).apply { add(0, moment) }
             }
@@ -66,6 +76,10 @@ class NavigationListFragment : BaseFragment() {
     inner class ClickProxy {
         fun fabClick() {
             nav().navigate(R.id.action_list_to_editor)
+        }
+
+        fun back() {
+            requireActivity().finish()
         }
     }
 }
