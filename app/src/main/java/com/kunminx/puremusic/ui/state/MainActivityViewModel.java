@@ -47,7 +47,7 @@ public class MainActivityViewModel extends ViewModel implements Request.IGridIte
     {
         initTabAndPage.set(true);
         pageAssetPath.set("summary.html");
-        homeImg.set("https://i.loli.net/2020/06/09/FNirPTWgKyp4QSH.jpg");
+        homeImg.set("https://i.loli.net/2020/06/09/rLzKlThf5pQvtCj.jpg");
     }
 
     @Override

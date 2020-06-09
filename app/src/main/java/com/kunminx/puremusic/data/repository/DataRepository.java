@@ -70,8 +70,6 @@ public class DataRepository implements ILocalRequest, IRemoteRequest {
         list.add(new GridItem(getUUID(), "ViewModel", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.flywith24.jetpack_kotlin.sample_03_viewmodel.ui.ViewModelListActivity"));
         list.add(new GridItem(getUUID(), "DataBinding", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.flywith24.jetpack_kotlin.sample_04_databinding.ui.DataBindingListActivity"));
         list.add(new GridItem(getUUID(), "Navigation", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.flywith24.jetpack_kotlin.sample_05_navigation.ui.NavigationMainActivity"));
-        list.add(new GridItem(getUUID(), "Room", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.flywith24.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
-        list.add(new GridItem(getUUID(), "Paging", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.flywith24.jetpack_kotlin.sample_01_lifecycles.ui.LifecycleDetailActivity"));
         list.add(new GridItem(getUUID(), "One More Thing", R.drawable.bg_album_default, "com.kunminx.jetpack_j2k", "com.kunminx.jetpack_java.sample_one_more_thing.ui.OneMoreThingActivity"));
 
         liveData.setValue(list);
