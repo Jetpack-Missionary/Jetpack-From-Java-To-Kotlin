@@ -69,7 +69,7 @@
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             app:layout_constraintTop_toTopOf="@+id/iv_avatar"
-            tools:text="KunMinX" />
+            tools:text="Flywith24" />
 
         <TextView
             android:id="@+id/et"

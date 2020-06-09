@@ -32,6 +32,7 @@ class DataBindingLocationActivity : BaseActivity() {
         val binding = DataBindingUtil.setContentView<KotlinActivityLocationDatabindingBinding>(this, R.layout.kotlin_activity_location_databinding)
         binding.lifecycleOwner = this
         binding.vm = mLocationViewModel
+        binding.click = ClickProxy()
         binding.adapter = DataBindingLocationAdapter(applicationContext).apply {
             setOnItemClickListener { item, _ ->
                 setResult(Activity.RESULT_OK,

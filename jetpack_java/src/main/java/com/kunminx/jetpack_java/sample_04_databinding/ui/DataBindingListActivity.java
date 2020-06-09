@@ -69,6 +69,10 @@ public class DataBindingListActivity extends BaseActivity {
             Intent intent = new Intent(DataBindingListActivity.this, DataBindingEditorActivity.class);
             startActivityForResult(intent, Configs.REQUEST_NEW_MOMENT);
         }
+
+        public void back() {
+            finish();
+        }
     }
 
     @Override

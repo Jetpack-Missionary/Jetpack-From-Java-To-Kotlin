@@ -72,5 +72,9 @@ class DataBindingListActivity : BaseActivity() {
                     Intent(this@DataBindingListActivity, DataBindingEditorActivity::class.java),
                     Configs.REQUEST_NEW_MOMENT)
         }
+
+        fun back() {
+            finish()
+        }
     }
 }
