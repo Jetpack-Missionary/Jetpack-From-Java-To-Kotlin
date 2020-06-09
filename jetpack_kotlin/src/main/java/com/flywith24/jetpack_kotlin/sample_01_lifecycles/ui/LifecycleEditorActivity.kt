@@ -51,13 +51,18 @@ class LifecycleEditorActivity : BaseActivity(R.layout.kotlin_activity_lifecycles
 
         mTvLocation.setOnClickListener {
             /**
-             * startActivityForResult API 已弃用，可以使用新的 Result API
+             * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+             * 详情见 https://developer.android.com/training/basics/intents/result
              */
             startActivityForResult(Intent(this, LifecycleLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        /**
+         * onActivityResult API 已弃用，可以使用新的 ActivityResult API
+         * 详情见 https://developer.android.com/training/basics/intents/result
+         */
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             Configs.REQUEST_LOCATION_INFO -> {
