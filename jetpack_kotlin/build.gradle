@@ -70,7 +70,7 @@ dependencies {
 
 
     implementation(AndroidX.Navigation.uiKtx)
-    implementation(AndroidX.Navigation.fragmentKtx)
+//    implementation(AndroidX.Navigation.fragmentKtx)
 
     implementation(Google.material)
 
