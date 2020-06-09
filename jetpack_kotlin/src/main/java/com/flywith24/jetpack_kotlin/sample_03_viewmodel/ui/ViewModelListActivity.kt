@@ -49,6 +49,10 @@ class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmod
         mListViewModel.requestList()
     }
 
+    /**
+     *  RecyclerView item click
+     */
     override fun onItemClick(moment: Moment) {
+        showLongToast(getString(R.string.viewmodel_item_click_tip))
     }
 }
