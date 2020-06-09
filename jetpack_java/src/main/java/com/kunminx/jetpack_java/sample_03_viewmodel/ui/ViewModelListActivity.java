@@ -20,10 +20,10 @@ import android.os.Bundle;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_ui.adapter.MomentAdapter;
 import com.kunminx.jetpack_java.sample_03_viewmodel.ui.state.ListViewModel;
-import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * Create by KunMinX at 19/10/16
@@ -50,7 +50,6 @@ public class ViewModelListActivity extends BaseActivity {
 
         mListViewModel.getListMutableLiveData().observe(this, moments -> {
             mMomentAdapter.submitList(moments);
-            mMomentAdapter.notifyDataSetChanged();
         });
 
         mListViewModel.requestList();
