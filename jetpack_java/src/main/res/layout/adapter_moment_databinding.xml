@@ -78,6 +78,7 @@
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_margin="12dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/round_solid_gray"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             app:layout_constraintRight_toRightOf="parent"
