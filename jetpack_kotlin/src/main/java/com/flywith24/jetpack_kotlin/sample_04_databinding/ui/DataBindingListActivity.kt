@@ -20,6 +20,9 @@ import com.kunminx.architecture.ui.BaseActivity
  * description
  */
 class DataBindingListActivity : BaseActivity() {
+    /**
+     * activity-ktx 扩展函数
+     */
     private val mListViewModel by viewModels<ListViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +47,10 @@ class DataBindingListActivity : BaseActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        /**
+         * onActivityResult API 已弃用，可以使用新的 ActivityResult API
+         * 详情见 https://developer.android.com/training/basics/intents/result
+         */
         super.onActivityResult(requestCode, resultCode, data)
         when (resultCode) {
             Configs.REQUEST_NEW_MOMENT -> {
@@ -57,6 +64,10 @@ class DataBindingListActivity : BaseActivity() {
 
     inner class ClickProxy {
         fun fabClick() {
+            /**
+             * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+             * 详情见 https://developer.android.com/training/basics/intents/result
+             */
             startActivityForResult(
                     Intent(this@DataBindingListActivity, DataBindingEditorActivity::class.java),
                     Configs.REQUEST_NEW_MOMENT)
