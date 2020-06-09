@@ -22,6 +22,9 @@ import java.util.*
  * description
  */
 class DataBindingEditorActivity : BaseActivity() {
+    /**
+     * activity-ktx 扩展函数
+     */
     private val mEditorViewModel by viewModels<EditorViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +37,10 @@ class DataBindingEditorActivity : BaseActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        /**
+         * onActivityResult API 已弃用，可以使用新的 ActivityResult API
+         * 详情见 https://developer.android.com/training/basics/intents/result
+         */
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             Configs.REQUEST_LOCATION_INFO -> {
@@ -45,12 +52,16 @@ class DataBindingEditorActivity : BaseActivity() {
 
     inner class ClickProxy : Toolbar.OnMenuItemClickListener {
         fun locate() {
+            /**
+             * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+             * 详情见 https://developer.android.com/training/basics/intents/result
+             */
             startActivityForResult(Intent(this@DataBindingEditorActivity, DataBindingLocationActivity::class.java),
                     Configs.REQUEST_LOCATION_INFO)
         }
 
         fun addPic() {
-            mEditorViewModel.imgUrl.set(APIs.PIC_URL)
+            mEditorViewModel.imgUrl.set(APIs.SCENE_URL)
         }
 
         fun back() {
@@ -64,7 +75,7 @@ class DataBindingEditorActivity : BaseActivity() {
                         mEditorViewModel.location.get(),
                         mEditorViewModel.imgUrl.get() ?: "",
                         "Flywith24",
-                        APIs.PIC_URL
+                        APIs.FLYWITH24_URL
                 )
                 setResult(Configs.REQUEST_NEW_MOMENT, Intent().putExtra(Configs.NEW_MOMENT, moment))
                 finish()
