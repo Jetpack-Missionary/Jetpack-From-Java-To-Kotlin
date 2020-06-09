@@ -28,6 +28,10 @@
             name="adapter"
             type="androidx.recyclerview.widget.ListAdapter" />
 
+        <variable
+            name="click"
+            type="com.flywith24.jetpack_kotlin.sample_04_databinding.ui.DataBindingLocationActivity.ClickProxy" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +40,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            toolbarNavigationClick="@{()->click.back()}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"

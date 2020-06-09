@@ -21,6 +21,9 @@ import com.kunminx.architecture.ui.BaseActivity
  * description
  */
 class DataBindingLocationActivity : BaseActivity() {
+    /**
+     * activity-ktx 扩展函数
+     */
     private val mLocationViewModel by viewModels<LocationViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +44,12 @@ class DataBindingLocationActivity : BaseActivity() {
 
         LiveDataLocationManager.getInstance().getLocationBeans().observe(this) { list ->
             mLocationViewModel.list.value = list
+        }
+    }
+
+    inner class ClickProxy {
+        fun back() {
+            finish()
         }
     }
 }
