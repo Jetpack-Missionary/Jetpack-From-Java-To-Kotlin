@@ -1,6 +1,4 @@
-<p align="center">
-<img src="/previews/logo.png"/>
-</p>
+![logo.png](https://i.loli.net/2020/06/10/bmuYLtDzyckFX95.png)
 
 &nbsp;
 
