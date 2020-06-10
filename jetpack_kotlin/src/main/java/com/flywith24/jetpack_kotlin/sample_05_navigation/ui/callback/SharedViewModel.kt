@@ -20,5 +20,6 @@ class SharedViewModel : ViewModel() {
      */
     val location = EventMutableLiveData<String>()
     val moment = EventMutableLiveData<Moment>()
+    val closeActivity = EventMutableLiveData<Boolean>()
 
 }
