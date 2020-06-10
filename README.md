@@ -39,7 +39,7 @@
 
 ## 版权声明
 
-本项目的场景、外观、代码设计，由作者 KunMinX 和 Flywith24 完成，作者对此享有著作权，任何个人或组织，未经作者本人授权，不得将该项目的设计用于写书、卖课等商业用途。
+本项目的场景、外观、代码设计，由作者 [KunMinX](https://github.com/KunMinX) 和 [Flywith24](https://github.com/Flywith24) 完成，作者对此享有著作权，任何个人或组织，未经作者本人授权，不得将该项目的设计用于写书、卖课等商业用途。
 
-Copyright © 2020-present [KunMinX](https://github.com/KunMinX) & [Flywith24](https://github.com/Flywith24)
+Copyright © 2020-present KunMinX & Flywith24
 
