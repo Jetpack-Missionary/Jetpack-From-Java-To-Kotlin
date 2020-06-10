@@ -1,4 +1,4 @@
-![logo.png](https://i.loli.net/2020/06/10/bmuYLtDzyckFX95.png)
+![logo.png](https://i.loli.net/2020/06/10/X6I4dO8PukM3QVR.png)
 
 &nbsp;
 
