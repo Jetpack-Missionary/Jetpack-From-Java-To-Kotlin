@@ -1,18 +1,26 @@
-# Jetpack-From-Java-To-Kotlin
+<p align="center">
+<img src="/previews/logo.png"/>
+</p>
+
+&nbsp;
+
+## 项目简介
 
 很高兴见到你！
 
-### 本项目专注于提供 Jetpack 组件 从 Java 到 Kotlin 的对照示例
+本项目 **专注于提供** Jetpack 核心组件 从 Java 到 Kotlin 的 **对照示例**，
 
-换言之，通过本项目，你可迅速了解到 在引入了 Jetpack 的项目中 **"到底写了什么"**，以及 Kotlin 相较 Java **写法的差异之所在**，
-
-|                         组件示例入口                         |                         列表 - 详情                          |                      列表 - 编辑 - 定位                      |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![Untitled.gif](https://i.loli.net/2020/06/09/2ThFWwMtV4rlUby.gif) | ![Untitled3.gif](https://i.loli.net/2020/06/09/sHEzaIo2WihBkPd.gif) | ![Untitled2.gif](https://i.loli.net/2020/06/09/wHvqG5TOQYSVnLg.gif) |
+换言之，通过本项目 精心设计的场景 和 精简的代码，你可迅速了解到 在引入了 Jetpack 的项目中 **"到底写了什么"**，以及 Kotlin 相较 Java **写法的差异之所在**，
 
 在简单感受一下项目源码后，如你开始对 **"具体该怎么写"、"为什么要这样写"** 产生了一丝好奇心，想要继续深入探索，那我们的愿望也就达到了 😉
 
-以下是我们为你精心准备的[《Jetpack MVVM 最佳实践》](https://github.com/KunMinX/Jetpack-MVVM-Best-Practice)和[《Kotlin Jetpack 背包》](https://github.com/Flywith24/Flywith24-Jetpack-Demo)：
+|                         列表 - 详情                          |                      列表 - 编辑 - 定位                      |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![](https://user-gold-cdn.xitu.io/2020/6/9/1729845904d055db?w=301&h=500&f=gif&s=1990907) | ![](https://user-gold-cdn.xitu.io/2020/6/9/1729822bb420e1b5?w=301&h=503&f=gif&s=762210) |
+
+## 后置进阶项目
+
+为了方便读者快速阅读
 
 [《Jetpack MVVM 最佳实践》](https://github.com/KunMinX/Jetpack-MVVM-Best-Practice)：
 
