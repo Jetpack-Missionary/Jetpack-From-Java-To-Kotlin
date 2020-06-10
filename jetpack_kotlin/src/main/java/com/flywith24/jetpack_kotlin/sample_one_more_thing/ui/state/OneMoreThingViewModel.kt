@@ -10,5 +10,5 @@ import androidx.lifecycle.ViewModel
  * description
  */
 class OneMoreThingViewModel : ViewModel() {
-    val pageAssetPath = ObservableField("summary.html")
+    val pageAssetPath = ObservableField("use_jetpack.html")
 }
