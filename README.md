@@ -18,9 +18,11 @@
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | ![](https://user-gold-cdn.xitu.io/2020/6/9/1729845904d055db?w=301&h=500&f=gif&s=1990907) | ![](https://user-gold-cdn.xitu.io/2020/6/9/1729822bb420e1b5?w=301&h=503&f=gif&s=762210) |
 
-## 后置进阶项目
+## 后置进阶
 
-为了方便读者快速阅读
+在阅读完本入门项目后，若让你觉得胃口大开，别着急 😉
+
+以下是两位作者分别长期维护的 Jetpack 进阶项目：
 
 [《Jetpack MVVM 最佳实践》](https://github.com/KunMinX/Jetpack-MVVM-Best-Practice)：
 
@@ -31,6 +33,9 @@
 该项目专注于跟进 Jetpack kotlin 最新技术动向，**目前已点到为止地提供数十个技术点示例代码**， 通过它你可在要求使用 kotlin 的工作中随时查阅、随取随用。
 
 
+## 版权声明
 
-Copyright © 2020 KunMinX & Flywith24
+本项目的场景、外观、代码设计，由作者 KunMinX 和 Flywith24 完成，作者对此享有著作权，任何个人或组织，未经作者本人授权，不得将该项目的设计用于写书、卖课等商业用途。
+
+Copyright © 2020-present [KunMinX](https://github.com/KunMinX) & [Flywith24](https://github.com/Flywith24)
 
