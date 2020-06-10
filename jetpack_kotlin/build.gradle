@@ -1,7 +1,6 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
 import com.flywith24.version_config.dependencies.Google
-import com.flywith24.version_config.dependencies.Testing
 import com.flywith24.version_config.dependencies.ThirdParty
 
 plugins {
@@ -42,6 +41,7 @@ android {
         jvmTarget = "1.8"
     }
 
+    //资源前缀
     resourcePrefix "kotlin_"
 }
 
@@ -62,6 +62,10 @@ dependencies {
     implementation(AndroidX.recyclerView)
     implementation(AndroidX.constraintlayout)
 
+    /**
+     * 带 ktx 后缀的库与不带 ktx 后缀的区别见
+     * https://juejin.im/post/5e567ee1518825494466a938
+     */
     implementation(AndroidX.Fragment.fragmentKtx)
 
     implementation(AndroidX.Lifecycle.commonJava8)
