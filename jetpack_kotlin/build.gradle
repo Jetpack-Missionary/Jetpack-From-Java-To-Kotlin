@@ -1,6 +1,7 @@
 import com.flywith24.version_config.BuildConfig
 import com.flywith24.version_config.dependencies.AndroidX
 import com.flywith24.version_config.dependencies.Google
+import com.flywith24.version_config.dependencies.Testing
 import com.flywith24.version_config.dependencies.ThirdParty
 
 plugins {
