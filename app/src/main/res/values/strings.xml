@@ -2,6 +2,6 @@
     <string name="app_name">Jetpack from Java to Kotlin</string>
     <string name="java_lang">Java</string>
     <string name="kotlin_lang">Kotlin</string>
-    <string name="about">关于</string>
+    <string name="about">About</string>
 
 </resources>
