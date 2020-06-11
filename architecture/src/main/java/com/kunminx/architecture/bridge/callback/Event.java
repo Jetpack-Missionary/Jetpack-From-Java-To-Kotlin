@@ -16,12 +16,16 @@ public class Event<T> {
         this.content = content;
     }
 
-    public @Nullable
+    @Nullable
     T getContent() {
         if (hasHandled) {
             return null;
         }
         hasHandled = true;
         return content;
+    }
+
+    void setContentNull() {
+        content = null;
     }
 }
