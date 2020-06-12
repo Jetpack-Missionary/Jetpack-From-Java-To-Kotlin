@@ -1,4 +1,4 @@
-package com.kunminx.architecture.ui.binding;
+package com.kunminx.architecture.ui.binding_adapter;
 
 import androidx.databinding.BindingAdapter;
 import androidx.viewpager.widget.ViewPager;
