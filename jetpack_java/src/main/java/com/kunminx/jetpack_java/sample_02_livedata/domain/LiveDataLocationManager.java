@@ -69,7 +69,7 @@ public class LiveDataLocationManager implements DefaultLifecycleObserver {
             }
         };
 
-        mTimer.schedule(task, 250);
+        mTimer.schedule(task, 500);
 
     }
 
