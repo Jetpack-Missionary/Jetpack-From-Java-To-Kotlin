@@ -2,7 +2,6 @@ package com.kunminx.architecture.utils
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.kunminx.architecture.BaseApplication
 
 /**
  * @author Flywith24
@@ -13,7 +12,7 @@ import com.kunminx.architecture.BaseApplication
  */
 
 fun ImageView.loadImage(url: String) {
-    Glide.with(BaseApplication.instance.applicationContext)
+    Glide.with(context)
             .load(url)
             .into(this)
 }
