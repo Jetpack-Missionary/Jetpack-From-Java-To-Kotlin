@@ -68,7 +68,7 @@ public class LifecycleLocationManager implements DefaultLifecycleObserver {
             }
         };
 
-        mTimer.schedule(task, 500);
+        mTimer.schedule(task, 200);
 
     }
 
