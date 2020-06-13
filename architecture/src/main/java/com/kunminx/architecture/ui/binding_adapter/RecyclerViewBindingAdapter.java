@@ -42,6 +42,7 @@ public class RecyclerViewBindingAdapter {
             if (recyclerView.getAdapter() == null) {
 
                 if (recyclerView.getLayoutManager() != null) {
+
                     if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
                         int spanCount = ((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount();
                         recyclerView.setLayoutManager(new WrapContentGridLayoutManager(recyclerView.getContext(), spanCount));
