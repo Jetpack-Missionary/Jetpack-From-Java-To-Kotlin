@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kunminx.architecture.ui.BaseActivity;
+import com.kunminx.architecture.ui.layout_manager.WrapContentLinearLayoutManager;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_ui.adapter.MomentAdapter;
 import com.kunminx.jetpack_java.sample_03_viewmodel.ui.state.ListViewModel;
@@ -43,6 +44,7 @@ public class ViewModelListActivity extends BaseActivity {
         mToolbar.setNavigationOnClickListener(v -> finish());
 
         mRecyclerView = findViewById(R.id.rv);
+        mRecyclerView.setLayoutManager(new WrapContentLinearLayoutManager(getApplicationContext()));
 
         mRecyclerView.setAdapter(mMomentAdapter = new MomentAdapter(getApplicationContext(), moment -> {
             showLongToast(getString(R.string.viewmodel_item_click_tip));

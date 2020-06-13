@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kunminx.architecture.ui.BaseActivity;
+import com.kunminx.architecture.ui.layout_manager.WrapContentLinearLayoutManager;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.Configs;
 import com.kunminx.jetpack_java.common_ui.adapter.LocationAdapter;
@@ -44,6 +45,7 @@ public class LiveDataLocationActivity extends BaseActivity {
         mToolbar.setNavigationOnClickListener(v -> finish());
 
         mRecyclerView = findViewById(R.id.rv);
+        mRecyclerView.setLayoutManager(new WrapContentLinearLayoutManager(getApplicationContext()));
 
         mRecyclerView.setAdapter(mLocationAdapter = new LocationAdapter(getApplicationContext(), locationBean -> {
             Intent intent = new Intent();
