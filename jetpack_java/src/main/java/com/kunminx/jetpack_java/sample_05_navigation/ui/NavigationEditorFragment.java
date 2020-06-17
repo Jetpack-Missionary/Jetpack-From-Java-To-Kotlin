@@ -84,6 +84,7 @@ public class NavigationEditorFragment extends BaseFragment {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if (item.getItemId() == R.id.menu_save) {
+                toggleKeyboardShow();
                 Moment moment = new Moment();
                 moment.setUuid(UUID.randomUUID().toString());
                 moment.setUserAvatar(APIs.KUNMINX_URL);

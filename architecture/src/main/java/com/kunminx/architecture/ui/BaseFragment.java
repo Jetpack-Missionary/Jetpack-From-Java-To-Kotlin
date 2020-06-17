@@ -4,10 +4,13 @@ package com.kunminx.architecture.ui;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -106,4 +109,30 @@ public abstract class BaseFragment extends Fragment {
         return NavHostFragment.findNavController(this);
     }
 
+    protected void toggleKeyboardShow() {
+        if (isSoftShowing()) {
+            InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
+    private boolean isSoftShowing() {
+        int screenHeight = mActivity.getWindow().getDecorView().getHeight();
+        Rect rect = new Rect();
+        mActivity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        return (screenHeight - rect.bottom - getSoftButtonsBarHeight()) != 0;
+    }
+
+    private int getSoftButtonsBarHeight() {
+        DisplayMetrics metrics = new DisplayMetrics();
+        mActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int usableHeight = metrics.heightPixels;
+        mActivity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
+        int realHeight = metrics.heightPixels;
+        if (realHeight > usableHeight) {
+            return realHeight - usableHeight;
+        } else {
+            return 0;
+        }
+    }
 }
