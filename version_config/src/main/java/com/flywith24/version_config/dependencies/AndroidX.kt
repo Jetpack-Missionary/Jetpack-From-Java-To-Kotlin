@@ -53,7 +53,7 @@ object AndroidX {
 
 
     object Navigation {
-        private const val nav_version = "2.3.0-beta01"
+        private const val nav_version = "2.3.0-rc01"
 
         // 无需直接引用
         const val runtime = "androidx.navigation:navigation-runtime:$nav_version"
