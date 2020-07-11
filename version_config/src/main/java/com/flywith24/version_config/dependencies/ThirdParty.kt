@@ -19,6 +19,10 @@ object ThirdParty {
         const val compiler = "com.github.bumptech.glide:compiler:$glide_version"
     }
 
+    object Archi {
+        const val unPeekLiveData = "com.kunminx.archi:unpeeklivedata:2.9.5-beta1"
+    }
+
     const val roundedImageView = "com.makeramen:roundedimageview:2.3.0"
 
 }
