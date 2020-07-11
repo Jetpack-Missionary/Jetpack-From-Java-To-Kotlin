@@ -6,14 +6,11 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 
-import com.kunminx.architecture.bridge.callback.EventLiveData;
-
-import static java.util.Objects.requireNonNull;
+import com.kunminx.architecture.ui.callback.UnPeekLiveData;
+import com.kunminx.architecture.utils.Utils;
 
 /**
  * Create by KunMinX at 19/10/11
@@ -21,7 +18,7 @@ import static java.util.Objects.requireNonNull;
 public class NetworkStateManager implements DefaultLifecycleObserver {
 
     private static final NetworkStateManager S_MANAGER = new NetworkStateManager();
-    public final EventLiveData<NetState> networkStateCallback = new EventLiveData<>();
+    public final UnPeekLiveData<NetState> networkStateCallback = new UnPeekLiveData<>();
     private NetworkStateReceive mNetworkStateReceive;
 
     private NetworkStateManager() {
@@ -35,21 +32,13 @@ public class NetworkStateManager implements DefaultLifecycleObserver {
     public void onResume(@NonNull LifecycleOwner owner) {
         mNetworkStateReceive = new NetworkStateReceive();
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        if (owner instanceof AppCompatActivity) {
-            ((AppCompatActivity) owner).registerReceiver(mNetworkStateReceive, filter);
-        } else if (owner instanceof Fragment) {
-            requireNonNull(((Fragment) owner).getActivity())
-                    .registerReceiver(mNetworkStateReceive, filter);
-        }
+        Utils.getApp().getApplicationContext().registerReceiver(mNetworkStateReceive, filter);
     }
 
     @Override
     public void onPause(@NonNull LifecycleOwner owner) {
-        if (owner instanceof AppCompatActivity) {
-            ((AppCompatActivity) owner).unregisterReceiver(mNetworkStateReceive);
-        } else if (owner instanceof Fragment) {
-            requireNonNull(((Fragment) owner).getActivity())
-                    .unregisterReceiver(mNetworkStateReceive);
+        if (mNetworkStateReceive != null) {
+            Utils.getApp().getApplicationContext().unregisterReceiver(mNetworkStateReceive);
         }
     }
 }

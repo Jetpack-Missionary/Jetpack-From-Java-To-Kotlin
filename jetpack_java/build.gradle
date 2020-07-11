@@ -81,6 +81,8 @@ dependencies {
     compileOnly(AndroidX.Lifecycle.viewModel)
     compileOnly(AndroidX.Lifecycle.liveData)
 
+    implementation 'com.kunminx.archi:unpeeklivedata:2.9.5-beta1'
+
     compileOnly(AndroidX.Navigation.runtime)
 
     implementation(Google.gson)
