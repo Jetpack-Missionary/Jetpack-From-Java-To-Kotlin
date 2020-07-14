@@ -53,6 +53,10 @@ public class DataBindingEditorActivity extends BaseActivity {
 
         public void locate() {
             Intent intent = new Intent(DataBindingEditorActivity.this, DataBindingLocationActivity.class);
+            /*
+             * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+             * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
+             */
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         }
 

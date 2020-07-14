@@ -41,12 +41,20 @@ public class CompatUtils {
             mImageCaptureUri = Uri.fromFile(new File(activity.getExternalCacheDir(), "savephoto.jpg"));
             intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
         }
+        /*
+         * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+         * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
+         */
         activity.startActivityForResult(intent, TAKE_PHOTO);
     }
 
     private void selecetPhoto(AppCompatActivity activity) {
         Intent intent = new Intent(Intent.ACTION_PICK, null);
         intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
+        /*
+         * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+         * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
+         */
         activity.startActivityForResult(intent, PHOTO_ALBUM);
     }
 
@@ -74,6 +82,10 @@ public class CompatUtils {
         intent.putExtra("return-data", false);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
         intent.putExtra("noFaceDetection", true);
+        /*
+         * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+         * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
+         */
         activity.startActivityForResult(intent, PHOTO_CLIP);
     }
 

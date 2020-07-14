@@ -11,10 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.kunminx.architecture.ui.BaseActivity;
 import com.kunminx.jetpack_java.R;
 import com.kunminx.jetpack_java.common_data.APIs;
 import com.kunminx.jetpack_java.common_data.Configs;
-import com.kunminx.architecture.ui.BaseActivity;
 
 /**
  * TODO：本示例专注于提供 Lifecycle 组件的使用场景和示例，因而其他内容均保持 Android 引入 Jetpack 前的模样，
@@ -62,6 +62,10 @@ public class LifecycleEditorActivity extends BaseActivity {
 
         mTvLocation.setOnClickListener(v -> {
             Intent intent = new Intent(this, LifecycleLocationActivity.class);
+            /*
+             * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
+             * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
+             */
             startActivityForResult(intent, Configs.REQUEST_LOCATION_INFO);
         });
     }
