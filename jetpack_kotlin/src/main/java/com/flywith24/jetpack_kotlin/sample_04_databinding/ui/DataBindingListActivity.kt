@@ -2,6 +2,7 @@ package com.flywith24.jetpack_kotlin.sample_04_databinding.ui
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.observe
@@ -51,31 +52,18 @@ class DataBindingListActivity : BaseActivity() {
         mListViewModel.requestList()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        /**
-         * onActivityResult API 已弃用，可以使用新的 ActivityResult API
-         * 详情见 https://developer.android.com/training/basics/intents/result
-         */
-        super.onActivityResult(requestCode, resultCode, data)
-        when (resultCode) {
-            Configs.REQUEST_NEW_MOMENT -> {
-                val moment = data?.getParcelableExtra<Moment>(Configs.NEW_MOMENT)
-                mListViewModel.list.value?.let { list ->
-                    mListViewModel.list.value = ArrayList(list).apply { add(0, moment) }
-                }
-            }
-        }
-    }
-
     inner class ClickProxy {
         fun fabClick() {
             /**
              * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
-             * 详情见 https://developer.android.com/training/basics/intents/result
+             * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
              */
-            startActivityForResult(
-                    Intent(this@DataBindingListActivity, DataBindingEditorActivity::class.java),
-                    Configs.REQUEST_NEW_MOMENT)
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                val moment = it.data?.getParcelableExtra<Moment>(Configs.NEW_MOMENT)
+                mListViewModel.list.value?.let { list ->
+                    mListViewModel.list.value = ArrayList(list).apply { add(0, moment) }
+                }
+            }.launch(Intent(this@DataBindingListActivity, DataBindingEditorActivity::class.java))
         }
 
         fun back() {
