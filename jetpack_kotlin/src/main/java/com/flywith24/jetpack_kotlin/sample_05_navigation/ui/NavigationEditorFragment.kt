@@ -77,6 +77,7 @@ class NavigationEditorFragment : BaseFragment() {
         override fun onMenuItemClick(item: MenuItem?): Boolean {
             when (item?.itemId) {
                 R.id.menu_save -> {
+                    toggleKeyboardShow()
                     val moment = Moment(UUID.randomUUID().toString(),
                             mEditorViewModel.content.get(),
                             mEditorViewModel.location.get(),
