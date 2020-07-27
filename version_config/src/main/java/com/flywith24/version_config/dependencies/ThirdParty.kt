@@ -20,7 +20,7 @@ object ThirdParty {
     }
 
     object Archi {
-        const val unPeekLiveData = "com.kunminx.archi:unpeeklivedata:2.9.5-beta1"
+        const val unPeekLiveData = "com.kunminx.archi:unpeeklivedata:3.2.2-beta8"
     }
 
     const val roundedImageView = "com.makeramen:roundedimageview:2.3.0"
