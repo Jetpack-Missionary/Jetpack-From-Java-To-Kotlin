@@ -35,7 +35,7 @@ open class Event<out T>(private val content: T) {
      * 否则标记已消费并返回数据
      */
     fun getContentIfNotHandled(viewModelStore: ViewModelStore): T? {
-        return if (map.containsKey(viewModelStore)) {
+        return if (map.contains(viewModelStore)) {
             null
         } else {
             map[viewModelStore] = true

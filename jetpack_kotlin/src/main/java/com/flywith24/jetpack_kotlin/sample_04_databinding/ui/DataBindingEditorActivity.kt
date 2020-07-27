@@ -3,6 +3,7 @@ package com.flywith24.jetpack_kotlin.sample_04_databinding.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
@@ -41,28 +42,17 @@ class DataBindingEditorActivity : BaseActivity() {
         binding.click = ClickProxy()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        /**
-         * onActivityResult API 已弃用，可以使用新的 ActivityResult API
-         * 详情见 https://developer.android.com/training/basics/intents/result
-         */
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            Configs.REQUEST_LOCATION_INFO -> {
-                val location = data?.getStringExtra(Configs.LOCATION_RESULT)
-                mEditorViewModel.location.set(location)
-            }
-        }
-    }
 
     inner class ClickProxy : Toolbar.OnMenuItemClickListener {
         fun locate() {
             /**
              * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
-             * 详情见 https://developer.android.com/training/basics/intents/result
+             * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
              */
-            startActivityForResult(Intent(this@DataBindingEditorActivity, DataBindingLocationActivity::class.java),
-                    Configs.REQUEST_LOCATION_INFO)
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                val location = it.data?.getStringExtra(Configs.LOCATION_RESULT)
+                mEditorViewModel.location.set(location)
+            }.launch(Intent(this@DataBindingEditorActivity, DataBindingLocationActivity::class.java))
         }
 
         fun addPic() {

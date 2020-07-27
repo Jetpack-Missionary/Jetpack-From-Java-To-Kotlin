@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.APIs
@@ -50,25 +51,15 @@ class LiveDataEditorActivity : BaseActivity(R.layout.kotlin_activity_livedata_ed
         mImageView.loadImage(APIs.SCENE_URL)
 
         mTvLocation.setOnClickListener {
+
             /**
              * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
-             * 详情见 https://developer.android.com/training/basics/intents/result
+             * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest
              */
-            startActivityForResult(Intent(this, LiveDataLocationActivity::class.java), Configs.REQUEST_LOCATION_INFO)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        /**
-         * onActivityResult API 已弃用，可以使用新的 ActivityResult API
-         * 详情见 https://developer.android.com/training/basics/intents/result
-         */
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            Configs.REQUEST_LOCATION_INFO -> {
-                val location = data?.getStringExtra(Configs.LOCATION_RESULT)
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                val location = it.data?.getStringExtra(Configs.LOCATION_RESULT)
                 mTvLocation.text = location
-            }
+            }.launch(Intent(this, LiveDataLocationActivity::class.java))
         }
     }
 }
