@@ -34,7 +34,7 @@ object AndroidX {
 
 
     object Lifecycle {
-        private const val lifecycle_version = "2.2.0"
+        private const val lifecycle_version = "2.3.0-alpha07"
         const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
 
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
@@ -48,7 +48,7 @@ object AndroidX {
         const val service = "androidx.lifecycle:lifecycle-service:$lifecycle_version"
 
         @Deprecated("lifecycle-extensions 已弃用,不要使用 ViewModelProviders.of 的方式")
-        const val extensions = "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+        const val extensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
     }
 
 
