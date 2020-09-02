@@ -3,7 +3,6 @@ package com.flywith24.jetpack_kotlin.sample_03_viewmodel.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.RecyclerView
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.bean.Moment

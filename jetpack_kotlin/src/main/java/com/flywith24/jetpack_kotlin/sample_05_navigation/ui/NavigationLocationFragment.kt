@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
+
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.databinding.KotlinFragmentLocationNavigationBinding
 import com.flywith24.jetpack_kotlin.sample_02_livedata.domain.LiveDataLocationManager
