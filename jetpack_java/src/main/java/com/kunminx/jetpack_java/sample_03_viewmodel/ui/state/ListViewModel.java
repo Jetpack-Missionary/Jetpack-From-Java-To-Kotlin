@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.kunminx.jetpack_java.common_data.bean.Moment;
 import com.kunminx.jetpack_java.sample_03_viewmodel.domain.MomentRequest;
-import com.kunminx.jetpack_java.sample_03_viewmodel.domain.Request;
+import com.kunminx.jetpack_java.sample_03_viewmodel.domain.BaseRequest;
 
 import java.util.List;
 
@@ -24,17 +24,8 @@ import java.util.List;
  * <p>
  * Create by KunMinX at 2020/5/30
  */
-public class ListViewModel extends ViewModel implements Request.IMomentRequest {
+public class ListViewModel extends ViewModel  {
 
-    private MomentRequest mMomentRequest = new MomentRequest();
+    public final MomentRequest momentRequest = new MomentRequest();
 
-    @Override
-    public LiveData<List<Moment>> getListMutableLiveData() {
-        return mMomentRequest.getListMutableLiveData();
-    }
-
-    @Override
-    public void requestList() {
-        mMomentRequest.requestList();
-    }
 }

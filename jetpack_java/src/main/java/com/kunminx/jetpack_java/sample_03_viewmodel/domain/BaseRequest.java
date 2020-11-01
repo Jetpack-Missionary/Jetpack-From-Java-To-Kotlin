@@ -21,12 +21,7 @@ import java.util.List;
  * <p>
  * Create by KunMinX at 2020/5/30
  */
-public class Request {
+public class BaseRequest {
 
-    public interface IMomentRequest {
 
-        LiveData<List<Moment>> getListMutableLiveData();
-
-        void requestList();
-    }
 }

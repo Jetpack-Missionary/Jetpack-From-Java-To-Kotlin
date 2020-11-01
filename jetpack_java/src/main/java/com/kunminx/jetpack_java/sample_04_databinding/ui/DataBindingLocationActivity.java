@@ -38,7 +38,8 @@ public class DataBindingLocationActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mLocationViewModel = getActivityViewModel(LocationViewModel.class);
 
-        ActivityLocationDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_location_databinding);
+        ActivityLocationDatabindingBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_location_databinding);
         binding.setLifecycleOwner(this);
         binding.setVm(mLocationViewModel);
         binding.setClick(new ClickProxy());

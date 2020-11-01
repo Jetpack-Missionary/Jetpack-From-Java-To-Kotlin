@@ -67,7 +67,7 @@ public class NavigationListFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mListViewModel.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
+        mListViewModel.momentRequest.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
             mListViewModel.list.setValue(moments);
         });
 
@@ -76,7 +76,7 @@ public class NavigationListFragment extends BaseFragment {
             mListViewModel.list.setValue(mListViewModel.list.getValue());
         });
 
-        mListViewModel.requestList();
+        mListViewModel.momentRequest.requestList();
     }
 
     public class ClickProxy {

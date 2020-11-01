@@ -36,7 +36,8 @@ public class DataBindingDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mDetailViewModel = getActivityViewModel(DetailViewModel.class);
 
-        ActivityDetailDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_databinding);
+        ActivityDetailDatabindingBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_detail_databinding);
         binding.setLifecycleOwner(this);
         binding.setVm(mDetailViewModel);
         binding.setClick(new ClickProxy());

@@ -50,11 +50,11 @@ public class ViewModelListActivity extends BaseActivity {
             showLongToast(getString(R.string.viewmodel_item_click_tip));
         }));
 
-        mListViewModel.getListMutableLiveData().observe(this, moments -> {
+        mListViewModel.momentRequest.getListMutableLiveData().observe(this, moments -> {
             mMomentAdapter.submitList(moments);
         });
 
-        mListViewModel.requestList();
+        mListViewModel.momentRequest.requestList();
 
     }
 
