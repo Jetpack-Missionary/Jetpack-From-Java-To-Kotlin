@@ -36,7 +36,7 @@ public class DataBindingLocationActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLocationViewModel = getActivityViewModel(LocationViewModel.class);
+        mLocationViewModel = getActivityScopeViewModel(LocationViewModel.class);
 
         ActivityLocationDatabindingBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_location_databinding);

@@ -33,7 +33,7 @@ public class OneMoreThingActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mOneMoreThingViewModel = getActivityViewModel(OneMoreThingViewModel.class);
+        mOneMoreThingViewModel = getActivityScopeViewModel(OneMoreThingViewModel.class);
 
         ActivityOneMoreThingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_one_more_thing);
         binding.setLifecycleOwner(this);

@@ -41,7 +41,7 @@ public class DataBindingEditorActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEditorViewModel = getActivityViewModel(EditorViewModel.class);
+        mEditorViewModel = getActivityScopeViewModel(EditorViewModel.class);
 
         ActivityEditorDatabindingBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_editor_databinding);

@@ -38,7 +38,7 @@ public class DataBindingListActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mListViewModel = getActivityViewModel(ListViewModel.class);
+        mListViewModel = getActivityScopeViewModel(ListViewModel.class);
 
         ActivityListDatabindingBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_list_databinding);

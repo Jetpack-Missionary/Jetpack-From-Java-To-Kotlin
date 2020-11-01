@@ -34,7 +34,7 @@ public class DataBindingDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDetailViewModel = getActivityViewModel(DetailViewModel.class);
+        mDetailViewModel = getActivityScopeViewModel(DetailViewModel.class);
 
         ActivityDetailDatabindingBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_detail_databinding);

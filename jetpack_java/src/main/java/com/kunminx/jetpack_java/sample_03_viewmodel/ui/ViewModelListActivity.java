@@ -37,7 +37,7 @@ public class ViewModelListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mListViewModel = getActivityViewModel(ListViewModel.class);
+        mListViewModel = getActivityScopeViewModel(ListViewModel.class);
 
         setContentView(R.layout.activity_list_viewmodel);
         mToolbar = findViewById(R.id.toolbar);

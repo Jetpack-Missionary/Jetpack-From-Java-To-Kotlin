@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMainActivityViewModel = getActivityViewModel(MainActivityViewModel.class);
+        mMainActivityViewModel = getActivityScopeViewModel(MainActivityViewModel.class);
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setVm(mMainActivityViewModel);

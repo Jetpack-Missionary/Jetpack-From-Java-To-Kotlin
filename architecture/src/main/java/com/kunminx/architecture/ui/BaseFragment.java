@@ -91,14 +91,14 @@ public abstract class BaseFragment extends Fragment {
         showShortToast(mActivity.getApplicationContext().getString(stringRes));
     }
 
-    protected <T extends ViewModel> T getFragmentViewModel(@NonNull Class<T> modelClass) {
+    protected <T extends ViewModel> T getFragmentScopeViewModel(@NonNull Class<T> modelClass) {
         if (mFragmentProvider == null) {
             mFragmentProvider = new ViewModelProvider(this);
         }
         return mFragmentProvider.get(modelClass);
     }
 
-    protected <T extends ViewModel> T getActivityViewModel(@NonNull Class<T> modelClass) {
+    protected <T extends ViewModel> T getActivityScopeViewModel(@NonNull Class<T> modelClass) {
         if (mActivityProvider == null) {
             mActivityProvider = new ViewModelProvider(mActivity);
         }
