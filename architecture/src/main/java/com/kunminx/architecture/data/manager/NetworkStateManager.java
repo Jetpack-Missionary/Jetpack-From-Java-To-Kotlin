@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.kunminx.architecture.ui.callback.ProtectedUnPeekLiveData;
 import com.kunminx.architecture.ui.callback.UnPeekLiveData;
 import com.kunminx.architecture.utils.Utils;
 
@@ -18,7 +19,7 @@ import com.kunminx.architecture.utils.Utils;
 public class NetworkStateManager implements DefaultLifecycleObserver {
 
     private static final NetworkStateManager S_MANAGER = new NetworkStateManager();
-    public final UnPeekLiveData<NetState> networkStateCallback = new UnPeekLiveData<>();
+    private UnPeekLiveData<NetState> networkStateCallback;
     private NetworkStateReceive mNetworkStateReceive;
 
     private NetworkStateManager() {
@@ -26,6 +27,11 @@ public class NetworkStateManager implements DefaultLifecycleObserver {
 
     public static NetworkStateManager getInstance() {
         return S_MANAGER;
+    }
+
+    public ProtectedUnPeekLiveData<NetState> getNetworkStateCallback() {
+        if (networkStateCallback == null) networkStateCallback = new UnPeekLiveData<>();
+        return networkStateCallback;
     }
 
     @Override
