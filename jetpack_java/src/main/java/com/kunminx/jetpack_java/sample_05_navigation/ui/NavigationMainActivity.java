@@ -36,7 +36,7 @@ public class NavigationMainActivity extends BaseActivity {
 
         DataBindingUtil.setContentView(this, R.layout.activity_main_navigation);
 
-        mSharedViewModel.closeActivity.observe(this, aBoolean -> {
+        mSharedViewModel.getCloseActivity().observeInActivity(this, aBoolean -> {
             finish();
         });
     }

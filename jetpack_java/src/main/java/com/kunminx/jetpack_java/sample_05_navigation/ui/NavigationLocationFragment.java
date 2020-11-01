@@ -54,7 +54,7 @@ public class NavigationLocationFragment extends BaseFragment {
 
         DataBindingLocationAdapter adapter = new DataBindingLocationAdapter(mActivity.getApplicationContext());
         adapter.setOnItemClickListener(((item, position) -> {
-            mSharedViewModel.location.setValue(item.getLocationName());
+            mSharedViewModel.requestAddLocation(item.getLocationName());
             nav().navigateUp();
         }));
         binding.setAdapter(adapter);

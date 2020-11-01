@@ -62,7 +62,7 @@ public class NavigationEditorFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mSharedViewModel.location.observe(getViewLifecycleOwner(), s -> {
+        mSharedViewModel.getLocation().observeInFragment(this, s -> {
             mEditorViewModel.location.set(s);
         });
     }
@@ -92,7 +92,7 @@ public class NavigationEditorFragment extends BaseFragment {
                 moment.setLocation(mEditorViewModel.location.get());
                 moment.setImgUrl(mEditorViewModel.imgUrl.get());
                 moment.setContent(mEditorViewModel.content.get());
-                mSharedViewModel.moment.setValue(moment);
+                mSharedViewModel.requestAddMoment(moment);
                 nav().navigateUp();
             }
             return true;

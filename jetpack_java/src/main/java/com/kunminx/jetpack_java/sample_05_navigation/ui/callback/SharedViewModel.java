@@ -4,6 +4,7 @@ package com.kunminx.jetpack_java.sample_05_navigation.ui.callback;
 
 import androidx.lifecycle.ViewModel;
 
+import com.kunminx.architecture.ui.callback.ProtectedUnPeekLiveData;
 import com.kunminx.architecture.ui.callback.UnPeekLiveData;
 import com.kunminx.jetpack_java.common_data.bean.Moment;
 
@@ -22,8 +23,34 @@ import com.kunminx.jetpack_java.common_data.bean.Moment;
  */
 public class SharedViewModel extends ViewModel {
 
-    public final UnPeekLiveData<String> location = new UnPeekLiveData<>();
-    public final UnPeekLiveData<Moment> moment = new UnPeekLiveData<>();
-    public final UnPeekLiveData<Boolean> closeActivity = new UnPeekLiveData<>();
+    private UnPeekLiveData<String> location;
+    private UnPeekLiveData<Moment> moment;
+    private UnPeekLiveData<Boolean> closeActivity;
 
+    public ProtectedUnPeekLiveData<String> getLocation() {
+        if (location == null) location = new UnPeekLiveData<>();
+        return location;
+    }
+
+    public ProtectedUnPeekLiveData<Moment> getMoment() {
+        if (moment == null) moment = new UnPeekLiveData<>();
+        return moment;
+    }
+
+    public ProtectedUnPeekLiveData<Boolean> getCloseActivity() {
+        if (closeActivity == null) closeActivity = new UnPeekLiveData<>();
+        return closeActivity;
+    }
+
+    public void requestAddMoment(Moment moment) {
+        this.moment.setValue(moment);
+    }
+
+    public void requestCloseActivity() {
+        this.closeActivity.setValue(true);
+    }
+
+    public void requestAddLocation(String locationName) {
+        this.location.setValue(locationName);
+    }
 }

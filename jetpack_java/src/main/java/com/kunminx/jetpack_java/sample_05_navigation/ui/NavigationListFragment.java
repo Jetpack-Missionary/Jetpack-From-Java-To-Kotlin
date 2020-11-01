@@ -71,7 +71,7 @@ public class NavigationListFragment extends BaseFragment {
             mListViewModel.list.setValue(moments);
         });
 
-        mSharedViewModel.moment.observe(getViewLifecycleOwner(), moment -> {
+        mSharedViewModel.getMoment().observeInFragment(this, moment -> {
             mListViewModel.list.getValue().add(0, moment);
             mListViewModel.list.setValue(mListViewModel.list.getValue());
         });
@@ -85,7 +85,7 @@ public class NavigationListFragment extends BaseFragment {
         }
 
         public void back() {
-            mSharedViewModel.closeActivity.setValue(true);
+            mSharedViewModel.requestCloseActivity();
         }
     }
 }
