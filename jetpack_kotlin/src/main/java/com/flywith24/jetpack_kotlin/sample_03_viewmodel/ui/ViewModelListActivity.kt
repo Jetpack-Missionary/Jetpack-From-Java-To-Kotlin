@@ -16,7 +16,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   22:02
  * description
  */
-class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmodel), MomentAdapter.OnItemClickListener {
+class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmodel) {
 
     /**
      * activity 级别共享 ViewModel
@@ -39,7 +39,11 @@ class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmod
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mToolbar: Toolbar
 
-    private val mAdapter by lazy { MomentAdapter(this) }
+    private val mAdapter by lazy { MomentAdapter { adapterClick(it) } }
+
+    private fun adapterClick(moment: Moment) {
+        showLongToast(getString(R.string.viewmodel_item_click_tip))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,12 +59,5 @@ class ViewModelListActivity : BaseActivity(R.layout.kotlin_activity_list_viewmod
         }
 
         mListViewModel.requestList()
-    }
-
-    /**
-     *  RecyclerView item click
-     */
-    override fun onItemClick(moment: Moment) {
-        showLongToast(getString(R.string.viewmodel_item_click_tip))
     }
 }
