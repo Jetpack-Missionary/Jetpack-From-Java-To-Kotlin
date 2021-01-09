@@ -16,17 +16,31 @@ import com.flywith24.jetpack_kotlin.common_data.bean.LocationBean
  * description
  * ListAdapter 强制使用 DiffUtil 比较数据变化，开发者无需手动调用各种 notify 方法亦可使用 recyclerView 的动画
  */
-class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<LocationBean, LocationAdapter.ViewHolder>(locationDiffCallback) {
+class LocationAdapter(private val onClick: (LocationBean) -> Unit) :
+        ListAdapter<LocationBean, LocationAdapter.ViewHolder>(LocationDiffCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val holder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.kotlin_adapter_location, parent, false))
-        // setOnClickListener 在此处调用，如果在 onBindViewHolder 中调用会执行多次
-        holder.itemView.setOnClickListener {
-            listener.onItemClick(getItem(holder.bindingAdapterPosition))
+    class ViewHolder(itemView: View, val onClick: (LocationBean) -> Unit) : RecyclerView.ViewHolder(itemView) {
+        private var mTvTitle: TextView = itemView.findViewById(R.id.tv_title)
+        private var currentLocation: LocationBean? = null
+
+        init {
+            itemView.setOnClickListener {
+                currentLocation?.let {
+                    onClick(it)
+                }
+            }
         }
-        return holder
+
+        fun bind(item: LocationBean) {
+            currentLocation = item
+            mTvTitle.text = item.locationName
+        }
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.kotlin_adapter_location, parent, false)
+        return ViewHolder(view, onClick)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
@@ -36,18 +50,6 @@ class LocationAdapter(private val listener: OnItemClickListener) : ListAdapter<L
         super.submitList(list) {
             submitList(if (list == null) emptyList() else ArrayList(list))
         }
-    }
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var mTvTitle: TextView = itemView.findViewById(R.id.tv_title)
-
-        fun bind(item: LocationBean) {
-            mTvTitle.text = item.locationName
-        }
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(locationBean: LocationBean)
     }
 }
 
