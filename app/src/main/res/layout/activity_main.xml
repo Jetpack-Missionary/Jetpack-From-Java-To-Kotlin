@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- <editor-fold des = "dataBinding"> -->
     <data>
 
         <variable
@@ -19,12 +20,14 @@
             type="androidx.recyclerview.widget.ListAdapter" />
 
     </data>
+    <!--</editor-fold>-->
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never">
 
+        <!--<editor-fold des = "AppBar">-->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
@@ -108,7 +111,9 @@
             </com.google.android.material.tabs.TabLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
+        <!--</editor-fold>-->
 
+        <!--<editor-fold des = "ViewPager">-->
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             setOffsetLimit="@{3}"
@@ -153,6 +158,7 @@
             </androidx.core.widget.NestedScrollView>
 
         </androidx.viewpager.widget.ViewPager>
+        <!--</editor-fold>-->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
