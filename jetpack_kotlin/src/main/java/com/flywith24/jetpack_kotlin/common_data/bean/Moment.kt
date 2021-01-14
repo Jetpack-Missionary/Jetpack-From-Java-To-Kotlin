@@ -11,10 +11,10 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 data class Moment(
-        val uuid: String,
+        var uuid: String,
         val content: String?,
         val location: String?,
         val imgUrl: String,
-        val username: String,
-        val userAvatar: String
+        var username: String,
+        var userAvatar: String
 ) : Parcelable

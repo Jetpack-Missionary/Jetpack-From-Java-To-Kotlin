@@ -89,7 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         showShortToast(getApplicationContext().getString(stringRes));
     }
 
-    protected <T extends ViewModel> T getActivityViewModel(@NonNull Class<T> modelClass) {
+    protected <T extends ViewModel> T getActivityScopeViewModel(@NonNull Class<T> modelClass) {
         if (mActivityProvider == null) {
             mActivityProvider = new ViewModelProvider(this);
         }

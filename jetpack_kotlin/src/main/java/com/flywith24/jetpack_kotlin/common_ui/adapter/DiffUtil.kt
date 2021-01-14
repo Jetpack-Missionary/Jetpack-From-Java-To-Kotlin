@@ -10,7 +10,7 @@ import com.flywith24.jetpack_kotlin.common_data.bean.Moment
  * time   23:00
  * description
  */
-val locationDiffCallback = object : DiffUtil.ItemCallback<LocationBean>() {
+object LocationDiffCallback : DiffUtil.ItemCallback<LocationBean>() {
     override fun areItemsTheSame(oldItem: LocationBean, newItem: LocationBean): Boolean =
             oldItem == newItem
 
@@ -19,7 +19,7 @@ val locationDiffCallback = object : DiffUtil.ItemCallback<LocationBean>() {
             oldItem.locationName == newItem.locationName
 }
 
-val momentDiffCallback = object : DiffUtil.ItemCallback<Moment>() {
+object MomentDiffCallback : DiffUtil.ItemCallback<Moment>() {
     override fun areItemsTheSame(oldItem: Moment, newItem: Moment): Boolean {
         return oldItem.uuid == newItem.uuid
     }

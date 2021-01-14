@@ -23,11 +23,10 @@ import java.util.List;
  * <p>
  * Create by KunMinX at 2020/5/30
  */
-public class MomentRequest implements Request.IMomentRequest {
+public class MomentRequest extends BaseRequest {
 
     private MutableLiveData<List<Moment>> mListMutableLiveData;
 
-    @Override
     public LiveData<List<Moment>> getListMutableLiveData() {
         if (mListMutableLiveData == null) {
             mListMutableLiveData = new MutableLiveData<>();
@@ -35,7 +34,6 @@ public class MomentRequest implements Request.IMomentRequest {
         return mListMutableLiveData;
     }
 
-    @Override
     public void requestList() {
         DataRepository.getInstance().requestList(mListMutableLiveData);
     }

@@ -26,17 +26,17 @@ import com.kunminx.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel
 
 public class NavigationMainActivity extends BaseActivity {
 
-    private SharedViewModel mSharedViewModel;
+    private SharedViewModel mPageCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mSharedViewModel = getActivityViewModel(SharedViewModel.class);
+        mPageCallback = getActivityScopeViewModel(SharedViewModel.class);
 
         DataBindingUtil.setContentView(this, R.layout.activity_main_navigation);
 
-        mSharedViewModel.closeActivity.observe(this, aBoolean -> {
+        mPageCallback.getCloseActivity().observeInActivity(this, aBoolean -> {
             finish();
         });
     }

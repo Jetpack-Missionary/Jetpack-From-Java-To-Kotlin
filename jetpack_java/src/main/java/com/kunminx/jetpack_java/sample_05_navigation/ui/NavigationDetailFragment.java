@@ -32,12 +32,12 @@ import com.kunminx.architecture.ui.BaseFragment;
  */
 public class NavigationDetailFragment extends BaseFragment {
 
-    private DetailViewModel mDetailViewModel;
+    private DetailViewModel mDetailState;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDetailViewModel = getFragmentViewModel(DetailViewModel.class);
+        mDetailState = getFragmentScopeViewModel(DetailViewModel.class);
     }
 
     @Nullable
@@ -46,7 +46,7 @@ public class NavigationDetailFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_detail_navigation, container, false);
         FragmentDetailNavigationBinding binding = FragmentDetailNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
-        binding.setVm(mDetailViewModel);
+        binding.setVm(mDetailState);
         binding.setClick(new ClickProxy());
         return view;
     }
@@ -56,7 +56,7 @@ public class NavigationDetailFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         Moment moment = (Moment) getArguments().getParcelable(Configs.THIS_MOMENT);
-        mDetailViewModel.initState(moment);
+        mDetailState.initState(moment);
     }
 
     public class ClickProxy {

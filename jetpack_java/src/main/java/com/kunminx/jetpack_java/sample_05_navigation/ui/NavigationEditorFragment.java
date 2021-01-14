@@ -37,14 +37,14 @@ import java.util.UUID;
  */
 public class NavigationEditorFragment extends BaseFragment {
 
-    private EditorViewModel mEditorViewModel;
-    private SharedViewModel mSharedViewModel;
+    private EditorViewModel mEditorState;
+    private SharedViewModel mPageCallback;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEditorViewModel = getFragmentViewModel(EditorViewModel.class);
-        mSharedViewModel = getActivityViewModel(SharedViewModel.class);
+        mEditorState = getFragmentScopeViewModel(EditorViewModel.class);
+        mPageCallback = getActivityScopeViewModel(SharedViewModel.class);
     }
 
     @Nullable
@@ -53,7 +53,7 @@ public class NavigationEditorFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_editor_navigation, container, false);
         FragmentEditorNavigationBinding binding = FragmentEditorNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
-        binding.setVm(mEditorViewModel);
+        binding.setVm(mEditorState);
         binding.setClick(new ClickProxy());
         return view;
     }
@@ -62,8 +62,8 @@ public class NavigationEditorFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mSharedViewModel.location.observe(getViewLifecycleOwner(), s -> {
-            mEditorViewModel.location.set(s);
+        mPageCallback.getLocation().observeInFragment(this, s -> {
+            mEditorState.location.set(s);
         });
     }
 
@@ -74,7 +74,7 @@ public class NavigationEditorFragment extends BaseFragment {
         }
 
         public void addPic() {
-            mEditorViewModel.imgUrl.set(APIs.SCENE_URL);
+            mEditorState.imgUrl.set(APIs.SCENE_URL);
         }
 
         public void back() {
@@ -89,10 +89,10 @@ public class NavigationEditorFragment extends BaseFragment {
                 moment.setUuid(UUID.randomUUID().toString());
                 moment.setUserAvatar(APIs.KUNMINX_URL);
                 moment.setUserName("KunMinX");
-                moment.setLocation(mEditorViewModel.location.get());
-                moment.setImgUrl(mEditorViewModel.imgUrl.get());
-                moment.setContent(mEditorViewModel.content.get());
-                mSharedViewModel.moment.setValue(moment);
+                moment.setLocation(mEditorState.location.get());
+                moment.setImgUrl(mEditorState.imgUrl.get());
+                moment.setContent(mEditorState.content.get());
+                mPageCallback.requestAddMoment(moment);
                 nav().navigateUp();
             }
             return true;

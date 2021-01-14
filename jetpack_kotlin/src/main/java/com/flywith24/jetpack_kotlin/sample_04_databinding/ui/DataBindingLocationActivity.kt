@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 
 import com.flywith24.jetpack_kotlin.R
 import com.flywith24.jetpack_kotlin.common_data.Configs
+import com.flywith24.jetpack_kotlin.common_data.bean.Moment
 import com.flywith24.jetpack_kotlin.databinding.KotlinActivityLocationDatabindingBinding
 import com.flywith24.jetpack_kotlin.sample_02_livedata.domain.LiveDataLocationManager
 import com.flywith24.jetpack_kotlin.sample_04_databinding.ui.adapter.DataBindingLocationAdapter

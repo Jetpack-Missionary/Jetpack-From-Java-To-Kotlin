@@ -37,7 +37,7 @@ public class ViewModelListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mListViewModel = getActivityViewModel(ListViewModel.class);
+        mListViewModel = getActivityScopeViewModel(ListViewModel.class);
 
         setContentView(R.layout.activity_list_viewmodel);
         mToolbar = findViewById(R.id.toolbar);
@@ -50,11 +50,11 @@ public class ViewModelListActivity extends BaseActivity {
             showLongToast(getString(R.string.viewmodel_item_click_tip));
         }));
 
-        mListViewModel.getListMutableLiveData().observe(this, moments -> {
+        mListViewModel.momentRequest.getListMutableLiveData().observe(this, moments -> {
             mMomentAdapter.submitList(moments);
         });
 
-        mListViewModel.requestList();
+        mListViewModel.momentRequest.requestList();
 
     }
 

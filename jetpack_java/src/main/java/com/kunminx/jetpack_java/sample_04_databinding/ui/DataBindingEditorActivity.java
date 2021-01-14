@@ -41,9 +41,10 @@ public class DataBindingEditorActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEditorViewModel = getActivityViewModel(EditorViewModel.class);
+        mEditorViewModel = getActivityScopeViewModel(EditorViewModel.class);
 
-        ActivityEditorDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_editor_databinding);
+        ActivityEditorDatabindingBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_editor_databinding);
         binding.setLifecycleOwner(this);
         binding.setVm(mEditorViewModel);
         binding.setClick(new ClickProxy());
@@ -52,7 +53,8 @@ public class DataBindingEditorActivity extends BaseActivity {
     public class ClickProxy implements Toolbar.OnMenuItemClickListener {
 
         public void locate() {
-            Intent intent = new Intent(DataBindingEditorActivity.this, DataBindingLocationActivity.class);
+            Intent intent = new Intent(DataBindingEditorActivity.this,
+                    DataBindingLocationActivity.class);
             /*
              * startActivityForResult API 已弃用，可以使用新的 ActivityResult API
              * 详情见 https://github.com/Flywith24/Flywith24-ActivityResultRequest

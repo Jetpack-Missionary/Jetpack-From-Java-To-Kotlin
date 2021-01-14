@@ -38,9 +38,10 @@ public class DataBindingListActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mListViewModel = getActivityViewModel(ListViewModel.class);
+        mListViewModel = getActivityScopeViewModel(ListViewModel.class);
 
-        ActivityListDatabindingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_list_databinding);
+        ActivityListDatabindingBinding binding =
+                DataBindingUtil.setContentView(this, R.layout.activity_list_databinding);
         binding.setLifecycleOwner(this);
         binding.setVm(mListViewModel);
         binding.setClick(new ClickProxy());
@@ -53,11 +54,11 @@ public class DataBindingListActivity extends BaseActivity {
         }));
         binding.setAdapter(adapter);
 
-        mListViewModel.getListMutableLiveData().observe(this, moments -> {
+        mListViewModel.momentRequest.getListMutableLiveData().observe(this, moments -> {
             mListViewModel.list.setValue(moments);
         });
 
-        mListViewModel.requestList();
+        mListViewModel.momentRequest.requestList();
     }
 
     public class ClickProxy {

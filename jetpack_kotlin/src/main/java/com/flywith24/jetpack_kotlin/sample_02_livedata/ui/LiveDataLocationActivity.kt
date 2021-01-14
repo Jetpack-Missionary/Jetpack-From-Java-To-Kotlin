@@ -19,7 +19,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   20:31
  * description
  */
-class LiveDataLocationActivity : BaseActivity(R.layout.kotlin_activity_livedata_list), LocationAdapter.OnItemClickListener {
+class LiveDataLocationActivity : BaseActivity(R.layout.kotlin_activity_livedata_list) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -31,7 +31,12 @@ class LiveDataLocationActivity : BaseActivity(R.layout.kotlin_activity_livedata_
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mToolbar: Toolbar
 
-    private val mAdapter: LocationAdapter by lazy { LocationAdapter(this) }
+    private val mAdapter: LocationAdapter by lazy { LocationAdapter { adapterClick(it) } }
+
+    private fun adapterClick(locationBean: LocationBean) {
+        setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, locationBean.locationName))
+        finish()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +52,5 @@ class LiveDataLocationActivity : BaseActivity(R.layout.kotlin_activity_livedata_
         LiveDataLocationManager.getInstance().getLocationBeans().observe(this) { list ->
             mAdapter.submitList(list)
         }
-    }
-
-    override fun onItemClick(locationBean: LocationBean) {
-        setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, locationBean.locationName))
-        finish()
     }
 }

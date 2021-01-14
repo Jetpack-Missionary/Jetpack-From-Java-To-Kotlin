@@ -33,14 +33,14 @@ import com.kunminx.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel
  */
 public class NavigationLocationFragment extends BaseFragment {
 
-    private LocationViewModel mLocationViewModel;
-    private SharedViewModel mSharedViewModel;
+    private LocationViewModel mLocationState;
+    private SharedViewModel mPageCallback;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLocationViewModel = getFragmentViewModel(LocationViewModel.class);
-        mSharedViewModel = getActivityViewModel(SharedViewModel.class);
+        mLocationState = getFragmentScopeViewModel(LocationViewModel.class);
+        mPageCallback = getActivityScopeViewModel(SharedViewModel.class);
     }
 
     @Nullable
@@ -49,12 +49,12 @@ public class NavigationLocationFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_location_navigation, container, false);
         FragmentLocationNavigationBinding binding = FragmentLocationNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
-        binding.setVm(mLocationViewModel);
+        binding.setVm(mLocationState);
         binding.setClick(new ClickProxy());
 
         DataBindingLocationAdapter adapter = new DataBindingLocationAdapter(mActivity.getApplicationContext());
         adapter.setOnItemClickListener(((item, position) -> {
-            mSharedViewModel.location.setValue(item.getLocationName());
+            mPageCallback.requestAddLocation(item.getLocationName());
             nav().navigateUp();
         }));
         binding.setAdapter(adapter);
@@ -69,7 +69,7 @@ public class NavigationLocationFragment extends BaseFragment {
         getLifecycle().addObserver(LiveDataLocationManager.getInstance());
 
         LiveDataLocationManager.getInstance().getLocationBeans().observe(getViewLifecycleOwner(), locationBeans -> {
-            mLocationViewModel.list.setValue(locationBeans);
+            mLocationState.list.setValue(locationBeans);
         });
     }
 

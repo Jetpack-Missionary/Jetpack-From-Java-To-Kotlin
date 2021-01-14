@@ -18,7 +18,7 @@ import com.kunminx.architecture.ui.BaseActivity
  * time   11:20
  * description
  */
-class LifecycleLocationActivity : BaseActivity(R.layout.kotlin_activity_lifecycles_location), LocationAdapter.OnItemClickListener {
+class LifecycleLocationActivity : BaseActivity(R.layout.kotlin_activity_lifecycles_location) {
     /**
      * 不推荐使用 Kotlin Synthetics
      * 可以使用 ViewBinding 和 功能更强大的 DataBinding 来替换 findViewById
@@ -30,7 +30,12 @@ class LifecycleLocationActivity : BaseActivity(R.layout.kotlin_activity_lifecycl
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mToolbar: Toolbar
 
-    private val mAdapter by lazy { LocationAdapter(this) }
+    private val mAdapter by lazy { LocationAdapter { adapterClick(it) } }
+
+    private fun adapterClick(locationBean: LocationBean) {
+        setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, locationBean.locationName))
+        finish()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +53,5 @@ class LifecycleLocationActivity : BaseActivity(R.layout.kotlin_activity_lifecycl
                 mAdapter.submitList(list)
             }
         }
-    }
-
-    /**
-     * RecyclerView item click
-     */
-    override fun onItemClick(locationBean: LocationBean) {
-        setResult(Activity.RESULT_OK, Intent().putExtra(Configs.LOCATION_RESULT, locationBean.locationName))
-        finish()
     }
 }

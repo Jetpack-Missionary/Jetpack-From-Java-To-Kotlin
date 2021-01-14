@@ -33,14 +33,14 @@ import com.kunminx.jetpack_java.sample_05_navigation.ui.callback.SharedViewModel
  */
 public class NavigationListFragment extends BaseFragment {
 
-    private ListViewModel mListViewModel;
-    private SharedViewModel mSharedViewModel;
+    private ListViewModel mListState;
+    private SharedViewModel mPageCallback;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mListViewModel = getFragmentViewModel(ListViewModel.class);
-        mSharedViewModel = getActivityViewModel(SharedViewModel.class);
+        mListState = getFragmentScopeViewModel(ListViewModel.class);
+        mPageCallback = getActivityScopeViewModel(SharedViewModel.class);
     }
 
     @Nullable
@@ -49,7 +49,7 @@ public class NavigationListFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_list_navigation, container, false);
         FragmentListNavigationBinding binding = FragmentListNavigationBinding.bind(view);
         binding.setLifecycleOwner(this);
-        binding.setVm(mListViewModel);
+        binding.setVm(mListState);
         binding.setClick(new ClickProxy());
 
         DataBindingMomentAdapter adapter = new DataBindingMomentAdapter(mActivity.getApplicationContext());
@@ -67,16 +67,16 @@ public class NavigationListFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mListViewModel.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
-            mListViewModel.list.setValue(moments);
+        mListState.momentRequest.getListMutableLiveData().observe(getViewLifecycleOwner(), moments -> {
+            mListState.list.setValue(moments);
         });
 
-        mSharedViewModel.moment.observe(getViewLifecycleOwner(), moment -> {
-            mListViewModel.list.getValue().add(0, moment);
-            mListViewModel.list.setValue(mListViewModel.list.getValue());
+        mPageCallback.getMoment().observeInFragment(this, moment -> {
+            mListState.list.getValue().add(0, moment);
+            mListState.list.setValue(mListState.list.getValue());
         });
 
-        mListViewModel.requestList();
+        mListState.momentRequest.requestList();
     }
 
     public class ClickProxy {
@@ -85,7 +85,7 @@ public class NavigationListFragment extends BaseFragment {
         }
 
         public void back() {
-            mSharedViewModel.closeActivity.setValue(true);
+            mPageCallback.requestCloseActivity();
         }
     }
 }
